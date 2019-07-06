@@ -14,8 +14,7 @@ const initialState = {
   },
 }
 
-
-export default (state = initialState.players, action) => {
+const playerReducer = (state = initialState.players, action) => {
   switch (action.type) {
     case REQUEST_DATA:
       return {
@@ -38,3 +37,4 @@ export default (state = initialState.players, action) => {
   }
 }
 
+export default playerReducer;

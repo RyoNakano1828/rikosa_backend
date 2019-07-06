@@ -14,7 +14,7 @@ const initialState = {
   },
 }
 
-export default (state = initialState.form, action) => {
+const formReducer = (state = initialState.form, action) => {
   switch (action.type) {
     case CHANGE_NAME:
       return {
@@ -24,7 +24,7 @@ export default (state = initialState.form, action) => {
     case CHANGE_POSITION:
       return {
         ...state,
-        age: action.position,
+        position: action.position,
       }
     case INITIALIZE_FORM:
       return initialState.form
@@ -32,3 +32,5 @@ export default (state = initialState.form, action) => {
       return state
   }
 }
+
+export default formReducer;

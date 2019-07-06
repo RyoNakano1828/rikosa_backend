@@ -4,31 +4,47 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
-//import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 //import configureStore from './store/configureStore';
 
-import App from './views/app'
-import Manager from './views/managers'
+import Players from './views/players'
+import Managers from './views/managers'
 import Login from './views/login'
 import Home from './views/home'
 import History from './views/history'
 
 
 //一旦これつかう
-import rootReducer from './reducers'
+import rootReducer from './reducers/index'
 import { createStore } from 'redux'
 const store = createStore(rootReducer)
 
 
 //const store = configureStore(rootReducer);
 /*
+class Player extends React.Component {
+  render() {
+    return (
+      <Players store={store} />
+      )
+  }
+}
+
+class Manager extends React.Component {
+  render() {
+    return (
+      <Managers store={store} />
+      )
+  }
+}
+
 const RikosaApp = () => (
-  //<Provider store={store}>
+  <Provider store={store}>
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
         <div>
           <Switch>
-            <Route path='/players' component={App} />
+            <Route path='/players' component={Player} />
             <Route path='/manegers' component={Manager} />
             <Route path='/login' component={Manager}/>
             <Route path='/history' component={History}/>
@@ -37,12 +53,12 @@ const RikosaApp = () => (
         </div>
       </Router>
     </Suspense>
-  //</Provider>
+  </Provider>
 );
-*/
+
 
 // DOMにメインコンポーネントを書き込む
-/*ReactDOM.render(
+ReactDOM.render(
   <RikosaApp store={store} />,
   document.getElementById('root'))
 
@@ -51,7 +67,7 @@ const RikosaApp = () => (
 
 const render = () => {
   ReactDOM.render(
-    <App store={store} />,
+    <Players store={store} />,
     document.getElementById('root')
   )
 }
