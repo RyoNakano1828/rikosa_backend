@@ -21,7 +21,7 @@ const store = createStore(rootReducer)
 
 
 //const store = configureStore(rootReducer);
-/*
+
 class Player extends React.Component {
   render() {
     return (
@@ -62,8 +62,8 @@ ReactDOM.render(
   <RikosaApp store={store} />,
   document.getElementById('root'))
 
-*/
 
+/*
 
 const render = () => {
   ReactDOM.render(
@@ -78,3 +78,5 @@ store.subscribe(() => {
   console.log(store.getState().form)   // 動作確認のためコンソール出力
 })
 render()
+
+*/
