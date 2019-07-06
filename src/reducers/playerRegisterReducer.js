@@ -1,16 +1,16 @@
 import { 
-  CHANGE_NAME, CHANGE_AGE, INITIALIZE_FORM,
+  CHANGE_NAME, CHANGE_POSITION, INITIALIZE_FORM,
   REQUEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED
 } from '../actions/actionTypes'
 
 const initialState = {
   form: {
     name: '',
-    age: '',
+    position: '',
   },
-  characters: {
+  players: {
     isFetching: false,
-    characterArray: [],
+    playerArray: [],
   },
 }
 
@@ -21,10 +21,10 @@ export default (state = initialState.form, action) => {
         ...state,
         name: action.name,
       }
-    case CHANGE_AGE:
+    case CHANGE_POSITION:
       return {
         ...state,
-        age: action.age,
+        age: action.position,
       }
     case INITIALIZE_FORM:
       return initialState.form

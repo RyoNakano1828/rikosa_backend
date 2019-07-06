@@ -3,14 +3,14 @@ import axios from 'axios'
 import { requestData, receiveDataSuccess, receiveDataFailed } from '../actions/actionTypes'
 
 const Playerlist = ({ store }) => {
-  const { isFetching, characterArray } = store.getState().characters
+  const { isFetching, playerArray } = store.getState().players
 
   const handleFetchData = () => {
     store.dispatch(requestData())
-    axios.get('/api/characters')
+    axios.get('/api/players')
     .then(response => {
-      const _characterArray = response.data
-      store.dispatch(receiveDataSuccess(_characterArray))  
+      const _playerArray = response.data
+      store.dispatch(receiveDataSuccess(_playerArray))  
     })
     .catch(err => {
       console.error(new Error(err))
@@ -60,9 +60,9 @@ const Playerlist = ({ store }) => {
           : <div>
               <button onClick={() => handleFetchData()}>fetch data</button>
               <ul>
-                {characterArray.map(character => (
-                  <li key={character._id}>  
-                    {`${character.name} (${character.age})`}
+                {playerArray.map(player => (
+                  <li key={player._id}>  
+                    {`${player.name} (${player.position})`}
                     {/*<button onClick={() => handleUpdateCharacter(character._id)}>+1</button>
                     <button onClick={() => handleDeleteCharacter(character._id)}>delete</button>*/}
                   </li>

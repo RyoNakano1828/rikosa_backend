@@ -3,18 +3,18 @@
 
 import { combineReducers } from 'redux'
 import { 
-  CHANGE_NAME, CHANGE_AGE, INITIALIZE_FORM,
+  CHANGE_NAME, CHANGE_POSITION, INITIALIZE_FORM,
   REQUEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED
 } from './actions/actionTypes'
 
 const initialState = {
   form: {
     name: '',
-    age: '',
+    position: '',
   },
-  characters: {
+  players: {
     isFetching: false,
-    characterArray: [],
+    playerArray: [],
   },
 }
 
@@ -25,10 +25,10 @@ const formReducer = (state = initialState.form, action) => {
         ...state,
         name: action.name,
       }
-    case CHANGE_AGE:
+    case CHANGE_POSITION:
       return {
         ...state,
-        age: action.age,
+        position: action.position,
       }
     case INITIALIZE_FORM:
       return initialState.form
@@ -37,7 +37,7 @@ const formReducer = (state = initialState.form, action) => {
   }
 }
 
-const charactersReducer = (state = initialState.characters, action) => {
+const playersReducer = (state = initialState.players, action) => {
   switch (action.type) {
     case REQUEST_DATA:
       return {
@@ -48,7 +48,7 @@ const charactersReducer = (state = initialState.characters, action) => {
       return {
         ...state,
         isFetching: false,
-        characterArray: action.characterArray,
+        playerArray: action.playerArray,
       }
     case RECEIVE_DATA_FAILED:
       return {
@@ -63,7 +63,7 @@ const charactersReducer = (state = initialState.characters, action) => {
 //まとめるやつーー
 const rootReducer = combineReducers({
   form: formReducer,
-  characters: charactersReducer,
+  players: playersReducer,
 })
 
 export default rootReducer

@@ -1,5 +1,5 @@
 export const CHANGE_NAME     = 'CHANGE_NAME'
-export const CHANGE_AGE      = 'CHANGE_AGE'
+export const CHANGE_POSITION      = 'CHANGE_POSITION'
 export const INITIALIZE_FORM = 'INITIALIZE_FORM'
 export const REQUEST_DATA         = 'REQUEST_DATA'
 export const RECEIVE_DATA_SUCCESS = 'RECEIVE_DATA_SUCCESS'
@@ -9,9 +9,9 @@ export const changeName = name => ({
   type: CHANGE_NAME,
   name,
 })
-export const changeAge = age => ({
-  type: CHANGE_AGE,
-  age,
+export const changePosition = position => ({
+  type: CHANGE_POSITION,
+  position,
 })
 export const initializeForm = () => ({
   type: INITIALIZE_FORM,
@@ -19,9 +19,9 @@ export const initializeForm = () => ({
 export const requestData = () => ({
   type: REQUEST_DATA,
 })
-export const receiveDataSuccess = characterArray => ({
+export const receiveDataSuccess = playerArray => ({
   type: RECEIVE_DATA_SUCCESS,
-  characterArray,
+  playerArray,
 })
 export const receiveDataFailed = () => ({
   type: RECEIVE_DATA_FAILED,

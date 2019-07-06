@@ -1,25 +1,25 @@
 import React from 'react'
 import axios from 'axios'
 import { 
-  changeName, changeAge, initializeForm,
+  changeName, changePosition, initializeForm,
   requestData, receiveDataSuccess, receiveDataFailed  
 } from '../actions/actionTypes'
 
-const Manager = ({ store }) => {
-  const { name, age } = store.getState().form
+const Playerregister = ({ store }) => {
+  const { name, position } = store.getState().form
 
   const handleSubmit = e => {
     e.preventDefault()
 
     store.dispatch(requestData()) 
-    axios.post('/api/characters', {
+    axios.post('/api/players', {
       name,
-      age,
+      position,
     })
     .then(response => {
       store.dispatch(initializeForm())
-      const characterArray = response.data
-      store.dispatch(receiveDataSuccess(characterArray))
+      const playerArray = response.data
+      store.dispatch(receiveDataSuccess(playerArray))
     })
     .catch(err => {
       console.error(new Error(err))
@@ -35,8 +35,8 @@ const Manager = ({ store }) => {
           <input value={name} onChange={e => store.dispatch(changeName(e.target.value))} />
         </label>
         <label>
-          年齢:
-          <input value={age} onChange={e => store.dispatch(changeAge(e.target.value))} />
+          ポジション:
+          <input value={position} onChange={e => store.dispatch(changePosition(e.target.value))} />
         </label>
         <button type="submit">submit</button>
       </form>
@@ -44,4 +44,4 @@ const Manager = ({ store }) => {
   )
 }
 
-export default Manager
+export default Playerregister
