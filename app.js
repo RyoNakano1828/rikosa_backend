@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 //modelの読み込み
 var Player = require('./model/database')
 var Manager = require('./model/manager')
-var Character = require('./model/character') // モデルをimport
+var Character = require('./model/database') // モデルをimport
 //mongooseの読み込み 
 var mongoose = require('mongoose');
 
@@ -49,7 +49,7 @@ server.listen(port,() => {
 
 //データを全部取ってくるだけのapiをひとまず書いています。
 //APIはのちに専用のフォルダーに移動したい
-app.get('/api/players', (request, response) => {
+/*app.get('/api/players', (request, response) => {
     Player.find({}, (err, playerArray) => {
       if (err) response.status(500).send()
       else response.status(200).send(playerArray)
@@ -62,97 +62,55 @@ app.get('/api/managers', (request, response) => {
       else response.status(200).send(managerArray)
     })
   })
+  */
 
- app.post('/api/characters', (request, response) => {
-    const { name, age } = request.body
+ app.post('/api/players', (request, response) => {
+    const { name, position } = request.body
 
-    new Character({
+    new Player({
       name,
-      age,
+      position,
     }).save(err => {
       if (err) response.status(500)
         else {
-         Character.find({}, (findErr, characterArray) => {
+         Player.find({}, (findErr, playerArray) => {
            if (findErr) response.status(500).send()
-          else response.status(200).send(characterArray)
+          else response.status(200).send(playerArray)
          })
        }
     })
   })
 
-  app.get('/api/characters', (request, response) => {
-    Character.find({}, (err, characterArray) => {
+  app.get('/api/players', (request, response) => {
+    Player.find({}, (err, playerArray) => {
       if (err) response.status(500).send()
-      else response.status(200).send(characterArray)
+      else response.status(200).send(playerArray)
     })
   })
 
-  app.put('/api/characters', (request, response) => {
+  app.put('/api/players', (request, response) => {
     const { id } = request.body
-    Character.findByIdAndUpdate(id, { $inc: {"age": 1} }, err => {
+    Player.findByIdAndUpdate(id, { $inc: {"position": 1} }, err => {
       if (err) response.status(500).send()
       else {
-        Character.find({}, (findErr, characterArray) => {
+        Player.find({}, (findErr, playerArray) => {
           if (findErr) response.status(500).send()
-          else response.status(200).send(characterArray)
+          else response.status(200).send(playerArray)
         })
       }
     })
   })
 
- app.delete('/api/characters', (request, response) => {
+ app.delete('/api/players', (request, response) => {
      const { id } = request.body
-     Character.findByIdAndRemove(id, err => {
+     Player.findByIdAndRemove(id, err => {
        if (err) response.status(500).send()
        else {
-         Character.find({}, (findErr, characterArray) => {
+         Player.find({}, (findErr, playerArray) => {
            if (findErr) response.status(500).send()
-           else response.status(200).send(characterArray)
+           else response.status(200).send(playerArray)
          })
        }
      })
    })
- app.post('/api/characters', (request, response) => {
-    const { name, age } = request.body
-
-    new Character({
-      name,
-      age,
-    }).save(err => {
-      if (err) response.status(500)
-      else response.status(200).send(`${name}(${age}) was successfully created.`)
-    })
-  })
-
-  app.get('/api/characters', (request, response) => {
-    Character.find({}, (err, characterArray) => {
-      if (err) response.status(500).send()
-      else response.status(200).send(characterArray)
-    })
-  })
-
-  app.put('/api/characters', (request, response) => {
-    const { id } = request.body
-    Character.findByIdAndUpdate(id, { $inc: {"age": 1} }, err => {
-      if (err) response.status(500).send()
-      else {
-        Character.find({}, (findErr, characterArray) => {
-          if (findErr) response.status(500).send()
-          else response.status(200).send(characterArray)
-        })
-      }
-    })
-  })
-
-  app.delete('/api/characters', (request, response) => {
-     const { id } = request.body
-     Character.findByIdAndRemove(id, err => {
-       if (err) response.status(500).send()
-       else {
-         Character.find({}, (findErr, characterArray) => {
-           if (findErr) response.status(500).send()
-          else response.status(200).send(characterArray)
-         })
-       }
-     })
-   })
+ 
