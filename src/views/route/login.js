@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import Playerlist from './playerlist'
-import Playerregister from './playerRegister'
+import Login2 from '../../containers/login'
 
 //ここでthis.props.storeでなくほかのところでできないか？あるいはこれをルートに入れるコンポーネントにするために名前変更する？
-class Players extends Component {
+class Login extends Component {
   render() {
     return (
       <div>
-        <Playerlist store={this.props.store} />
-        <Playerregister store={this.props.store} />
+        <Login2 store={this.props.store} />
       </div>
     );
   }
 }
-export default Players
+export default Login

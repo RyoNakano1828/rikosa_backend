@@ -1,32 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
 import { 
   changeName, changePosition, initializeForm,
   requestData, receiveDataSuccess, receiveDataFailed  
 } from '../actions/actionTypes'
 
-const Playerregister = ({ store }) => {
-  const { name, position } = store.getState().form
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    store.dispatch(requestData()) 
-    axios.post('/api/players', {
-      name,
-      position,
-    })
-    .then(response => {
-      store.dispatch(initializeForm())
-      const playerArray = response.data
-      store.dispatch(receiveDataSuccess(playerArray))
-    })
-    .catch(err => {
-      console.error(new Error(err))
-      store.dispatch(receiveDataFailed())
-    })
-  }
-
+class Playerregister extends Component {
+  state = {
+    name:"",
+    position:"",
+  };
   return (
     <div>
       <form onSubmit={e => handleSubmit(e)}>

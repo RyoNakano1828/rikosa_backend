@@ -4,79 +4,178 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
-import { Provider } from 'react-redux';
-//import configureStore from './store/configureStore';
+//import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 
-import Players from './views/players'
-import Managers from './views/managers'
-import Login from './views/login'
-import Home from './views/home'
-import History from './views/history'
+import Home from './views/route/home'
+import Member from './views/route/member'
+import Player from './views/route/player'
+import Manager from './views/route/manager'
+import Result from './views/route/result'
+import Schedule from './views/route/schedule'
+import Photo from './views/route/photo'
+import Link from './views/route/link'
+import Login from './views/route/login'
+import RikosaHome from './views/route/rikosaHome'
+import RikosaMember from './views/route/rikosaMember'
+import PlayerForm from './views/route/playerForm'
+import ManagerForm from './views/route/managerForm'
+import ResultForm from './views/route/resultForm'
+import ScheduleForm from './views/route/scheduleForm'
+import PhotoAdd from './views/route/photoAdd'
 
+const store = configureStore();
 
-//一旦これつかう
-import rootReducer from './reducers/index'
-import { createStore } from 'redux'
-const store = createStore(rootReducer)
-
-
-//const store = configureStore(rootReducer);
-
-class Player extends React.Component {
+class HomeApp extends React.Component {
   render() {
     return (
-      <Players store={store} />
+      <Home store={store} />
       )
   }
 }
-
-class Manager extends React.Component {
+class MemberApp extends React.Component {
   render() {
     return (
-      <Managers store={store} />
+      <Member store={store} />
+      )
+  }
+}class PlayerApp extends React.Component {
+  render() {
+    return (
+      <Player store={store} />
+      )
+  }
+}class ManagerApp extends React.Component {
+  render() {
+    return (
+      <Manager store={store} />
+      )
+  }
+}class ResultApp extends React.Component {
+  render() {
+    return (
+      <Result store={store} />
+      )
+  }
+}class ScheduleApp extends React.Component {
+  render() {
+    return (
+      <Schedule store={store} />
+      )
+  }
+}class PhotoApp extends React.Component {
+  render() {
+    return (
+      <Photo store={store} />
+      )
+  }
+}class LinkApp extends React.Component {
+  render() {
+    return (
+      <Link store={store} />
+      )
+  }
+}
+class LoginApp extends React.Component {
+  render() {
+    return (
+      <Login store={store} />
+      )
+  }
+}
+class RikosaHomeApp extends React.Component {
+  render() {
+    return (
+      <RikosaHome store={store} />
+      )
+  }
+}
+class RikosaMemberApp extends React.Component {
+  render() {
+    return (
+      <RikosaMember store={store} />
+      )
+  }
+}class PlayerFormApp extends React.Component {
+  render() {
+    return (
+      <PlayerForm store={store} />
+      )
+  }
+}class ManagerFormApp extends React.Component {
+  render() {
+    return (
+      <ManagerForm store={store} />
+      )
+  }
+}class ResultFormApp extends React.Component {
+  render() {
+    return (
+      <ResultForm store={store} />
+      )
+  }
+}class ScheduleFormApp extends React.Component {
+  render() {
+    return (
+      <ScheduleForm store={store} />
+      )
+  }
+}class PhotoAddApp extends React.Component {
+  render() {
+    return (
+      <PhotoAdd store={store} />
       )
   }
 }
 
 const RikosaApp = () => (
-  <Provider store={store}>
+  //<Provider store={store}>
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
         <div>
           <Switch>
-            <Route path='/players' component={Player} />
-            <Route path='/manegers' component={Manager} />
-            <Route path='/login' component={Manager}/>
-            <Route path='/history' component={History}/>
-            <Route component={Home} />
+            <Route path='/members' component={MemberApp} />
+            <Route path='/player' component={PlayerApp} />
+            <Route path='/maneger' component={ManagerApp} />
+            <Route path='/result' component={ResultApp}/>
+            <Route path='/schedule' component={ScheduleApp}/>
+            <Route path='/photo' component={PhotoApp}/>
+            <Route path='/link' component={LinkApp}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/rikosa' component={RikosaHomeApp}/>
+            <Route path='/rikosamembers' component={RikosaMemberApp}/>
+            <Route path='/playerform' component={PlayerFormApp} />
+            <Route path='/manegerform' component={ManagerFormApp} />
+            <Route path='/resultform' component={ResultFormApp}/>
+            <Route path='/scheduleform' component={ScheduleFormApp}/>
+            <Route path='/photoadd' component={PhotoAddApp}/>
+            <Route component={HomeApp} />
           </Switch>
         </div>
       </Router>
     </Suspense>
-  </Provider>
+  //</Provider>
 );
 
 
 // DOMにメインコンポーネントを書き込む
-ReactDOM.render(
-  <RikosaApp store={store} />,
+const render = () => {
+  ReactDOM.render(
+    <RikosaApp store={store}/>,
   document.getElementById('root'))
+}
 
+store.subscribe(() => {
+  render()
+  console.log(store.getState().form)   // 動作確認のためコンソール出力
+})
+render();
 
 /*
-
 const render = () => {
   ReactDOM.render(
     <Players store={store} />,
     document.getElementById('root')
   )
 }
-
-//これもいったん使う
-store.subscribe(() => {
-  render()
-  console.log(store.getState().form)   // 動作確認のためコンソール出力
-})
-render()
-
 */

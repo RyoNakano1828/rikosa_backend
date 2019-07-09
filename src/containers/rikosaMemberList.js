@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
 import { requestData, receiveDataSuccess, receiveDataFailed } from '../actions/actionTypes'
 
-const Playerlist = ({ store }) => {
+const RikosaMemberList = ({ store }) => {
   const { isFetching, playerArray } = store.getState().players
 
   const handleFetchData = () => {
@@ -18,14 +18,14 @@ const Playerlist = ({ store }) => {
     })
   }
 
-  /*const handleUpdateCharacter = id => {
+  const handleUpdatePlayer = id => {
     store.dispatch(requestData())
-    axios.put('/api/characters', {
+    axios.put('/api/players', {
       id,
     })
     .then(response => {
-      const _characterArray = response.data
-      store.dispatch(receiveDataSuccess(_characterArray))
+      const _playerArray = response.data
+      store.dispatch(receiveDataSuccess(_playerArray))
     })
     .catch(err => {
       console.error(new Error(err))
@@ -33,25 +33,25 @@ const Playerlist = ({ store }) => {
     })
   }
 
-  const handleDeleteCharacter = id => {
+  const handleDeletePlayer = id => {
     store.dispatch(requestData())
     axios({
       method: 'delete',
-      url: '/api/characters',
+      url: '/api/players',
       data: {
         id,
       }
     })
     .then(response => {
-      const _characterArray = response.data
-      store.dispatch(receiveDataSuccess(_characterArray))
+      const _playerArray = response.data
+      store.dispatch(receiveDataSuccess(_playerArray))
     })
     .catch(err => {
       console.error(new Error(err))
       store.dispatch(receiveDataFailed())
     })
   }
-*/
+
   return (
     <div>
       {
@@ -63,8 +63,8 @@ const Playerlist = ({ store }) => {
                 {playerArray.map(player => (
                   <li key={player._id}>  
                     {`${player.name} (${player.position})`}
-                    {/*<button onClick={() => handleUpdateCharacter(character._id)}>+1</button>
-                    <button onClick={() => handleDeleteCharacter(character._id)}>delete</button>*/}
+                    <button onClick={() => handleUpdatePlayer(player._id)}>+1</button>
+                    <button onClick={() => handleDeletePlayer(player._id)}>delete</button>
                   </li>
                 ))}
               </ul>
@@ -74,4 +74,5 @@ const Playerlist = ({ store }) => {
   )
 }
 
-export default Playerlist
+
+export default RikosaMemberList

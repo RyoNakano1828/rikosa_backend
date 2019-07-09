@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './logo.jpg'
+import logo from '../logo.jpg'
 
 export default class Home extends React.Component {
   constructor (props) {
@@ -17,9 +17,11 @@ export default class Home extends React.Component {
           value={this.state.value} />
         <input type='submit' />
       </form>
-      <div><br /><a href={'/history'}>→サークル紹介ページ</a></div>
-      <div><br /><a href={'/players'}>→選手紹介ページ</a></div>
-      <div><br /><a href={'/manegers'}>→マネージャー紹介ページ</a></div>
+      <div><br /><a href={'/members'}>→メンバー紹介</a></div>
+      <div><br /><a href={'/result'}>→対戦成績🔥</a></div>
+      <div><br /><a href={'/schedule'}>→日程スケジュール</a></div>
+      <div><br /><a href={'/photo'}>→フォト📷</a></div>
+      <div><br /><a href={'/login'}>→りこさの人はこちら</a></div>
     </div>)
   }
   // テキストボックスを変更したとき
