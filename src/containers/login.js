@@ -1,41 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux';
+import Login from '../components/Login';
+import { login } from '../actions/auth.actions';
 
-export default class Login extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      items: props.items,
-      value: props.value
-    }
-  }
-  render () {
-    // セレクトボックスの選択肢を生成
-    const options = this.state.items.map(i => {
-      return (<option key={i}
-        value={i}> {i}
-      </option>)
-    })
-    // フォームにセレクトボックスを指定
-    return (<div>
-      <form onSubmit={e => this.doSubmit(e)}>
-        <select
-          value={this.state.value}
-          onChange={e => this.doChange(e)}>
-          {options}
-        </select><br />
-        <input type='submit' />
-      </form>
-    </div>)
-  }
-  // セレクトボックスを変更したとき
-  doChange (e) {
-    this.setState({ value: e.target.value })
-  }
-  // フォームを送信したとき
-  doSubmit (e) {
-    e.preventDefault()
-    window.alert(this.state.value)
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  error: state.auth.error
+});
 
+const mapDispatchToProps = dispatch => ({
+  login(username, password) {
+    dispatch(login(username, password));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,12 +1,5 @@
-//reducerを集めてrootReducerを作ります！こいつをStoreに送ります
-import { combineReducers } from 'redux';
-
-import playerReducer from './playerReducer';
-import formReducer from './playerRegisterReducer';
-
-const rootReducer = combineReducers({
-  form: formReducer,
-  players: playerReducer,
-})
-
-export default rootReducer;
+//export const dumb = (state = {}) => state;
+export * from './auth.reducer';
+export * from './user.reducer';
+export * from './playerReducer';
+export * from './playerRegisterReducer';
