@@ -11,6 +11,7 @@ export const login = (username, password) => {
               data => {
                   dispatch(loginSuccess(data));
                   dispatch(push('/dashboard'));
+                  window.location.reload();
               },
               error => {
                   dispatch(loginFailure(error));

@@ -151,20 +151,17 @@ class App extends Component {
         <Switch>
             <PrivateRoute path="/dashboard" component={Dashboard}/>
             <Route path='/members' component={Member} />
-            <Route path='/player' component={Player} />
-            <Route path='/maneger' component={Manager} />
             <Route path='/result' component={Result}/>
             <Route path='/schedule' component={Schedule}/>
             <Route path='/photo' component={Photo}/>
             <Route path='/link' component={Link}/>
-            <Route path='/rikosa' component={RikosaHome}/>
-            <Route path='/rikosamembers' component={RikosaMember}/>
-            <Route path='/playerform' component={PlayerForm}/>
-            <Route path='/manegerform' component={ManagerForm}/>
-            <Route path='/resultform' component={ResultForm}/>
-            <Route path='/scheduleform' component={ScheduleForm}/>
-            <Route path='/photoadd' component={PhotoAdd}/>
             <Route path="/login" exact={true} component={Login}/>
+            <PrivateRoute path='/rikosahome' component={RikosaHome}/>
+            <PrivateRoute path='/rikosamembers' component={RikosaMember}/>
+            <PrivateRoute path='/playerform' component={PlayerForm}/>
+            <PrivateRoute path='/manegerform' component={ManagerForm}/>
+            <PrivateRoute path='/resultform' component={ResultForm}/>
+            <PrivateRoute path='/photoadd' component={PhotoAdd}/>
             <Route component={Home}/>
           </Switch>
           </div>
