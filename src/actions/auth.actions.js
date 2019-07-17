@@ -24,7 +24,7 @@ export const logoutAndRedirect = () => {
   return dispatch => {
     userService.logout();
     dispatch(logout());
-    dispatch(push('/'));
+    dispatch(push('/login'));
   }
 }
 

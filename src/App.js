@@ -27,10 +27,8 @@ import ManagerForm from './views/route/managerForm'
 import ResultForm from './views/route/resultForm'
 import ScheduleForm from './views/route/scheduleForm'
 import PhotoAdd from './views/route/photoAdd'
-
+/*
 import * as store from './index'
-
-
 
 class HomeApp extends React.Component {
   render() {
@@ -133,7 +131,7 @@ class RikosaMemberApp extends React.Component {
       )
   }
 }
-
+*/
 
 const styles = {
   root: {
@@ -141,32 +139,33 @@ const styles = {
   },
 }
 
+
 class App extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div>
         {/*<PrivateRoute path="/dashboard" component={Dashboard}></PrivateRoute>*/}
         <Router>
-        <div>
+        <div className={classes.root}>
         <Switch>
-            <Route path="/dashboard" component={Dashboard}/>
-            <Route path='/members' component={MemberApp} />
-            <Route path='/player' component={PlayerApp} />
-            <Route path='/maneger' component={ManagerApp} />
-            <Route path='/result' component={ResultApp}/>
-            <Route path='/schedule' component={ScheduleApp}/>
-            <Route path='/photo' component={PhotoApp}/>
-            <Route path='/link' component={LinkApp}/>
-            <Route path='/rikosa' component={RikosaHomeApp}/>
-            <Route path='/rikosamembers' component={RikosaMemberApp}/>
-            <Route path='/playerform' component={PlayerFormApp}/>
-            <Route path='/manegerform' component={ManagerFormApp}/>
-            <Route path='/resultform' component={ResultFormApp}/>
-            <Route path='/scheduleform' component={ScheduleFormApp}/>
-            <Route path='/photoadd' component={PhotoAddApp}/>
-            <Route path="/login" component={Login}/>
-            <Route component={HomeApp}/>
+            <PrivateRoute path="/dashboard" component={Dashboard}/>
+            <Route path='/members' component={Member} />
+            <Route path='/player' component={Player} />
+            <Route path='/maneger' component={Manager} />
+            <Route path='/result' component={Result}/>
+            <Route path='/schedule' component={Schedule}/>
+            <Route path='/photo' component={Photo}/>
+            <Route path='/link' component={Link}/>
+            <Route path='/rikosa' component={RikosaHome}/>
+            <Route path='/rikosamembers' component={RikosaMember}/>
+            <Route path='/playerform' component={PlayerForm}/>
+            <Route path='/manegerform' component={ManagerForm}/>
+            <Route path='/resultform' component={ResultForm}/>
+            <Route path='/scheduleform' component={ScheduleForm}/>
+            <Route path='/photoadd' component={PhotoAdd}/>
+            <Route path="/login" exact={true} component={Login}/>
+            <Route component={Home}/>
           </Switch>
           </div>
         </Router>

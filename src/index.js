@@ -49,18 +49,20 @@ const RikosaApp = () => (
 
 
 // DOMにメインコンポーネントを書き込む
-const render = () => {
+//const render = () => {
   ReactDOM.render(
     <RikosaApp store={store}/>,
   document.getElementById('root'))
-}
 
+  registerServiceWorker();
+//}
+/*
 store.subscribe(() => {
   render()
   console.log(store.getState().form)   // 動作確認のためコンソール出力
 })
 render();
-
+*/
 /*
 const render = () => {
   ReactDOM.render(
