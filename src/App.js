@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Login from './containers/Login';
 import Dashboard from './containers/Dashboard';
 import { PrivateRoute } from './components/PrivateRoute';
+import MemberList from './containers/memberList';
 
 import Home from './views/route/home'
 import Member from './views/route/member'
@@ -150,7 +151,7 @@ class App extends Component {
         <div className={classes.root}>
         <Switch>
             <PrivateRoute path="/dashboard" component={Dashboard}/>
-            <Route path='/members' component={Member} />
+            <Route path='/members' component={MemberList} />
             <Route path='/result' component={Result}/>
             <Route path='/schedule' component={Schedule}/>
             <Route path='/photo' component={Photo}/>
