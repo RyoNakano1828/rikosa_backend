@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RikosaMemberList from '../../containers/rikosaMemberList'
-import PlayerRegister from '../../containers/playerRegister'
+import PlayerRegister from '../../containers/playerForm'
 
 //ここでthis.props.storeでなくほかのところでできないか？あるいはこれをルートに入れるコンポーネントにするために名前変更する？
 class RikosaMember extends Component {

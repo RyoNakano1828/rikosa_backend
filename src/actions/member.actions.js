@@ -18,6 +18,15 @@ export const fetchMember = () => {
   }
 }
 
+export const fetchPeople = (peopleId) => {
+  return dispatch => {
+    dispatch(requestData());
+    console.log(peopleId);
+    const _peopleId = peopleId
+    dispatch(receivePeopleSuccess(_peopleId));
+  }
+}
+
 
 const requestData = () => ({
   type: memberConstants.REQUEST_DATA,
@@ -28,4 +37,9 @@ const receiveDataSuccess = (playerArray) => ({
 });
 const receiveDataFailed = () => ({
   type: memberConstants.RECEIVE_DATA_FAILED,
+});
+
+const receivePeopleSuccess = (peopleId) => ({
+  type: memberConstants.RECEIVE_PEOPLE_SUCCESS,
+  payload: peopleId
 });

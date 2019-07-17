@@ -5,7 +5,7 @@ import {
   requestData, receiveDataSuccess, receiveDataFailed  
 } from '../actions/actionTypes'
 
-const PlayerRegister = ({ store }) => {
+const PlayerForm = ({ store }) => {
   const { name, position } = store.getState().form
 
   const handleSubmit = e => {
@@ -44,4 +44,4 @@ const PlayerRegister = ({ store }) => {
   )
 }
 
-export default PlayerRegister
+export default PlayerForm

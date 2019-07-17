@@ -3,6 +3,7 @@ import { memberConstants } from '../constants';
 const initialState = {
     isFetching: false,
     playerArray: [],
+    peopleArray: {},
 }
 
 export function member(state = initialState, action){
@@ -22,6 +23,12 @@ export function member(state = initialState, action){
       return {
         ...state,
         isFetching: false,
+      }
+    case memberConstants.RECEIVE_PEOPLE_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        peopleArray: action.payload,
       }
     default:
       return state
