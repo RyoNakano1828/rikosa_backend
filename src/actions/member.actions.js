@@ -18,12 +18,24 @@ export const fetchMember = () => {
   }
 }
 
-export const fetchPeople = (peopleId) => {
+export const fetchPeople = id => {
   return dispatch => {
     dispatch(requestData());
-    console.log(peopleId);
-    const _peopleId = peopleId
-    dispatch(receivePeopleSuccess(_peopleId));
+    axios.get('/api/people', {
+      params:{
+        id
+      }
+    })
+    .then(response => {
+      const _peopleArray = response.data
+      console.log(response.data)
+      console.log(id)
+      dispatch(receivePeopleSuccess(_peopleArray))
+    })
+    .catch(err => {
+      console.error(new Error(err))
+      dispatch(receiveDataFailed())
+    })
   }
 }
 
@@ -39,7 +51,7 @@ const receiveDataFailed = () => ({
   type: memberConstants.RECEIVE_DATA_FAILED,
 });
 
-const receivePeopleSuccess = (peopleId) => ({
+const receivePeopleSuccess = (peopleArray) => ({
   type: memberConstants.RECEIVE_PEOPLE_SUCCESS,
-  payload: peopleId
+  payload: peopleArray
 });

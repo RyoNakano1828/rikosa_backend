@@ -11,8 +11,8 @@ const mapDispatchToProps = dispatch => ({
   fetchMember() {
     dispatch(fetchMember());
   },
-  fetchPeople(peopleId) {
-  	dispatch(fetchPeople(peopleId));
+  fetchPeople(id) {
+  	dispatch(fetchPeople(id));
   }
 });
 

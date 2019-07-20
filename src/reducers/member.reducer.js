@@ -3,7 +3,7 @@ import { memberConstants } from '../constants';
 const initialState = {
     isFetching: false,
     playerArray: [],
-    peopleArray: {},
+    peopleArray: [],
 }
 
 export function member(state = initialState, action){

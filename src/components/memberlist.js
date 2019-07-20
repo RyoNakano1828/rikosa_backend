@@ -4,25 +4,16 @@ class MemberList extends Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      peopleId: '',
-    }
-    this.handleFetchPeople = this.handleFetchPeople.bind(this);
     this.handleFetchData = this.handleFetchData.bind(this);
   }
 
   handleFetchData(e){
-    e.preventDefault();
     this.props.fetchMember();
+    console.log('クリック')
   }
 
-  handleFetchPeople(e){
-    const { name, value} = e.target;
-    this.setState({ [name]: value });
-    //stateに保持したいIDを入れる
-    const { peopleId } = this.state;
-    console.log(peopleId);
-    this.props.fetchPeople(peopleId);
+  handleFetchPeople(id){
+    this.props.fetchPeople(id);
   }
 
   render(){
@@ -39,11 +30,22 @@ class MemberList extends Component{
                 <ul>
                   {playerArray.map(player => (
                     <li key={player._id}>
-                      {`${player.name} (${player.position})`}
-                      <button tpye='submit' name="peopleId" value="player.key" onClick={this.handleFetchPeople}>詳細を見る</button>
+                      {`${player.name} (${player.position}) ${player._id}`}
+                      <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
                     </li>
                   ))}
+                {/*
+                  {peopleArray.map(people => (
+                    <li key={people}>
+                      {`${people.name} (${people.position}) ${people._id}`}
+                    </li>
+                  ))}
+                */}
                 </ul>
+                <div>
+                  <h2>{peopleArray.name}</h2>
+                  <h3>{peopleArray.position}</h3>
+                </div>
               </div>
         }
       </div>
