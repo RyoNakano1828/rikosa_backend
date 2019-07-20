@@ -19,7 +19,7 @@ const { check, validationResult } = require('express-validator/check');
 //modelの読み込み
 var Player = require('./model/database')
 var Manager = require('./model/manager')
-var Character = require('./model/database') // モデルをimport
+var Character = require('./model/database') 
 //mongooseの読み込み 
 var mongoose = require('mongoose');
 
@@ -87,6 +87,23 @@ server.listen(port,() => {
     })
   })
 
+  //API実験用
+/*
+  app.get('/api/players/id', (request, response) => {
+    var id = "5d21c461b67c22386871b823"
+    Player.findById(id, (err, peopleArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(peopleArray)
+    })
+  })
+*/
+  app.get('/api/people', (request, response) => {
+  const { id } = request.query
+  Player.findById(id, (err, peopleArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(peopleArray)
+    })
+  })
 
 //年齢を1つプラスする
   app.put('/api/players', (request, response) => {
@@ -115,7 +132,7 @@ server.listen(port,() => {
      })
    })
  
-
+//認証用API
  var apiRoutes = express.Router();
 app.use('/api', apiRoutes);
 
