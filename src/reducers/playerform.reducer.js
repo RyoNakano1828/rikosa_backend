@@ -1,36 +1,25 @@
-import { 
-  CHANGE_NAME, CHANGE_POSITION, INITIALIZE_FORM,
-  REQUEST_DATA, RECEIVE_DATA_SUCCESS, RECEIVE_DATA_FAILED
-} from '../actions/actionTypes'
+import { formConstants } from '../constants';
 
 const initialState = {
-  form: {
     name: '',
     position: '',
-  },
-  players: {
-    isFetching: false,
-    playerArray: [],
-  },
 }
 
-const formReducer = (state = initialState.form, action) => {
+export function form(state = initialState, action){
   switch (action.type) {
-    case CHANGE_NAME:
+    case formConstants.CHANGE_NAME:
       return {
         ...state,
-        name: action.name,
+        name: action.payload,
       }
-    case CHANGE_POSITION:
+    case formConstants.CHANGE_POSITION:
       return {
         ...state,
-        position: action.position,
+        position: action.payload,
       }
-    case INITIALIZE_FORM:
-      return initialState.form
+    case formConstants.INITIALIZE_FORM:
+      return initialState
     default:
       return state
   }
 }
-
-export default formReducer;

@@ -11,6 +11,8 @@ import Login from './containers/login';
 import Dashboard from './containers/Dashboard';
 import { PrivateRoute } from './components/PrivateRoute';
 import MemberList from './containers/memberList';
+import PlayerForm from './containers/playerForm';
+//import ManagerForm from './containers/managerForm';
 
 import Home from './views/route/home'
 import Member from './views/route/member'
@@ -23,7 +25,7 @@ import Link from './views/route/link'
 //import Login from './views/route/login'
 import RikosaHome from './views/route/rikosaHome'
 import RikosaMember from './views/route/rikosaMember'
-import PlayerForm from './views/route/playerForm'
+//import PlayerForm from './views/route/playerForm'
 import ManagerForm from './views/route/managerForm'
 import ResultForm from './views/route/resultForm'
 import ScheduleForm from './views/route/scheduleForm'
@@ -150,13 +152,13 @@ class App extends Component {
         <Router>
         <div className={classes.root}>
         <Switch>
-            <PrivateRoute path="/dashboard" component={Dashboard}/>
             <Route path='/members' component={MemberList} />
             <Route path='/result' component={Result}/>
             <Route path='/schedule' component={Schedule}/>
             <Route path='/photo' component={Photo}/>
             <Route path='/link' component={Link}/>
             <Route path="/login" exact={true} component={Login}/>
+            <PrivateRoute path="/dashboard" component={Dashboard}/>
             <PrivateRoute path='/rikosahome' component={RikosaHome}/>
             <PrivateRoute path='/rikosamembers' component={RikosaMember}/>
             <PrivateRoute path='/playerform' component={PlayerForm}/>

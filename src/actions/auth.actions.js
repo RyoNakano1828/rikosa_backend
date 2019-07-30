@@ -11,6 +11,7 @@ export const login = (username, password) => {
               data => {
                   dispatch(loginSuccess(data));
                   dispatch(push('/dashboard'));
+                  //自動リロードで遷移させる
                   window.location.reload();
               },
               error => {
