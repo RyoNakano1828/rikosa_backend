@@ -30,17 +30,10 @@ class MemberList extends Component{
                 <ul>
                   {playerArray.map(player => (
                     <li key={player._id}>
-                      {`${player.name} (${player.position}) ${player._id}`}
+                      {`${player.name} (${player.position})`}
                       <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
                     </li>
                   ))}
-                {/*
-                  {peopleArray.map(people => (
-                    <li key={people}>
-                      {`${people.name} (${people.position}) ${people._id}`}
-                    </li>
-                  ))}
-                */}
                 </ul>
                 <div>
                   <h2>{peopleArray.name}</h2>
