@@ -4,17 +4,23 @@ import {
   Route, Switch
 } from 'react-router-dom'
 
-
-import { withStyles } from '@material-ui/core/styles';
-
-import Login from './containers/login';
-import Dashboard from './containers/Dashboard';
-import { PrivateRoute } from './components/PrivateRoute';
+//ログイン前コンポーネント
+import Home from './components/home'
 import MemberList from './containers/memberList';
+
+//ログイン用コンポーネント
+import { withStyles } from '@material-ui/core/styles';
+import { PrivateRoute } from './components/PrivateRoute';
+import Login from './containers/login';
+//import Dashboard from './containers/Dashboard';
+
+//ログイン後コンポーネント
+import RikosaHome from './containers/RikosaHome'
 import PlayerForm from './containers/playerForm';
 //import ManagerForm from './containers/managerForm';
 
-import Home from './views/route/home'
+
+//随時移行していく
 import Member from './views/route/member'
 import Player from './views/route/player'
 import Manager from './views/route/manager'
@@ -23,7 +29,7 @@ import Schedule from './views/route/schedule'
 import Photo from './views/route/photo'
 import Link from './views/route/link'
 //import Login from './views/route/login'
-import RikosaHome from './views/route/rikosaHome'
+
 import RikosaMember from './views/route/rikosaMember'
 //import PlayerForm from './views/route/playerForm'
 import ManagerForm from './views/route/managerForm'
@@ -158,7 +164,7 @@ class App extends Component {
             <Route path='/photo' component={Photo}/>
             <Route path='/link' component={Link}/>
             <Route path="/login" exact={true} component={Login}/>
-            <PrivateRoute path="/dashboard" component={Dashboard}/>
+            {/*<PrivateRoute path="/dashboard" component={Dashboard}/>*/}
             <PrivateRoute path='/rikosahome' component={RikosaHome}/>
             <PrivateRoute path='/rikosamembers' component={RikosaMember}/>
             <PrivateRoute path='/playerform' component={PlayerForm}/>

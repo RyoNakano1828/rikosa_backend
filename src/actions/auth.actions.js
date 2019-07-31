@@ -10,7 +10,7 @@ export const login = (username, password) => {
           .then(
               data => {
                   dispatch(loginSuccess(data));
-                  dispatch(push('/dashboard'));
+                  dispatch(push('/rikosahome'));
                   //自動リロードで遷移させる
                   window.location.reload();
               },
@@ -26,7 +26,7 @@ export const logoutAndRedirect = () => {
   return dispatch => {
     userService.logout();
     dispatch(logout());
-    dispatch(push('/login'));
+    dispatch(push('/'));
   }
 }
 

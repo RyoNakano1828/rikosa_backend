@@ -7,7 +7,7 @@ class PlayerForm extends Component {
   }
 
   changeName(name){
-    
+
     this.props.changeName(name);
   }
 
@@ -22,11 +22,11 @@ class PlayerForm extends Component {
         <form onSubmit={() => this.postPlayer(name,position)}>
           <label>
             名前:
-            <input value={name} onChange={(e) => this.changeName(e.target.value)} />
+            <input value={name} onChange={e => this.changeName(e.target.value)} />
           </label>
           <label>
             ポジション:
-            <input value={position} onChange={(e) => this.changePosition(e.target.value)} />
+            <input value={position} onChange={e => this.changePosition(e.target.value)} />
           </label>
           <button type="submit">submit</button>
         </form>

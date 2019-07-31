@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Dashboard from '../components/Dashboard';
+import RikosaHome from '../components/rikosaHome';
 import { logoutAndRedirect } from '../actions/auth.actions';
 import { getMe, clearMe } from '../actions/user.actions';
 const mapStateToProps = (state, ownProps) => ({
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(RikosaHome);

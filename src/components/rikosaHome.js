@@ -1,3 +1,5 @@
+
+import logo from '../logo.jpg'
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -21,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-class Dashboard extends Component {
+class RikosaHome extends Component {
   componentWillMount() {
     this.props.onMount();
   }
@@ -32,16 +34,22 @@ class Dashboard extends Component {
         <Header menu="ログアウト" onClick={this.props.logout}/>
         <Paper className={classes.paper} elevation={1}>
           <Typography variant="headline" component="h3">
-            <strong>{me.nickname}</strong>さん、ダッシュボードへようこそ！
-          </Typography>
-          <Typography component="p">
-            さあ、JWT認証をマスターしたらSPAアプリケーションを今すぐ開発しましょう！
+            <strong>{me.nickname}</strong>の皆さん、ようこそ！
           </Typography>
         </Paper>
+        <div>
+          <h1>りこさ用登録ページ</h1>
+          <img src={logo} alt="Logo" />
+          <div><br /><a href={'/playerform'}>→プレーヤー新規登録</a></div>
+          <div><br /><a href={'/managerform'}>→マネージャー新規登録</a></div>
+          <div><br /><a href={'/rikosamembers'}>→メンバー編集</a></div>
+          <div><br /><a href={'/resultform'}>→対戦成績登録🔥</a></div>
+          <div><br /><a href={'/photoadd'}>→写真追加</a></div>
+        </div>
       </div>
     );
   }
 }
 
 
-export default withStyles(styles)(Dashboard);
+export default withStyles(styles)(RikosaHome);
