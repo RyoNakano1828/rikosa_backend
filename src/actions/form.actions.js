@@ -76,7 +76,6 @@ export const changeGeneration = (generation) => {
   }
 }
 
-
 const ChangeName = name => ({
   type: formConstants.CHANGE_NAME,
   payload: name
@@ -113,19 +112,16 @@ const ChangeGeneration = generation => ({
   type: formConstants.CHANGE_GENERATION,
   payload: generation
 })
-  const initializeForm = () => ({
-    type: formConstants.INITIALIZE_FORM,
-  });
-
-  const requestData = () => ({
+const initializeForm = () => ({
+  type: formConstants.INITIALIZE_FORM,
+});
+const requestData = () => ({
   type: memberConstants.REQUEST_DATA,
 });
-
-  const receiveDataSuccess = (playerArray) => ({
-    type: memberConstants.RECEIVE_DATA_SUCSESS,
-    payload: playerArray
-  })
-
-  const receiveDataFailed = () => ({
+const receiveDataSuccess = (playerArray) => ({
+  type: memberConstants.RECEIVE_DATA_SUCSESS,
+  payload: playerArray
+})
+const receiveDataFailed = () => ({
   type: memberConstants.RECEIVE_DATA_FAILED,
 });

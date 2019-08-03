@@ -7,6 +7,7 @@ import {
 //ログイン前コンポーネント
 import Home from './components/home'
 import MemberList from './containers/memberList';
+import Schedule from './components/schedule'
 
 //ログイン用コンポーネント
 import { withStyles } from '@material-ui/core/styles';
@@ -25,7 +26,7 @@ import Member from './views/route/member'
 import Player from './views/route/player'
 import Manager from './views/route/manager'
 import Result from './views/route/result'
-import Schedule from './views/route/schedule'
+//import Schedule from './views/route/schedule'
 import Photo from './views/route/photo'
 import Link from './views/route/link'
 //import Login from './views/route/login'
