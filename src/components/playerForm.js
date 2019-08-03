@@ -48,42 +48,44 @@ class PlayerForm extends Component {
     return (
       <div>
         <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
-          <label>
+          <ul>
+          <li>
             名前:
             <input value={name} onChange={e => this.changeName(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             背番号:
             <input value={uniform} onChange={e => this.changeUniform(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             ポジション:
             <input value={position} onChange={e => this.changePosition(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             出身:
             <input value={from} onChange={e => this.changeFrom(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             学部学科:
             <input value={belong} onChange={e => this.changeBelong(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             趣味・特技:
             <input value={hobby} onChange={e => this.changeHobby(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             身長:
             <input value={height} onChange={e => this.changeHeight(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             コメント:
             <input value={comment} onChange={e => this.changeComment(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             何期？:
             <input value={generation} onChange={e => this.changeGeneration(e.target.value)} />
-          </label>
+          </li>
+        </ul>
           <button type="submit">submit</button>
         </form>
       </div>
