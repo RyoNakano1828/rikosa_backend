@@ -6,26 +6,29 @@ import {
 
 //ログイン前コンポーネント
 import Home from './components/home'
-import MemberList from './containers/memberList';
-import Schedule from './components/schedule'
+import MemberList from './containers/memberList'
+import Schedule from './components/schedule' 
+import Result from './containers/result'
 
 //ログイン用コンポーネント
-import { withStyles } from '@material-ui/core/styles';
-import { PrivateRoute } from './components/PrivateRoute';
-import Login from './containers/login';
+import { withStyles } from '@material-ui/core/styles'
+import { PrivateRoute } from './components/PrivateRoute'
+import Login from './containers/login'
 //import Dashboard from './containers/Dashboard';
 
 //ログイン後コンポーネント
 import RikosaHome from './containers/RikosaHome'
-import PlayerForm from './containers/playerForm';
+import PlayerForm from './containers/playerForm'
+import ResultForm from './containers/resultForm'
+
 //import ManagerForm from './containers/managerForm';
 
 
 //随時移行していく
-import Member from './views/route/member'
-import Player from './views/route/player'
-import Manager from './views/route/manager'
-import Result from './views/route/result'
+//import Member from './views/route/member'
+//import Player from './views/route/player'
+//import Manager from './views/route/manager'
+//import Result from './views/route/result'
 //import Schedule from './views/route/schedule'
 import Photo from './views/route/photo'
 import Link from './views/route/link'
@@ -34,114 +37,10 @@ import Link from './views/route/link'
 import RikosaMember from './views/route/rikosaMember'
 //import PlayerForm from './views/route/playerForm'
 import ManagerForm from './views/route/managerForm'
-import ResultForm from './views/route/resultForm'
-import ScheduleForm from './views/route/scheduleForm'
+//import ResultForm from './views/route/resultForm'
+//import ScheduleForm from './views/route/scheduleForm'
 import PhotoAdd from './views/route/photoAdd'
-/*
-import * as store from './index'
 
-class HomeApp extends React.Component {
-  render() {
-    return (
-      <Home store={store} />
-      )
-  }
-}
-class MemberApp extends React.Component {
-  render() {
-    return (
-      <Member store={store} />
-      )
-  }
-}class PlayerApp extends React.Component {
-  render() {
-    return (
-      <Player store={store} />
-      )
-  }
-}class ManagerApp extends React.Component {
-  render() {
-    return (
-      <Manager store={store} />
-      )
-  }
-}class ResultApp extends React.Component {
-  render() {
-    return (
-      <Result store={store} />
-      )
-  }
-}class ScheduleApp extends React.Component {
-  render() {
-    return (
-      <Schedule store={store} />
-      )
-  }
-}class PhotoApp extends React.Component {
-  render() {
-    return (
-      <Photo store={store} />
-      )
-  }
-}class LinkApp extends React.Component {
-  render() {
-    return (
-      <Link store={store} />
-      )
-  }
-}
-class LoginApp extends React.Component {
-  render() {
-    return (
-      <Login store={store} />
-      )
-  }
-}
-class RikosaHomeApp extends React.Component {
-  render() {
-    return (
-      <RikosaHome store={store} />
-      )
-  }
-}
-class RikosaMemberApp extends React.Component {
-  render() {
-    return (
-      <RikosaMember store={store} />
-      )
-  }
-}class PlayerFormApp extends React.Component {
-  render() {
-    return (
-      <PlayerForm store={store} />
-      )
-  }
-}class ManagerFormApp extends React.Component {
-  render() {
-    return (
-      <ManagerForm store={store} />
-      )
-  }
-}class ResultFormApp extends React.Component {
-  render() {
-    return (
-      <ResultForm store={store} />
-      )
-  }
-}class ScheduleFormApp extends React.Component {
-  render() {
-    return (
-      <ScheduleForm store={store} />
-      )
-  }
-}class PhotoAddApp extends React.Component {
-  render() {
-    return (
-      <PhotoAdd store={store} />
-      )
-  }
-}
-*/
 
 const styles = {
   root: {
