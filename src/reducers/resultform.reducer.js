@@ -60,7 +60,7 @@ export function resultform(state = initialState, action){
         ...state,
         comment: action.payload,
       }
-    case resultFormConstants.INITIALIZE_RESULT:
+    case resultFormConstants.CHANGE_RESULT:
       return {
         ...state,
         result: action.payload,
