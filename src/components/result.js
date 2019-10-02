@@ -30,14 +30,14 @@ class Result extends Component{
                 <ul>
                   {resultArray.map(result => (
                     <li key={result._id}>
-                      {`${result.id}`}
+                      {`${result.us}`}
                       <button　onClick={() => this.handleFetchGame(result._id)}>詳細を見る</button>
                     </li>
                   ))}
                 </ul>
                 <div>
-                  <h2>{gameArray.scoreUs}</h2>
-                  <h3>{gameArray.scoreYou}</h3>
+                  <h2>{gameArray.ourscore}</h2>
+                  <h3>{gameArray.yourscore}</h3>
                 </div>
               </div>
         }

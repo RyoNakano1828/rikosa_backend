@@ -1,50 +1,54 @@
 import { connect } from 'react-redux';
-import PlayerForm from '../components/playerForm';
-import { postPlayer, changeName, changePosition, changeUniform, changeFrom, changeBelong, changeBelomg, changeHobby, changeComment, changeHeight, changeGeneration } from '../actions/form.actions';
+import ResultForm from '../components/resultForm';
+import { postResult, changeYear, changeDay, changeCompetition, changeUs, changeYou, changeStage, changeOurscore, changeYourscore, changeComment, changeResult } from '../actions/resultForm.actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  name: state.form.name,
-  position: state.form.position,
-  uniform: state.form.uniform,
-  from: state.form.from,
-  belong: state.form.belong,
-  hobby: state.form.hobby,
-  comment: state.form.comment,
-  height: state.form.height,
-  generation: state.form.generation,
+  year: state.resultform.year,
+  day: state.resultform.day,
+  competition: state.resultform.competition,
+  us: state.resultform.us,
+  you: state.resultform.you,
+  stage: state.resultform.stage,
+  ourscore: state.resultform.ourscore,
+  yourscore: state.resultform.yourscore,
+  comment: state.resultform.comment,
+  result: state.resultform.result,
 });
 
 const mapDispatchToProps = dispatch => ({
-  postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation){
-    dispatch(postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation));
+  postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result){
+    dispatch(postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result));
   },
-  changeName(name){
-    dispatch(changeName(name));
+  changeYear(year){
+    dispatch(changeYear(year));
   },
-  changePosition(position){
-    dispatch(changePosition(position));
+  changeDay(day){
+    dispatch(changeDay(day));
   },
-  changeUniform(uniform){
-    dispatch(changeUniform(uniform));
+  changeCompetition(competition){
+    dispatch(changeCompetition(competition));
   },
-  changeFrom(from){
-    dispatch(changeFrom(from));
+  changeUs(us){
+    dispatch(changeUs(us));
   },
-  changeBelong(belong){
-    dispatch(changeBelong(belong));
+  changeYou(you){
+    dispatch(changeYou(you));
   },
-  changeHobby(hobby){
-    dispatch(changeHobby(hobby));
+  changeStage(stage){
+    dispatch(changeStage(stage));
+  },
+  changeOurscore(ourscore){
+    dispatch(changeOurscore(ourscore));
+  },
+  changeYourscore(yourscore){
+    dispatch(changeYourscore(yourscore));
   },
   changeComment(comment){
     dispatch(changeComment(comment));
   },
-  changeHeight(height){
-    dispatch(changeHeight(height));
-  },
-  changeGeneration(generation){
-    dispatch(changeGeneration(generation));
+  changeResult(result){
+    dispatch(changeResult(result));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultForm);

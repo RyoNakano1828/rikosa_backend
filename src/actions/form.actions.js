@@ -1,4 +1,4 @@
-import {resultConstants, resultformConstants} from '../constants';
+import {formConstants, memberConstants} from '../constants';
 import axios from 'axios'
 
 export const postPlayer = (name,position,uniform,from,belong,hobby,height,comment,generation) => {

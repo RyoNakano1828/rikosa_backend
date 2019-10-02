@@ -1,89 +1,97 @@
 import React, {Component} from 'react'
 
-class PlayerForm extends Component {
+class ResultForm extends Component {
 
-  postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation){
-    this.props.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation);
+  postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result){
+    this.props.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result);
   }
 
-  changeName(name){
-
-    this.props.changeName(name);
+  changeYear(year){
+    this.props.changeYear(year);
   }
 
-  changePosition(position){
-    this.props.changePosition(position);
+  changeDay(day){
+    this.props.changeDay(day);
   }
 
-  changeUniform(uniform){
-    this.props.changeUniform(uniform);
+  changeCompetition(competition){
+    this.props.changeCompetition(competition);
   }
 
-  changeFrom(from){
-    this.props.changeFrom(from);
+  changeUs(us){
+    this.props.changeUs(us);
   }
 
-  changeBelong(belong){
-    this.props.changeBelong(belong);
+  changeYou(you){
+    this.props.changeYou(you);
   }
 
-  changeHobby(hobby){
-    this.props.changeHobby(hobby);
+  changeStage(stage){
+    this.props.changeStage(stage);
   }
 
-  changeHeight(height){
-    this.props.changeHeight(height);
+  changeOurscore(ourscore){
+    this.props.changeOurscore(ourscore);
+  }
+
+  changeYourscore(yourscore){
+    this.props.changeYourscore(yourscore);
   }
 
   changeComment(comment){
     this.props.changeComment(comment);
   }
 
-  changeGeneration(generation){
-    this.props.changeGeneration(generation);
+  changeResult(result){
+    this.props.changeResult(result);
   }
 
   render(){
-    const {name,position,uniform,from,belong,hobby,height,comment,generation} = this.props
+    const {year,day,competition,us,you,stage,ourscore,yourscore,comment,result} = this.props
     return (
       <div>
-        <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
+        <form onSubmit={() => this.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result)}>
           <ul>
           <li>
-            名前:
-            <input value={name} onChange={e => this.changeName(e.target.value)} />
+            年:
+            <input value={year} onChange={e => this.changeYear(e.target.value)} />
           </li>
           <li>
-            背番号:
-            <input value={uniform} onChange={e => this.changeUniform(e.target.value)} />
+            日付:
+            <input value={day} onChange={e => this.changeDay(e.target.value)} />
+          </li>
+          
+          <li>
+            大会名:
+            <input value={competition} onChange={e => this.changeCompetition(e.target.value)} />
           </li>
           <li>
-            ポジション:
-            <input value={position} onChange={e => this.changePosition(e.target.value)} />
+            Myチーム名:
+            <input value={us} onChange={e => this.changeUs(e.target.value)} />
           </li>
           <li>
-            出身:
-            <input value={from} onChange={e => this.changeFrom(e.target.value)} />
+            相手チーム名:
+            <input value={you} onChange={e => this.changeYou(e.target.value)} />
           </li>
           <li>
-            学部学科:
-            <input value={belong} onChange={e => this.changeBelong(e.target.value)} />
+            ステージ:
+            <input value={stage} onChange={e => this.changeStage(e.target.value)} />
           </li>
           <li>
-            趣味・特技:
-            <input value={hobby} onChange={e => this.changeHobby(e.target.value)} />
+            得点:
+            <input value={ourscore} onChange={e => this.changeOurscore(e.target.value)} />
           </li>
           <li>
-            身長:
-            <input value={height} onChange={e => this.changeHeight(e.target.value)} />
+            失点:
+            <input value={yourscore} onChange={e => this.changeYourscore(e.target.value)} />
           </li>
           <li>
             コメント:
             <input value={comment} onChange={e => this.changeComment(e.target.value)} />
           </li>
           <li>
-            何期？:
-            <input value={generation} onChange={e => this.changeGeneration(e.target.value)} />
+            勝・負け・引き分け:
+            <input value={result} onChange={e => this.changeResult(e.target.value)} />
           </li>
         </ul>
           <button type="submit">submit</button>
@@ -93,4 +101,4 @@ class PlayerForm extends Component {
   }
 }
 
-export default PlayerForm
+export default ResultForm

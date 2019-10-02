@@ -1,24 +1,25 @@
-import {formConstants, memberConstants} from '../constants';
+import { resultFormConstants, resultConstants } from '../constants';
 import axios from 'axios'
 
-export const postPlayer = (name,position,uniform,from,belong,hobby,height,comment,generation) => {
+export const postResult = (year,day,competition,us,you,stage,ourscore,yourscore,comment,result) => {
   return dispatch => {
     dispatch(requestData()) 
-    axios.post('/api/players', {
-      name,
-      position,
-      uniform,
-      from,
-      belong,
-      hobby,
+    axios.post('/api/results', {
+      year,
+      day,
+      competition,
+      us,
+      you,
+      stage,
+      ourscore,
+      yourscore,
       comment,
-      height,
-      generation,
+      result,
     })
     .then(response => {
       dispatch(initializeForm())
-      const _playerArray = response.data
-      dispatch(receiveDataSuccess(_playerArray))
+      const _resultArray = response.data
+      dispatch(receiveResultSuccess(_resultArray))
     })
     .catch(err => {
       console.error(new Error(err))
@@ -27,37 +28,47 @@ export const postPlayer = (name,position,uniform,from,belong,hobby,height,commen
   }
 }
 
-export const changeName = (name) => {
+export const changeYear = (year) => {
   return dispatch => {
-    dispatch(ChangeName(name))
+    dispatch(ChangeYear(year))
   }
 }
 
-export const changePosition = (position) => {
+export const changeDay = (day) => {
   return dispatch => {
-    dispatch(ChangePosition(position))
+    dispatch(ChangeDay(day))
   }
 }
 
-export const changeUniform = (uniform) => {
+export const changeCompetition = (competition) => {
   return dispatch => {
-    dispatch(ChangeUniform(uniform))
+    dispatch(ChangeCompetition(competition))
   }
 }
 
-export const changeFrom = (from) => {
+export const changeUs = (us) => {
   return dispatch => {
-    dispatch(ChangeFrom(from))
+    dispatch(ChangeUs(us))
   }
 }
-export const changeBelong = (belong) => {
+export const changeYou = (you) => {
   return dispatch => {
-    dispatch(ChangeBelong(belong))
+    dispatch(ChangeYou(you))
   }
 }
-export const changeHobby = (hobby) => {
+export const changeStage = (stage) => {
   return dispatch => {
-    dispatch(ChangeHobby(hobby))
+    dispatch(ChangeStage(stage))
+  }
+}
+export const changeOurscore = (ourscore) => {
+  return dispatch => {
+    dispatch(ChangeOurscore(ourscore))
+  }
+}
+export const changeYourscore = (yourscore) => {
+  return dispatch => {
+    dispatch(ChangeYourscore(yourscore))
   }
 }
 export const changeComment = (comment) => {
@@ -65,63 +76,64 @@ export const changeComment = (comment) => {
     dispatch(ChangeComment(comment))
   }
 }
-export const changeHeight = (height) => {
+
+export const changeResult = (result) => {
   return dispatch => {
-    dispatch(ChangeHeight(height))
-  }
-}
-export const changeGeneration = (generation) => {
-  return dispatch => {
-    dispatch(ChangeGeneration(generation))
+    dispatch(ChangeResult(result))
   }
 }
 
-const ChangeName = name => ({
-  type: formConstants.CHANGE_NAME,
-  payload: name
+const ChangeYear = year => ({
+  type: resultFormConstants.CHANGE_YEAR,
+  payload: year
 })
-const ChangePosition = position => ({
-  type: formConstants.CHANGE_POSITION,
-  payload: position
+const ChangeDay = day => ({
+  type: resultFormConstants.CHANGE_DAY,
+  payload: day
 })
-const ChangeUniform = uniform => ({
-  type: formConstants.CHANGE_UNIFORM,
-  payload: uniform
+const ChangeCompetition = competition => ({
+  type: resultFormConstants.CHANGE_COMPETITION,
+  payload: competition
 })
-const ChangeFrom = from => ({
-  type: formConstants.CHANGE_FROM,
-  payload: from
+const ChangeUs = us => ({
+  type: resultFormConstants.CHANGE_US,
+  payload: us
 })
-const ChangeBelong = belong => ({
-  type: formConstants.CHANGE_BELONG,
-  payload: belong
+const ChangeYou = you => ({
+  type: resultFormConstants.CHANGE_YOU,
+  payload: you
 })
-const ChangeHobby = hobby => ({
-  type: formConstants.CHANGE_HOBBY,
-  payload: hobby
+const ChangeStage = stage => ({
+  type: resultFormConstants.CHANGE_STAGE,
+  payload: stage
+})
+const ChangeOurscore = ourscore => ({
+  type: resultFormConstants.CHANGE_OURSCORE,
+  payload: ourscore
+})
+const ChangeYourscore = yourscore => ({
+  type: resultFormConstants.CHANGE_YOURSCORE,
+  payload: yourscore
 })
 const ChangeComment = comment => ({
-  type: formConstants.CHANGE_COMMENT,
+  type: resultFormConstants.CHANGE_COMMENT,
   payload: comment
 })
-const ChangeHeight = height => ({
-  type: formConstants.CHANGE_HEIGHT,
-  payload: height
+const ChangeResult = result => ({
+  type: resultFormConstants.CHANGE_RESULT,
+  payload: result
 })
-const ChangeGeneration = generation => ({
-  type: formConstants.CHANGE_GENERATION,
-  payload: generation
-})
+
 const initializeForm = () => ({
-  type: formConstants.INITIALIZE_FORM,
+  type: resultFormConstants.INITIALIZE_FORM,
 });
 const requestData = () => ({
-  type: memberConstants.REQUEST_DATA,
+  type: resultConstants.REQUEST_DATA,
 });
-const receiveDataSuccess = (playerArray) => ({
-  type: memberConstants.RECEIVE_DATA_SUCSESS,
-  payload: playerArray
+const receiveResultSuccess = (resultArray) => ({
+  type: resultConstants.RECEIVE_RESULT_SUCSESS,
+  payload: resultArray
 })
 const receiveDataFailed = () => ({
-  type: memberConstants.RECEIVE_DATA_FAILED,
+  type: resultConstants.RECEIVE_DATA_FAILED,
 });

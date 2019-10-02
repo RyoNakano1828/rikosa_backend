@@ -9,7 +9,7 @@ export const fetchResult = () => {
         console.log(response.data)
         const _resultArray = response.data;
         console.log(_resultArray)
-        dispatch(receiveDataSuccess(_resultArray));  
+        dispatch(receiveResultSuccess(_resultArray));  
       })
     .catch(err => {
       console.error(new Error(err))
@@ -43,8 +43,8 @@ export const fetchGame = id => {
 const requestData = () => ({
   type: resultConstants.REQUEST_DATA,
 });
-const receiveDataSuccess = (resultArray) => ({
-  type: resultConstants.RECEIVE_DATA_SUCCESS,
+const receiveResultSuccess = (resultArray) => ({
+  type: resultConstants.RECEIVE_RESULT_SUCCESS,
   payload: resultArray
 });
 const receiveDataFailed = () => ({

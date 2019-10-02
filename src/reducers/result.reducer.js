@@ -8,12 +8,12 @@ const initialState = {
 
 export function result(state = initialState, action){
   switch (action.type) {
-    case resultConstants.REQUEST_DATA:
+    case resultConstants.DATA_RESULTS:
       return {
         ...state,
         isFetching: true,
       }
-    case  resultConstants.RECEIVE_DATA_SUCCESS:
+    case  resultConstants.RECEIVE_RESULT_SUCCESS:
       return {
         ...state,
         isFetching: false,
