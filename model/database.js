@@ -11,5 +11,6 @@ var playerSchema = new mongoose.Schema({
   hobby: String,
   comment: String,
   height: Number,
+  generation: Number,
 });
 module.exports = mongoose.model( "Player", playerSchema );

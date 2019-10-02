@@ -19,7 +19,7 @@ const { check, validationResult } = require('express-validator/check');
 //modelの読み込み
 var Player = require('./model/database')
 var Manager = require('./model/manager')
-var Character = require('./model/database') 
+var Result = require('./model/result')
 //mongooseの読み込み 
 var mongoose = require('mongoose');
 
@@ -64,11 +64,18 @@ server.listen(port,() => {
 
 
  app.post('/api/players', (request, response) => {
-    const { name, position } = request.body
+    const { name, position,uniform,from,belong,hobby,height,comment,generation } = request.body
 
     new Player({
       name,
       position,
+      uniform,
+      from,
+      belong,
+      hobby,
+      comment,
+      height,
+      generation,
     }).save(err => {
       if (err) response.status(500)
         else {
@@ -105,7 +112,6 @@ server.listen(port,() => {
     })
   })
 
-//年齢を1つプラスする
   app.put('/api/players', (request, response) => {
     const { id } = request.body
     Player.findByIdAndUpdate(id, { $inc: {"position": 1} }, err => {
@@ -132,6 +138,84 @@ server.listen(port,() => {
      })
    })
  
+//試合結果用API
+app.post('/api/results', (request, response) => {
+    const { year,day,competition,us,you,stage,ourscore,yourscore,comment,result } = request.body
+    new Result({
+      year,
+      day,
+      competition,
+      us,
+      you,
+      stage,
+      ourscore,
+      yourscore,
+      comment,
+      result,
+    }).save(err => {
+      if (err) response.status(500)
+        else {
+         Result.find({}, (findErr, resultArray) => {
+           if (findErr) response.status(500).send()
+          else response.status(200).send(resultArray)
+         })
+       }
+    })
+  })
+
+  app.get('/api/results', (request, response) => {
+    Result.find({}, (err, resultArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(resultArray)
+    })
+  })
+
+  //API実験用
+/*
+  app.get('/api/players/id', (request, response) => {
+    var id = "5d21c461b67c22386871b823"
+    Player.findById(id, (err, peopleArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(peopleArray)
+    })
+  })
+*/
+  app.get('/api/game', (request, response) => {
+  const { id } = request.query
+  Result.findById(id, (err, gameArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(gameArray)
+    })
+  })
+
+  app.put('/api/results', (request, response) => {
+    const { id } = request.body
+    Result.findByIdAndUpdate(id, { $inc: {"position": 1} }, err => {
+      if (err) response.status(500).send()
+      else {
+        Result.find({}, (findErr, resultArray) => {
+          if (findErr) response.status(500).send()
+          else response.status(200).send(resultArray)
+        })
+      }
+    })
+  })
+
+ app.delete('/api/results', (request, response) => {
+     const { id } = request.body
+     Result.findByIdAndRemove(id, err => {
+       if (err) response.status(500).send()
+       else {
+         Result.find({}, (findErr, resultArray) => {
+           if (findErr) response.status(500).send()
+           else response.status(200).send(resultArray)
+         })
+       }
+     })
+   })
+
+
+
 //認証用API
  var apiRoutes = express.Router();
 app.use('/api', apiRoutes);
