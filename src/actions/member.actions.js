@@ -1,4 +1,4 @@
-import {memberConstants} from '../constants';
+import { memberConstants } from '../constants';
 import axios from 'axios'
 
 export const fetchMember = () => {
@@ -38,6 +38,55 @@ export const fetchPeople = id => {
     })
   }
 }
+
+export const deletePeople = id => {
+  return dispatch => {
+    dispatch(requestData());
+    axios({
+      method: 'delete',
+      url: '/api/players',
+      data: {
+        id,
+      }
+    })
+    .then(response => {
+      const _playerArray = response.data
+      dispatch(receiveDataSuccess(_playerArray))
+    })
+    .catch(err => {
+      console.error(new Error(err))
+      dispatch(receiveDataFailed())
+    })
+  }
+}
+
+export const updatePeople = (id,name,position,uniform,from,belong,hobby,height,comment,generation) => {
+  return dispatch => {
+    dispatch(requestData());
+    alert('あっぷでーと');
+    axios.put('/api/players', {
+        id,
+        name,
+        position,
+        uniform,
+        from,
+        belong,
+        hobby,
+        comment,
+        height,
+        generation,
+    })
+    .then(response => {
+      const _playerArray = response.data
+      dispatch(receiveDataSuccess(_playerArray))
+    })
+    .catch(err => {
+      console.error(new Error(err))
+      dispatch(receiveDataFailed())
+    })
+  }
+}
+
 
 
 const requestData = () => ({

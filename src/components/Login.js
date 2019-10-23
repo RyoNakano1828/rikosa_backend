@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -88,6 +87,7 @@ class Login extends Component {
               <p className={classes.alert}>ユーザ名またはパスワードが正しくありません。</p>
               : ''
             }
+            <div><br /><a href={'/home'}>戻る</a></div>
             <form className={classes.form}>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="email">ユーザー名またはメールアドレス</InputLabel>

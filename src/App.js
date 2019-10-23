@@ -20,6 +20,7 @@ import Login from './containers/login'
 import RikosaHome from './containers/RikosaHome'
 import PlayerForm from './containers/playerForm'
 import ResultForm from './containers/resultForm'
+import RikosaMember from './containers/rikosaMemberList'
 
 //import ManagerForm from './containers/managerForm';
 
@@ -34,7 +35,7 @@ import Photo from './views/route/photo'
 import Link from './views/route/link'
 //import Login from './views/route/login'
 
-import RikosaMember from './views/route/rikosaMember'
+//import RikosaMember from './views/route/rikosaMember'
 //import PlayerForm from './views/route/playerForm'
 import ManagerForm from './views/route/managerForm'
 //import ResultForm from './views/route/resultForm'

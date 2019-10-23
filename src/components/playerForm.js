@@ -3,7 +3,12 @@ import React, {Component} from 'react'
 class PlayerForm extends Component {
 
   postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation){
-    this.props.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation);
+    if(window.confirm('この内容で登録しますか？')){
+      this.props.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation);
+      alert("登録しました");
+    }else{
+      alert("キャンセルしました");
+    }
   }
 
   changeName(name){
@@ -47,6 +52,7 @@ class PlayerForm extends Component {
     const {name,position,uniform,from,belong,hobby,height,comment,generation} = this.props
     return (
       <div>
+        <div><br /><a href={'/rikosahome'}>戻る</a></div>
         <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
           <ul>
           <li>

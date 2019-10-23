@@ -3,7 +3,12 @@ import React, {Component} from 'react'
 class ResultForm extends Component {
 
   postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result){
-    this.props.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result);
+    if(window.confirm('この内容で登録しますか？')){
+      this.props.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result);
+      alert("登録しました");
+    }else{
+      alert("キャンセルしました");
+    }
   }
 
   changeYear(year){
@@ -50,6 +55,7 @@ class ResultForm extends Component {
     const {year,day,competition,us,you,stage,ourscore,yourscore,comment,result} = this.props
     return (
       <div>
+        <div><br /><a href={'/rikosahome'}>戻る</a></div>
         <form onSubmit={() => this.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result)}>
           <ul>
           <li>

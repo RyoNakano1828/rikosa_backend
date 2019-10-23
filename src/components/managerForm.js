@@ -47,6 +47,7 @@ class PlayerForm extends Component {
     const {name,position,uniform,from,belong,hobby,height,comment,generation} = this.props
     return (
       <div>
+        <div><br /><a href={'/rikosahome'}>戻る</a></div>
         <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
           <label>
             名前:

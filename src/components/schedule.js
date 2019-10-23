@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 const Schedule = () => (
   <BrowserRouter>
+    <div><br /><a href={'/home'}>戻る</a></div>
     <div>
       <ul>
        <li><Link to='/schedule'>Home</Link></li>

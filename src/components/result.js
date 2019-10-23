@@ -9,11 +9,15 @@ class Result extends Component{
 
   handleFetchData(e){
     this.props.fetchResult();
-    console.log('クリック')
+    // console.log('クリック')
   }
 
   handleFetchGame(id){
     this.props.fetchGame(id);
+  }
+
+  componentWillMount(){
+    this.handleFetchData();
   }
 
   render(){
@@ -22,25 +26,23 @@ class Result extends Component{
     console.log(this.props.gameArray)
     return(
       <div>
-        {
-          isFetching
-            ? <h2>Now Loading...</h2>
-            : <div>
-                <button type='submit' onClick={this.handleFetchData}>試合結果を取得</button>
-                <ul>
-                  {resultArray.map(result => (
-                    <li key={result._id}>
-                      {`${result.us}`}
-                      <button　onClick={() => this.handleFetchGame(result._id)}>詳細を見る</button>
-                    </li>
-                  ))}
-                </ul>
-                <div>
-                  <h2>{gameArray.ourscore}</h2>
-                  <h3>{gameArray.yourscore}</h3>
-                </div>
-              </div>
-        }
+        <div>
+          <div><br /><a href={'/home'}>戻る</a></div>
+          {/* <button type='submit' onClick={this.handleFetchData}>試合結果を取得</button>*/}
+          <ul>
+            {resultArray.map(result => (
+              <li key={result._id}>
+                {`${result.us}vs${result.you}`}
+                <button　onClick={() => this.handleFetchGame(result._id)}>詳細を見る</button>
+              </li>
+            ))}
+          </ul>
+          <div>
+            <p>{gameArray.ourscore}</p>
+            <p>ー</p>
+            <p>{gameArray.yourscore}</p>
+          </div>
+        </div>
       </div>
     )
   }
