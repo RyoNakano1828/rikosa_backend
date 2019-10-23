@@ -62,10 +62,9 @@ server.listen(port,() => {
   console.log('起動しました','http://localhost:',port)
 });
 
-
+//プレーヤー用API
  app.post('/api/players', (request, response) => {
     const { name, position,uniform,from,belong,hobby,height,comment,generation } = request.body
-
     new Player({
       name,
       position,
@@ -94,28 +93,39 @@ server.listen(port,() => {
     })
   })
 
-  //API実験用
-/*
-  app.get('/api/players/id', (request, response) => {
-    var id = "5d21c461b67c22386871b823"
-    Player.findById(id, (err, peopleArray) => {
-      if (err) response.status(500).send()
-      else response.status(200).send(peopleArray)
-    })
-  })
-*/
   app.get('/api/people', (request, response) => {
-  const { id } = request.query
-  Player.findById(id, (err, peopleArray) => {
+    const { id } = request.query
+    Player.findById(id, (err, peopleArray) => {
       if (err) response.status(500).send()
       else response.status(200).send(peopleArray)
     })
   })
 
   app.put('/api/players', (request, response) => {
-    const { id } = request.body
-    Player.findByIdAndUpdate(id, { $inc: {"position": 1} }, err => {
-      if (err) response.status(500).send()
+    console.log(request.body);
+    // console.log(request.query);
+    // const { id } = request.query
+    const { id,name, position,uniform,from,belong,hobby,height,comment,generation } = request.body
+    console.log(id);
+    Player.findByIdAndUpdate(id, 
+        {$set:
+          {
+            name,
+            position,
+            uniform,
+            from,
+            belong,
+            hobby,
+            comment,
+            height,
+            generation,
+          }
+      }, {new: false}, err => {
+      if (err) {
+        response.status(500).send();
+        //エラーメッセージを表示させることはとても有効な手段です！！
+        console.log(err);
+      }
       else {
         Player.find({}, (findErr, playerArray) => {
           if (findErr) response.status(500).send()
@@ -170,16 +180,7 @@ app.post('/api/results', (request, response) => {
     })
   })
 
-  //API実験用
-/*
-  app.get('/api/players/id', (request, response) => {
-    var id = "5d21c461b67c22386871b823"
-    Player.findById(id, (err, peopleArray) => {
-      if (err) response.status(500).send()
-      else response.status(200).send(peopleArray)
-    })
-  })
-*/
+
   app.get('/api/game', (request, response) => {
   const { id } = request.query
   Result.findById(id, (err, gameArray) => {
