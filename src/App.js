@@ -19,6 +19,7 @@ import Login from './containers/login'
 //ログイン後コンポーネント
 import RikosaHome from './containers/RikosaHome'
 import PlayerForm from './containers/playerForm'
+import ManagerForm from './containers/managerForm'
 import ResultForm from './containers/resultForm'
 import RikosaMember from './containers/rikosaMemberList'
 
@@ -37,7 +38,7 @@ import Link from './views/route/link'
 
 //import RikosaMember from './views/route/rikosaMember'
 //import PlayerForm from './views/route/playerForm'
-import ManagerForm from './views/route/managerForm'
+//import ManagerForm from './views/route/managerForm'
 //import ResultForm from './views/route/resultForm'
 //import ScheduleForm from './views/route/scheduleForm'
 import PhotoAdd from './views/route/photoAdd'
@@ -69,7 +70,7 @@ class App extends Component {
             <PrivateRoute path='/rikosahome' component={RikosaHome}/>
             <PrivateRoute path='/rikosamembers' component={RikosaMember}/>
             <PrivateRoute path='/playerform' component={PlayerForm}/>
-            <PrivateRoute path='/manegerform' component={ManagerForm}/>
+            <PrivateRoute path='/managerform' component={ManagerForm}/>
             <PrivateRoute path='/resultform' component={ResultForm}/>
             <PrivateRoute path='/photoadd' component={PhotoAdd}/>
             <Route component={Home}/>

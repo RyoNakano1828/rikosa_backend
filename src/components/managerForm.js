@@ -1,90 +1,67 @@
 import React, {Component} from 'react'
 
-class PlayerForm extends Component {
+class ManagerForm extends Component {
 
-  postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation){
-    this.props.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation);
+  postManager(name,uniform,univ,hobby,comment,generation){
+    if(window.confirm('この内容で登録しますか？')){
+      this.props.postManager(name,uniform,univ,hobby,comment,generation);
+      alert("登録しました");
+    }else{
+      alert("キャンセルしました");
+    }
   }
 
   changeName(name){
-
     this.props.changeName(name);
   }
-
-  changePosition(position){
-    this.props.changePosition(position);
-  }
-
   changeUniform(uniform){
     this.props.changeUniform(uniform);
   }
-
-  changeFrom(from){
-    this.props.changeFrom(from);
+  changeUniv(univ){
+    this.props.changeUniv(univ);
   }
-
-  changeBelong(belong){
-    this.props.changeBelong(belong);
-  }
-
   changeHobby(hobby){
     this.props.changeHobby(hobby);
   }
-
-  changeHeight(height){
-    this.props.changeHeight(height);
-  }
-
   changeComment(comment){
     this.props.changeComment(comment);
   }
-
   changeGeneration(generation){
     this.props.changeGeneration(generation);
   }
 
   render(){
-    const {name,position,uniform,from,belong,hobby,height,comment,generation} = this.props
+    const {name,uniform,univ,hobby,comment,generation} = this.props
     return (
       <div>
         <div><br /><a href={'/rikosahome'}>戻る</a></div>
-        <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
-          <label>
+        <form onSubmit={() => this.postManager(name,uniform,univ,hobby,comment,generation)}>
+          <ul>
+          <li>
             名前:
             <input value={name} onChange={e => this.changeName(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             背番号:
             <input value={uniform} onChange={e => this.changeUniform(e.target.value)} />
-          </label>
-          <label>
-            ポジション:
-            <input value={position} onChange={e => this.changePosition(e.target.value)} />
-          </label>
-          <label>
-            出身:
-            <input value={from} onChange={e => this.changeFrom(e.target.value)} />
-          </label>
-          <label>
-            学部学科:
-            <input value={belong} onChange={e => this.changeBelong(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
+            大学:
+            <input value={univ} onChange={e => this.changeUniv(e.target.value)} />
+          </li>
+          <li>
             趣味・特技:
             <input value={hobby} onChange={e => this.changeHobby(e.target.value)} />
-          </label>
-          <label>
-            身長:
-            <input value={height} onChange={e => this.changeHeight(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             コメント:
             <input value={comment} onChange={e => this.changeComment(e.target.value)} />
-          </label>
-          <label>
+          </li>
+          <li>
             何期？:
             <input value={generation} onChange={e => this.changeGeneration(e.target.value)} />
-          </label>
+          </li>
+        </ul>
           <button type="submit">submit</button>
         </form>
       </div>
@@ -92,4 +69,4 @@ class PlayerForm extends Component {
   }
 }
 
-export default PlayerForm
+export default ManagerForm

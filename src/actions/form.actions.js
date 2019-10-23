@@ -27,9 +27,38 @@ export const postPlayer = (name,position,uniform,from,belong,hobby,height,commen
   }
 }
 
+export const postManager = (name,uniform,univ,hobby,comment,generation) => {
+  return dispatch => {
+    dispatch(requestData()) 
+    axios.post('/api/managers', {
+      name,
+      uniform,
+      univ,
+      hobby,
+      comment,
+      generation,
+    })
+    .then(response => {
+      dispatch(initializeForm())
+      const _managerArray = response.data
+      dispatch(receiveDataSuccess(_managerArray))
+    })
+    .catch(err => {
+      console.error(new Error(err))
+      dispatch(receiveDataFailed())
+    })
+  }
+}
+
 export const changeName = (name) => {
   return dispatch => {
     dispatch(ChangeName(name))
+  }
+}
+
+export const changeUniv = (univ) => {
+  return dispatch => {
+    dispatch(ChangeUniv(univ))
   }
 }
 
@@ -83,6 +112,10 @@ const ChangeName = name => ({
 const ChangePosition = position => ({
   type: formConstants.CHANGE_POSITION,
   payload: position
+})
+const ChangeUniv = univ => ({
+  type: formConstants.CHANGE_UNIV,
+  payload: univ
 })
 const ChangeUniform = uniform => ({
   type: formConstants.CHANGE_UNIFORM,

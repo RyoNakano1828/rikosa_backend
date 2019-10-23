@@ -4,6 +4,8 @@ const initialState = {
     isFetching: false,
     playerArray: [],
     peopleArray: [],
+    managersArray: [],
+    managerArray: [],
 }
 
 export function member(state = initialState, action){
@@ -29,6 +31,18 @@ export function member(state = initialState, action){
         ...state,
         isFetching: false,
         peopleArray: action.payload,
+      }
+    case memberConstants.RECEIVE_MANAGERS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        managersArray: action.payload,
+      }
+    case memberConstants.RECEIVE_MANAGER_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        managerArray: action.payload,
       }
     default:
       return state
