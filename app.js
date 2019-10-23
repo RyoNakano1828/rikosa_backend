@@ -147,6 +147,86 @@ server.listen(port,() => {
        }
      })
    })
+
+//マネージャー用API
+app.post('/api/managers', (request, response) => {
+  const { name,uniform,univ,hobby,comment,generation } = request.body
+  new Manager({
+    name,
+    uniform,
+    univ,
+    hobby,
+    comment,
+    generation,
+  }).save(err => {
+    if (err) response.status(500)
+      else {
+       Manager.find({}, (findErr, managersArray) => {
+         if (findErr) response.status(500).send()
+        else response.status(200).send(managersArray)
+       })
+     }
+  })
+})
+
+app.get('/api/managers', (request, response) => {
+  Manager.find({}, (err, managersArray) => {
+    if (err) response.status(500).send()
+    else response.status(200).send(managersArray)
+  })
+})
+
+app.get('/api/manager', (request, response) => {
+  const { id } = request.query
+  Manager.findById(id, (err, manegerArray) => {
+    if (err) response.status(500).send()
+    else response.status(200).send(manegerArray)
+  })
+})
+
+app.put('/api/managers', (request, response) => {
+  console.log(request.body);
+  // console.log(request.query);
+  // const { id } = request.query
+  const { id,name,uniform,univ,hobby,comment,generation } = request.body
+  console.log(id);
+  Manager.findByIdAndUpdate(id, 
+      {$set:
+        {
+          name,
+          uniform,
+          univ,
+          hobby,
+          comment,
+          generation,
+        }
+    }, {new: false}, err => {
+    if (err) {
+      response.status(500).send();
+      //エラーメッセージを表示させることはとても有効な手段です！！
+      console.log(err);
+    }
+    else {
+      Manager.find({}, (findErr, managersArray) => {
+        if (findErr) response.status(500).send()
+        else response.status(200).send(managersArray)
+      })
+    }
+  })
+})
+
+app.delete('/api/managers', (request, response) => {
+   const { id } = request.body
+   Manager.findByIdAndRemove(id, err => {
+     if (err) response.status(500).send()
+     else {
+       Manager.find({}, (findErr, managersArray) => {
+         if (findErr) response.status(500).send()
+         else response.status(200).send(managersArray)
+       })
+     }
+   })
+ })
  
 //試合結果用API
 app.post('/api/results', (request, response) => {
