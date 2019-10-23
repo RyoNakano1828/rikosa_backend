@@ -5,3 +5,4 @@ export * from './member.reducer';
 export * from './playerform.reducer';
 export * from './result.reducer';
 export * from './resultform.reducer';
+export * from './managerform.reducer';

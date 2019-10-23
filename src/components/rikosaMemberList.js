@@ -5,21 +5,24 @@ class RikosaMemberList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      flag: false,
+      flagpure: false,
+      flagmane: false,
     };
     this.handleFetchData = this.handleFetchData.bind(this);
     this.elements = null;
   }
    handleFetchData(e){
     this.props.fetchMember();
+    this.props.fetchManagers();
     console.log('データかもんぬ')
   }
 
   handleFetchPeople(id){
     this.setState({
-      flag: true
+      flagpure: true,
+      flagmane: false,
     });
-    this.props.fetchPeople(id);
+    this.componentDidUpdate(id)
     // const params = {
     //   name: this.elements["name"]["defaultValue"],
     //   namevalue: this.elements["name"]["value"],
@@ -30,10 +33,28 @@ class RikosaMemberList extends Component{
     // console.log(this.elements);
   }
 
+  handleFetchManager(id){
+    this.setState({
+      flagmane: true,
+      flagpure: false,
+    });
+    this.componentDidUpdate(id)
+  }
+
   handleUpdatePlayer(id,name,position,uniform,from,belong,hobby,height,comment,generation){
     // e.preventDefault();
     if(window.confirm('この内容で登録しますか？')){
       this.props.updatePeople(id,name,position,uniform,from,belong,hobby,height,comment,generation);
+      alert("登録しました");
+    }else{
+      alert("キャンセルしました");
+    }
+  }
+
+  handleUpdateManager(id,name,uniform,univ,hobby,comment,generation){
+    // e.preventDefault();
+    if(window.confirm('この内容で登録しますか？')){
+      this.props.updateManager(id,name,uniform,univ,hobby,comment,generation);
       alert("登録しました");
     }else{
       alert("キャンセルしました");
@@ -49,23 +70,30 @@ class RikosaMemberList extends Component{
     }
   }
 
+  handleDeleteManager(id){
+    if(window.confirm('本当に消しますか？')){
+      this.props.deleteManager(id);
+      window.alert('削除しました');
+    }else{
+      window.alert('キャンセルされました');
+    }
+  }
+
   componentWillMount(){
     this.handleFetchData();
   }
-  componentWillUpdate(){
+  componentDidUpdate(id){
+    
+    this.props.fetchPeople(id);
+    
+    this.props.fetchManager(id);
+    
     console.log('ああああ')
   }
 
 
   render(){
-    const {isFetching, playerArray, peopleArray} = this.props
-
-    // const params = {
-    //   name: this.elements[name],
-    // };
-    console.log(this.elements);
-    console.log(this.props.peopleArray);
-    console.log(this.props.playerArray);
+    const {isFetching, playerArray, peopleArray, managersArray, managerArray} = this.props
     return (
     <div>
       {
@@ -80,8 +108,18 @@ class RikosaMemberList extends Component{
               </li>
             ))}
           </ul>
+          <ul>
+            {managersArray.map(manager => (
+              <li key={manager._id}>  
+                {`${manager.name} ${manager.uniform}`}
+                <button onClick={() => this.handleFetchManager(manager._id)}>編集する</button>
+                <button onClick={() => this.handleDeleteManager(manager._id)}>delete</button>
+              </li>
+            ))}
+          </ul>
+          
           <div>{
-            this.state.flag &&
+            this.state.flagpure &&
             <form onSubmit={() => this.handleUpdatePlayer(peopleArray._id,
                                                           this.elements["name"]["value"],
                                                           this.elements["position"]["value"],
@@ -129,6 +167,46 @@ class RikosaMemberList extends Component{
               <li>
                 何期？:
                 <input type="text" name="generation" ref="inputText" defaultValue={peopleArray.generation}/>
+              </li>
+            </ul>
+              <button type="submit">submit</button>
+            </form>
+          }
+          </div>
+          <div>{
+            this.state.flagmane &&
+            <form onSubmit={() => this.handleUpdateManager(managerArray._id,
+                                                          this.elements["name"]["value"],
+                                                          this.elements["uniform"]["value"],
+                                                          this.elements["univ"]["value"],
+                                                          this.elements["hobby"]["value"],
+                                                          this.elements["comment"]["value"],
+                                                          this.elements["generation"]["value"],
+                                                          )} ref={el => this.elements = el && el.elements}>
+              <ul>
+              <li>
+                名前:
+                <input type="text" name="name" defaultValue={managerArray.name}/>
+              </li>
+              <li>
+                背番号:
+                <input type="text" name="uniform" ref="inputText" defaultValue={managerArray.uniform}/>
+              </li>
+              <li>
+                大学:
+                <input type="text" name="univ" ref="inputText" defaultValue={managerArray.univ}/>
+              </li>
+              <li>
+                趣味・特技:
+                <input type="text" name="hobby" ref="inputText" defaultValue={managerArray.hobby}/>
+              </li>
+              <li>
+                コメント:
+                <input type="text" name="comment" ref="inputText" defaultValue={managerArray.comment}/>
+              </li>
+              <li>
+                何期？:
+                <input type="text" name="generation" ref="inputText" defaultValue={managerArray.generation}/>
               </li>
             </ul>
               <button type="submit">submit</button>

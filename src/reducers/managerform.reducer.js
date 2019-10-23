@@ -9,7 +9,7 @@ const initialState = {
     generation: '',
 }
 
-export function form(state = initialState, action){
+export function maneform(state = initialState, action){
   switch (action.type) {
     case formConstants.CHANGE_NAME:
       return {

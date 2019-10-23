@@ -46,6 +46,7 @@ class MemberList extends Component{
         <div>
           <div><br /><a href={'/home'}>戻る</a></div>
           {/*<button type='submit' onClick={this.handleFetchData}>fetch data</button>*/}
+          <h2>プレーヤー一覧</h2>
           <ul>
             {playerArray.map(player => (
               <li key={player._id}>
@@ -54,6 +55,7 @@ class MemberList extends Component{
               </li>
             ))}
           </ul>
+          <h2>マネージャー一覧</h2>
           <ul>
             {managersArray.map(manager => (
               <li key={manager._id}>
@@ -62,6 +64,7 @@ class MemberList extends Component{
               </li>
             ))}
           </ul>
+          <h2>詳細はこちら↓</h2>
           {
             this.state.pure &&
           <div>

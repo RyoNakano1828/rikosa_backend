@@ -11,8 +11,8 @@ export const postPlayer = (name,position,uniform,from,belong,hobby,height,commen
       from,
       belong,
       hobby,
-      comment,
       height,
+      comment,
       generation,
     })
     .then(response => {

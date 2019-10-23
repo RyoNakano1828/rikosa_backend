@@ -3,12 +3,12 @@ import ManagerForm from '../components/managerForm';
 import { postManager, changeName, changeUniv, changeUniform, changeHobby, changeComment, changeGeneration } from '../actions/form.actions';
 
 const mapStateToProps = (state, ownProps) => ({
-  name: state.form.name,
-  uniform: state.form.uniform,
-  univ: state.form.univ,
-  hobby: state.form.hobby,
-  comment: state.form.comment,
-  generation: state.form.generation,
+  name: state.maneform.name,
+  uniform: state.maneform.uniform,
+  univ: state.maneform.univ,
+  hobby: state.maneform.hobby,
+  comment: state.maneform.comment,
+  generation: state.maneform.generation,
 });
 
 const mapDispatchToProps = dispatch => ({
