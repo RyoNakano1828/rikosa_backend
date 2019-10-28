@@ -5,12 +5,12 @@ var mongoose = require( 'mongoose' );
 var playerSchema = new mongoose.Schema({
   name: String,
   position: String,
-  uniform: String,
+  uniform: Number,
   from: String,
   belong: String,
   hobby: String,
   comment: String,
-  height: String,
-  generation: String,
+  height: Number,
+  generation: Number,
 });
 module.exports = mongoose.model( "Player", playerSchema );
