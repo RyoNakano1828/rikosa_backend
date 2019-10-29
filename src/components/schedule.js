@@ -1,42 +1,45 @@
 import React, { Component } from 'react'
+import Header from './Header';
 import logo from '../logo.jpg'
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 const Schedule = () => (
-  <BrowserRouter>
-    <div><br /><a href={'/home'}>戻る</a></div>
-    <div>
-      <ul>
-       <li><Link to='/schedule'>Home</Link></li>
-       <li><Link to='/schedule/1'>1月</Link></li>
-       <li><Link to='/schedule/2'>2月</Link></li>
-       <li><Link to='/schedule/3'>3月</Link></li>
-       <li><Link to='/schedule/4'>4月</Link></li>
-       <li><Link to='/schedule/5'>5月</Link></li>
-       <li><Link to='/schedule/6'>6月</Link></li>
-       <li><Link to='/schedule/7'>7月</Link></li>
-       <li><Link to='/schedule/8'>8月</Link></li>
-       <li><Link to='/schedule/9'>9月</Link></li>
-       <li><Link to='/schedule/10'>10月</Link></li>
-       <li><Link to='/schedule/11'>11月</Link></li>
-       <li><Link to='/schedule/12'>12月</Link></li>
-      </ul>
-      <hr />
-      <Route exact path='/schedule' component={Home} />
-      <Route path='/schedule/1' component={About1} />
-      <Route path='/schedule/2' component={About2} />
-      <Route path='/schedule/3' component={About3} />
-      <Route path='/schedule/4' component={About4} />
-      <Route path='/schedule/5' component={About5} />
-      <Route path='/schedule/6' component={About6} />
-      <Route path='/schedule/7' component={About7} />
-      <Route path='/schedule/8' component={About8} />
-      <Route path='/schedule/9' component={About9} />
-      <Route path='/schedule/10' component={About10} />
-      <Route path='/schedule/11' component={About11} />
-      <Route path='/schedule/12' component={About12} />
-    </div>
-  </BrowserRouter>
+  <div>
+    <Header menu="活動内容"/>
+    <BrowserRouter>
+      <div>
+        <ul>
+        <li><Link to='/schedule'>Home</Link></li>
+        <li><Link to='/schedule/1'>1月</Link></li>
+        <li><Link to='/schedule/2'>2月</Link></li>
+        <li><Link to='/schedule/3'>3月</Link></li>
+        <li><Link to='/schedule/4'>4月</Link></li>
+        <li><Link to='/schedule/5'>5月</Link></li>
+        <li><Link to='/schedule/6'>6月</Link></li>
+        <li><Link to='/schedule/7'>7月</Link></li>
+        <li><Link to='/schedule/8'>8月</Link></li>
+        <li><Link to='/schedule/9'>9月</Link></li>
+        <li><Link to='/schedule/10'>10月</Link></li>
+        <li><Link to='/schedule/11'>11月</Link></li>
+        <li><Link to='/schedule/12'>12月</Link></li>
+        </ul>
+        <hr />
+        <Route exact path='/schedule' component={Home} />
+        <Route path='/schedule/1' component={About1} />
+        <Route path='/schedule/2' component={About2} />
+        <Route path='/schedule/3' component={About3} />
+        <Route path='/schedule/4' component={About4} />
+        <Route path='/schedule/5' component={About5} />
+        <Route path='/schedule/6' component={About6} />
+        <Route path='/schedule/7' component={About7} />
+        <Route path='/schedule/8' component={About8} />
+        <Route path='/schedule/9' component={About9} />
+        <Route path='/schedule/10' component={About10} />
+        <Route path='/schedule/11' component={About11} />
+        <Route path='/schedule/12' component={About12} />
+      </div>
+    </BrowserRouter>
+  </div>
 )
 
 const Home = () => (

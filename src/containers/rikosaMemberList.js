@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import rikosaMemberList from '../components/rikosaMemberList';
+import RikosaMemberList from '../components/rikosaMemberList';
 import { fetchMember, fetchPeople, deletePeople, updatePeople, fetchManager, fetchManagers, deleteManager, updateManager } from '../actions/member.actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(rikosaMemberList);
+export default connect(mapStateToProps, mapDispatchToProps)(RikosaMemberList);

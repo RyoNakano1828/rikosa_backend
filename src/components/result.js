@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Header from './Header';
 
 class Result extends Component{
 
@@ -26,8 +27,8 @@ class Result extends Component{
     console.log(this.props.gameArray)
     return(
       <div>
+        <Header menu="対戦成績"/>
         <div>
-          <div><br /><a href={'/home'}>戻る</a></div>
           {/* <button type='submit' onClick={this.handleFetchData}>試合結果を取得</button>*/}
           <ul>
             {resultArray.map(result => (

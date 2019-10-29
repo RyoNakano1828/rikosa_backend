@@ -82,15 +82,14 @@ class Login extends Component {
             <Avatar className={classes.avatar}>
               <LockIcon />
             </Avatar>
-            <Typography variant="headline">ログインしてはじめよう！</Typography>
+            <Typography variant="headline">ユーザー名とパスワードを入力してください！</Typography>
             {this.props.error ?
               <p className={classes.alert}>ユーザ名またはパスワードが正しくありません。</p>
               : ''
             }
-            <div><br /><a href={'/home'}>戻る</a></div>
             <form className={classes.form}>
               <FormControl margin="normal" required fullWidth>
-                <InputLabel htmlFor="email">ユーザー名またはメールアドレス</InputLabel>
+                <InputLabel htmlFor="email">ユーザー名</InputLabel>
                 <Input id="email" name="username" autoFocus onChange={this.handleChange}/>
               </FormControl>
               <FormControl margin="normal" required fullWidth>

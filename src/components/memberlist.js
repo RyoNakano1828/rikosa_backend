@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Header from './Header';
 
 class MemberList extends Component{
 
@@ -43,8 +44,8 @@ class MemberList extends Component{
     console.log(this.props.playerArray)
     return(
       <div>
+        <Header menu="メンバー一覧"/>
         <div>
-          <div><br /><a href={'/home'}>戻る</a></div>
           {/*<button type='submit' onClick={this.handleFetchData}>fetch data</button>*/}
           <h2>プレーヤー一覧</h2>
           <ul>

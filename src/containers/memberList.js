@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MemberList from '../components/memberList';
+import MemberList from '../components/memberlist';
 import { fetchMember, fetchPeople, fetchManager, fetchManagers } from '../actions/member.actions';
 
 const mapStateToProps = (state, ownProps) => ({
