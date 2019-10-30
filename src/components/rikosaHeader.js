@@ -29,7 +29,7 @@ const styles = {
   }
 }
 
-class header extends Component {
+class rikosaHeader extends Component {
 
   state = {
     left: false,
@@ -47,34 +47,34 @@ class header extends Component {
   const sideList = (
     <div className={classes.list}>
       <List>
-      <a href={'/home'}>
+      <a href={'/rikosahome'}>
           <ListItem button>
-            <ListItemText primary="トップページ" />
+            <ListItemText primary="りこさトップページ" />
           </ListItem>
         </a>
-        <a href={'/members'}>
+        <a href={'/rikosamembers'}>
           <ListItem button>
-            <ListItemText primary="メンバー一覧" />
+            <ListItemText primary="メンバー編集・削除" />
           </ListItem>
         </a>
-        <a href={'/result'}>
+        <a href={'/playerform'}>
           <ListItem button>
-            <ListItemText primary="試合結果" />
+            <ListItemText primary="プレ登録" />
           </ListItem>
         </a>
-        <a href={'/schedule'}>
+        <a href={'/managerform'}>
           <ListItem button>
-            <ListItemText primary="活動紹介" />
+            <ListItemText primary="マネ登録" />
           </ListItem>
         </a>
-        <a href={'/link'}>
+        <a href={'/resultform'}>
           <ListItem button>
-            <ListItemText primary="SNS" />
+            <ListItemText primary="対戦成績登録" />
           </ListItem>
         </a>
-        <a href={'/login'}>
+        <a href={'/game'}>
           <ListItem button>
-            <ListItemText primary="りこさの人はこちらからログイン" />
+            <ListItemText primary="荷物決めゲーム" />
           </ListItem>
         </a>
       </List>
@@ -97,7 +97,7 @@ class header extends Component {
           </div>
         </Drawer>
         <Typography variant="title" color="inherit" className={classes.grow}>
-          早稲田大学理工サッカー部サークルのホームページ
+          りこさ専用ページ
         </Typography>
           <Button color="inherit" onClick={this.props.onClick}>{this.props.menu}</Button>
       </Toolbar>
@@ -106,8 +106,8 @@ class header extends Component {
   }
 }
 
-header.propTypes = {
+rikosaHeader.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(header);
+export default withStyles(styles)(rikosaHeader);

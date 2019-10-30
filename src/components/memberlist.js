@@ -8,6 +8,7 @@ class MemberList extends Component{
     this.state = {
       pure: false,
       mane: false,
+      th: Number,
     }
     this.handleFetchData = this.handleFetchData.bind(this);
   }
@@ -40,18 +41,177 @@ class MemberList extends Component{
 
   render(){
     const { isFetching, playerArray, managersArray, peopleArray, managerArray } = this.props
-    console.log(this.props.peopleArray)
-    console.log(this.props.playerArray)
+    // console.log(this.props.peopleArray)
+    // console.log(this.props.playerArray)
     return(
       <div>
         <Header menu="メンバー一覧"/>
         <div>
-          {/*<button type='submit' onClick={this.handleFetchData}>fetch data</button>*/}
-          <h2>プレーヤー一覧</h2>
+          <h2>1年生</h2>
+            <h3>プレーヤー</h3>
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in playerArray){ 
+                  // console.log(playerArray[key].generation);
+                  if(playerArray[key].generation == (year-rikosa)){
+                  info.push(
+                    playerArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(player => (
+                    <li key={player._id}>
+                      {`${player.name} ${player.position} (${player.generation})`}
+                      <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+            <h3>マネージャー</h3>
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in managersArray){ 
+                  // console.log(playerArray[key].generation);
+                  if(managersArray[key].generation == (year-rikosa)){
+                  info.push(
+                    managersArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(manager => (
+                    <li key={manager._id}>
+                      {`${manager.name} (${manager.generation})`}
+                      <button　onClick={() => this.handleFetchManager(manager._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+    
+          <h2>2年生</h2>
+            <h3>プレーヤー</h3>            
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in playerArray){ 
+                  // console.log(playerArray[key].generation);
+                  if(playerArray[key].generation == (year-rikosa-1)){
+                  info.push(
+                    playerArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(player => (
+                    <li key={player._id}>
+                      {`${player.name} ${player.position} (${player.generation})`}
+                      <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+            <h3>マネージャー</h3>
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in managersArray){ 
+                  // console.log(playerArray[key].generation);
+                  if(managersArray[key].generation == (year-rikosa-1)){
+                  info.push(
+                    managersArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(manager => (
+                    <li key={manager._id}>
+                      {`${manager.name} (${manager.generation})`}
+                      <button　onClick={() => this.handleFetchManager(manager._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+
+          <h2>3年生</h2>
+            <h3>プレーヤー</h3>
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in playerArray){ 
+                  if(playerArray[key].generation == (year-rikosa-2)){
+                  info.push(
+                    playerArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(player => (
+                    <li key={player._id}>
+                      {`${player.name} ${player.position} (${player.generation})`}
+                      <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+            <h3>マネージャー</h3>
+            {
+              (() => {
+                var info = [];
+                var now   = new Date();
+                var year  = now.getFullYear();
+                var rikosa = 1959;
+                for(var key in managersArray){ 
+                  // console.log(playerArray[key].generation);
+                  if(managersArray[key].generation == (year-rikosa-2)){
+                  info.push(
+                    managersArray[key]
+                    )
+                  }
+                }
+                // console.log(info);
+                return <ul>
+                  {info.map(manager => (
+                    <li key={manager._id}>
+                      {`${manager.name} (${manager.generation})`}
+                      <button　onClick={() => this.handleFetchManager(manager._id)}>詳細を見る</button>
+                    </li>
+                  ))}
+                </ul>
+              })()
+            }
+          {/* <h2>プレーヤー一覧</h2>
           <ul>
             {playerArray.map(player => (
               <li key={player._id}>
-                {`${player.name} (${player.position})`}
+                {`${player.name} ${player.position} (${player.generation})`}
                 <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
               </li>
             ))}
@@ -60,11 +220,11 @@ class MemberList extends Component{
           <ul>
             {managersArray.map(manager => (
               <li key={manager._id}>
-                {`${manager.name} (${manager.uniform})`}
+                {`${manager.name} ${manager.uniform} (${manager.generation})`}
                 <button　onClick={() => this.handleFetchManager(manager._id)}>詳細を見る</button>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <h2>詳細はこちら↓</h2>
           {
             this.state.pure &&

@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Header from './Header';
+import RikosaHeader from './rikosaHeader';
+
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
@@ -31,7 +32,7 @@ class RikosaHome extends Component {
     const { classes, me } = this.props;
     return (
       <div>
-        <Header menu="ログアウト" onClick={this.props.logout}/>
+        <RikosaHeader menu="ログアウト" onClick={this.props.logout}/>
         <Paper className={classes.paper} elevation={1}>
           <Typography variant="headline" component="h3">
             <strong>{me.nickname}</strong>の皆さん、ようこそ！

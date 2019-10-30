@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import RikosaHeader from './rikosaHeader';
 
 class ResultForm extends Component {
 
@@ -55,7 +56,7 @@ class ResultForm extends Component {
     const {year,day,competition,us,you,stage,ourscore,yourscore,comment,result} = this.props
     return (
       <div>
-        <div><br /><a href={'/rikosahome'}>戻る</a></div>
+        <RikosaHeader menu="試合結果登録"/>
         <form onSubmit={() => this.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result)}>
           <ul>
           <li>

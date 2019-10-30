@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import RikosaHeader from './rikosaHeader';
 
 class PlayerForm extends Component {
 
@@ -52,7 +53,7 @@ class PlayerForm extends Component {
     const {name,position,uniform,from,belong,hobby,height,comment,generation} = this.props
     return (
       <div>
-        <div><br /><a href={'/rikosahome'}>戻る</a></div>
+        <RikosaHeader menu="プレーヤー登録"/>
         <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
           <ul>
           <li>

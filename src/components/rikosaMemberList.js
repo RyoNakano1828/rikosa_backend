@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import RikosaHeader from './rikosaHeader';
 
 class RikosaMemberList extends Component{
 
@@ -96,9 +97,9 @@ class RikosaMemberList extends Component{
     const {isFetching, playerArray, peopleArray, managersArray, managerArray} = this.props
     return (
     <div>
+      <RikosaHeader menu="メンバー編集・削除"/>
       {
         <div>
-          <div><br /><a href={'/rikosahome'}>戻る</a></div>
           <ul>
             {playerArray.map(player => (
               <li key={player._id}>  

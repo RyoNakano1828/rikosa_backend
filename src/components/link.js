@@ -7,10 +7,10 @@ export default class Home extends React.Component {
 
   render () {
     return (<div>
-      <Header menu="ようこそ"/>
+      <Header menu="SNS"/>
       <h1>早稲田大学理工サッカー部サークル</h1>
       <img src={logo} alt="Logo" />
-      <button><br /><a href={'/members'}>→メンバー紹介</a></button>
+      <div><br /><a href={'/members'}>→メンバー紹介</a></div>
       <div><br /><a href={'/result'}>→対戦成績🔥</a></div>
       <div><br /><a href={'/schedule'}>→日程スケジュール</a></div>
       <div><br /><a href={'/photo'}>→フォト📷</a></div>

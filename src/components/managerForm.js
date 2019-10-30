@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import RikosaHeader from './rikosaHeader';
 
 class ManagerForm extends Component {
 
@@ -34,7 +35,7 @@ class ManagerForm extends Component {
     const {name,uniform,univ,hobby,comment,generation} = this.props
     return (
       <div>
-        <div><br /><a href={'/rikosahome'}>戻る</a></div>
+        <RikosaHeader menu="マネージャー登録"/>
         <form onSubmit={() => this.postManager(name,uniform,univ,hobby,comment,generation)}>
           <ul>
           <li>
