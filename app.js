@@ -14,6 +14,44 @@ app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
+//画像登録用のやつ
+app.get('/upload', (req, res) => {
+  upload(req.query).then(url => {
+    res.json({url: url});
+  }).catch(e => {
+    console.log(e);
+  });
+});
+
+const aws = require('aws-sdk');
+const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+const AWS_S3_REGION = process.env.AWS_S3_REGION;
+
+aws.config.update({
+  accessKeyId: AWS_ACCESS_KEY,
+  secretAccessKey: AWS_SECRET_KEY,
+  region: AWS_S3_REGION,
+});
+
+function upload(file) {
+  const s3 = new aws.S3();
+  const params = {
+    Bucket: "rikosa2",
+    Key: file.filename,
+    Expires: 60,
+    ContentType: file.filetype
+  };
+
+  return new Promise((resolve, reject) => {
+    s3.getSignedUrl('putObject', params, (err, url) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(url);
+    });
+  });
+}
 
 
 //modelの読み込み
