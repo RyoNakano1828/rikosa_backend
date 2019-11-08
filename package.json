@@ -10,12 +10,14 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
+    "react-dropzone": "^3.3.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "aws-sdk": "^2.2.47"
   },
   "proxy": "http://localhost:4000/",
   "scripts": {

@@ -10,6 +10,7 @@ import MemberList from './containers/memberList'
 import Schedule from './components/schedule' 
 import Result from './containers/result'
 import Link from './components/link'
+import Photo from './components/photo'
 
 //ログイン用コンポーネント
 import { withStyles } from '@material-ui/core/styles'
@@ -64,6 +65,7 @@ class App extends Component {
             <Route path='/result' component={Result}/>
             <Route path='/schedule' component={Schedule}/>
             <Route path='/link' component={Link}/>
+            <Route path='/photo' component={Photo}/>
             <Route path="/login" exact={true} component={Login}/>
             <PrivateRoute path='/rikosahome' component={RikosaHome}/>
             <PrivateRoute path='/rikosamembers' component={RikosaMember}/>

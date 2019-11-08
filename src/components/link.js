@@ -3,7 +3,7 @@ import logo from '../logo.jpg'
 import Header from './Header';
 
 
-export default class Home extends React.Component {
+export default class Link extends React.Component {
 
   render () {
     return (<div>
