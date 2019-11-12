@@ -12,15 +12,43 @@ export default class Photo extends Component {
     this.handleOnDrop = this.handleOnDrop.bind(this);
   }
 
+//   componentWillMount(){
+//     return axios.get('/getimage', {
+        
+//       })
+//   }
+
+  componentWillMount(){
+      return axios.get('/getimage',{
+
+      }).then(keylist => {
+          console.log(keylist.data.keyList[2]);
+          for(let v of Object.keys(keylist.data.keyList)) {
+            var images = {};
+            console.log(keylist.data.keyList[v]);
+            images.name = keylist.data.keyList[v];
+            images.isUploading = true;
+            images.url = `https://rikosa2.s3.amazonaws.com/${keylist.data.keyList[v]}`
+            console.log(images);
+            this.setState({
+                isUploading: false,
+                images: this.state.images.concat(images)
+              });
+          }
+      }).catch(e => console.log(e));
+  }
+
   handleOnDrop(files) {
     this.setState({isUploading: true});
 
     Promise.all(files.map(file => this.uploadImage(file)))
       .then(images => {
+          console.log(images);
         this.setState({
           isUploading: false,
           images: this.state.images.concat(images)
         });
+        console.log(this.state.images);
       }).catch(e => console.log(e));
   }
 
@@ -39,6 +67,7 @@ export default class Photo extends Component {
       return axios.put(res.data.url, file, options);
     }).then(res => {
       const {name} = res.config.data;
+      console.log(file.name);
       return {
         name,
         isUploading: true,
