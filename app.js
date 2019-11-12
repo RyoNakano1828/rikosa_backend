@@ -15,14 +15,6 @@ app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
 //画像登録用のやつ
-app.get('/upload', (req, res) => {
-  upload(req.query).then(url => {
-    res.json({url: url});
-  }).catch(e => {
-    console.log(e);
-  });
-});
-
 const aws = require('aws-sdk');
 const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
 const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
@@ -32,6 +24,14 @@ aws.config.update({
   accessKeyId: AWS_ACCESS_KEY,
   secretAccessKey: AWS_SECRET_KEY,
   region: AWS_S3_REGION,
+});
+
+app.get('/upload', (req, res) => {
+  upload(req.query).then(url => {
+    res.json({url: url});
+  }).catch(e => {
+    console.log(e);
+  });
 });
 
 function upload(file) {
@@ -52,6 +52,50 @@ function upload(file) {
     });
   });
 }
+
+app.get('/getimage', (req, res) => {
+  getimage().then(keyList => {
+    res.json({keyList: keyList});
+  }).catch(e => {
+    console.log(e);
+  });
+});
+
+async function getimage(){
+  const s3 = new aws.S3();
+  // 全てのオブジェクトキーを走査してキーリストを作る
+  let keyList = [];
+  for (let continuationToken = null;;) {
+    // パラメータ作成
+    const params = {
+      Bucket: 'rikosa2',  // バケット名
+    };
+    if (continuationToken) {
+      // 読み込み開始位置 (ContinuationToken) がある場合はパラメータに追加
+      params.ContinuationToken = continuationToken;
+    }
+    
+    // オブジェクトのリストを取得
+    const res = await s3.listObjectsV2(params).promise();
+    
+    // オブジェクトキー (Key属性) だけ取り出してキーリストに追加
+    res.Contents.map(v => v.Key).forEach(v => {
+      keyList.push(v);
+    });
+    
+    // listObjectsV2 が一度に取得できるのは1000件まで
+    // リストが切り詰められている場合は IsTruncated がtrueになる
+    if (!res.IsTruncated) {
+      break;
+    }
+    
+    // 次の読み込み開始位置を保存
+    continuationToken = res.NextContinuationToken;
+  }
+  // console.log(keyList);
+  return keyList
+}
+  
 
 
 //modelの読み込み
