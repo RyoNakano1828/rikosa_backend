@@ -15,23 +15,23 @@ class PlayerForm extends Component {
     this.handleOnDrop = this.handleOnDrop.bind(this);
   }
 
-  componentWillMount(){
-    return axios.get('/getimage',{
+  // componentWillMount(){
+  //   return axios.get('/getimage',{
 
-    }).then(keylist => {
-        for(let v of Object.keys(keylist.data.keyList)) {
-          var images = {};
-          images.name = keylist.data.keyList[v];
-          images.isUploading = true;
-          images.url = `https://rikosa2.s3.amazonaws.com/${keylist.data.keyList[v]}`
-          console.log(images);
-          this.setState({
-              isUploading: false,
-              images: this.state.images.concat(images)
-            });
-        }
-    }).catch(e => console.log(e));
-  }
+  //   }).then(keylist => {
+  //       for(let v of Object.keys(keylist.data.keyList)) {
+  //         var images = {};
+  //         images.name = keylist.data.keyList[v];
+  //         images.isUploading = true;
+  //         images.url = `https://rikosa2.s3.amazonaws.com/${keylist.data.keyList[v]}`
+  //         console.log(images);
+  //         this.setState({
+  //             isUploading: false,
+  //             images: this.state.images.concat(images)
+  //           });
+  //       }
+  //   }).catch(e => console.log(e));
+  // }
 
   handleOnDrop(files) {
     this.setState({isUploading: true});
@@ -65,7 +65,7 @@ class PlayerForm extends Component {
       return {
         name,
         isUploading: true,
-        url: `https://rikosa2.s3.amazonaws.com/${file.name}`
+        url: `https://rikosa2.s3.amazonaws.com/${this.state.imagename}`
       };
     });
   }
@@ -143,6 +143,7 @@ class PlayerForm extends Component {
     return (
       <div>
         <RikosaHeader menu="プレーヤー登録"/>
+        <div style={{width: '90%', margin: '30px auto'}}>
         <form onSubmit={() => this.postPlayer(name,position,uniform,from,belong,hobby,height,comment,generation)}>
           <ul>
           <li>
@@ -184,8 +185,9 @@ class PlayerForm extends Component {
         </ul>
           <button type="submit">submit</button>
         </form>
-        <div style={{width: 760, margin: '30px auto'}}>
-          <h1>React S3 Image Uploader Sample</h1>
+        </div>
+        <div style={{width: '90%', margin: '30px auto'}}>
+          <h1>※名前を入力してから画像を入れてください</h1>
           <Dropzone
             onDrop={this.handleOnDrop}
             accept="image/*"

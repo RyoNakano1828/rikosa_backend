@@ -23,7 +23,7 @@ const styles = {
     marginRight: 20
   },
   layoutHeader: {
-    backgroundColor: 'red',
+    backgroundColor: 'skyblue',
     position: 'sticky',
     top: 0
   }

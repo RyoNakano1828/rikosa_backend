@@ -35,12 +35,10 @@ class RikosaHome extends Component {
         <RikosaHeader menu="ログアウト" onClick={this.props.logout}/>
         <Paper className={classes.paper} elevation={1}>
           <Typography variant="headline" component="h3">
-            <strong>{me.nickname}</strong>の皆さん、ようこそ！
+            <strong>{me.nickname}</strong>の皆さん、ようこそ！<br/>りこさ用登録ページ
           </Typography>
         </Paper>
-        <div>
-          <h1>りこさ用登録ページ</h1>
-          <img src={logo} alt="Logo" />
+        <div style={{width: '100%'}}>
           <div><br /><a href={'/playerform'}>→プレーヤー新規登録</a></div>
           <div><br /><a href={'/managerform'}>→マネージャー新規登録</a></div>
           <div><br /><a href={'/rikosamembers'}>→メンバー編集</a></div>
