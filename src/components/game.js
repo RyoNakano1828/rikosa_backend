@@ -12,12 +12,6 @@ export default class Photo extends Component {
     this.handleOnDrop = this.handleOnDrop.bind(this);
   }
 
-//   componentWillMount(){
-//     return axios.get('/getimage', {
-        
-//       })
-//   }
-
   componentWillMount(){
       return axios.get('/getimage',{
 

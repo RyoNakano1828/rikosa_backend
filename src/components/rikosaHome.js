@@ -43,7 +43,7 @@ class RikosaHome extends Component {
           <div><br /><a href={'/managerform'}>→マネージャー新規登録</a></div>
           <div><br /><a href={'/rikosamembers'}>→メンバー編集</a></div>
           <div><br /><a href={'/resultform'}>→対戦成績登録🔥</a></div>
-          <div><br /><a href={'/photoadd'}>→写真追加</a></div>
+          <div><br /><a href={'/game'}>→荷物決めゲーム</a></div>
         </div>
       </div>
     );

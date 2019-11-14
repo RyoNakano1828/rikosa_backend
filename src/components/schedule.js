@@ -7,7 +7,8 @@ const Schedule = () => (
   <div>
     <Header menu="活動内容"/>
     <BrowserRouter>
-      <div>
+      <div style={{display: 'flex', width: '100%'}}>
+        <div style={{width: 200}}>
         <ul>
         <li><Link to='/schedule'>Home</Link></li>
         <li><Link to='/schedule/1'>1月</Link></li>
@@ -23,7 +24,8 @@ const Schedule = () => (
         <li><Link to='/schedule/11'>11月</Link></li>
         <li><Link to='/schedule/12'>12月</Link></li>
         </ul>
-        <hr />
+        </div>
+        <div>
         <Route exact path='/schedule' component={Home} />
         <Route path='/schedule/1' component={About1} />
         <Route path='/schedule/2' component={About2} />
@@ -38,6 +40,7 @@ const Schedule = () => (
         <Route path='/schedule/11' component={About11} />
         <Route path='/schedule/12' component={About12} />
       </div>
+      </div>
     </BrowserRouter>
   </div>
 )
@@ -45,7 +48,6 @@ const Schedule = () => (
 const Home = () => (
   <div>
     <h1>サークル活動紹介ページ</h1>
-    <img src={logo} alt="Logo" />
   </div>
 )
 const About1 = () => (

@@ -52,11 +52,6 @@ class rikosaHeader extends Component {
             <ListItemText primary="りこさトップページ" />
           </ListItem>
         </a>
-        <a href={'/rikosamembers'}>
-          <ListItem button>
-            <ListItemText primary="メンバー編集・削除" />
-          </ListItem>
-        </a>
         <a href={'/playerform'}>
           <ListItem button>
             <ListItemText primary="プレ登録" />
@@ -65,6 +60,11 @@ class rikosaHeader extends Component {
         <a href={'/managerform'}>
           <ListItem button>
             <ListItemText primary="マネ登録" />
+          </ListItem>
+        </a>
+        <a href={'/rikosamembers'}>
+          <ListItem button>
+            <ListItemText primary="メンバー編集・削除" />
           </ListItem>
         </a>
         <a href={'/resultform'}>
