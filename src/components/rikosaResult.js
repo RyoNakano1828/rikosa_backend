@@ -39,7 +39,6 @@ class RikosaResult extends Component{
       <div>
         <RikosaHeader menu="対戦成績編集・削除"/>
         <div style={{display: 'flex'}}>
-          {/* <button type='submit' onClick={this.handleFetchData}>試合結果を取得</button>*/}
           <div style={{width: 500}}>
           <ul>
             {resultArray.map(result => (
