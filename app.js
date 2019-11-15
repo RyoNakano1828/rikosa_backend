@@ -342,6 +342,18 @@ app.post('/api/results', (request, response) => {
     })
   })
 
+  app.delete('/api/results', (request, response) => {
+    const { id } = request.body
+    Result.findByIdAndRemove(id, err => {
+      if (err) response.status(500).send()
+      else {
+        Result.find({}, (findErr, resultArray) => {
+          if (findErr) response.status(500).send()
+          else response.status(200).send(resultArray)
+        })
+      }
+    })
+  })
 
   app.get('/api/game', (request, response) => {
   const { id } = request.query
