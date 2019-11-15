@@ -39,6 +39,27 @@ export const fetchGame = id => {
   }
 }
 
+export const deleteGame = id => {
+  return dispatch => {
+    dispatch(requestData());
+    axios({
+      method: 'delete',
+      url: '/api/results',
+      data: {
+        id,
+      }
+    })
+    .then(response => {
+      const _resultArray = response.data
+      dispatch(receiveResultSuccess(_resultArray))
+    })
+    .catch(err => {
+      console.error(new Error(err))
+      dispatch(receiveDataFailed())
+    })
+  }
+}
+
 
 const requestData = () => ({
   type: resultConstants.REQUEST_DATA,

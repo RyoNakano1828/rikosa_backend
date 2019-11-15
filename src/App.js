@@ -23,6 +23,7 @@ import PlayerForm from './containers/playerForm'
 import ManagerForm from './containers/managerForm'
 import ResultForm from './containers/resultForm'
 import RikosaMember from './containers/rikosaMemberList'
+import RikosaResult from './containers/rikosaResult'
 import Game from './components/game'
 
 //import ManagerForm from './containers/managerForm';
@@ -71,6 +72,7 @@ class App extends Component {
             <PrivateRoute path='/playerform' component={PlayerForm}/>
             <PrivateRoute path='/managerform' component={ManagerForm}/>
             <PrivateRoute path='/resultform' component={ResultForm}/>
+            <PrivateRoute path='/rikosaresults' component={RikosaResult}/>
             <PrivateRoute path='/game' component={Game}/>
             <Route component={Home}/>
           </Switch>

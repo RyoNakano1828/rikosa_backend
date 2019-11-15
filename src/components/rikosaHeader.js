@@ -72,6 +72,11 @@ class rikosaHeader extends Component {
             <ListItemText primary="対戦成績登録" />
           </ListItem>
         </a>
+        <a href={'/rikosaresults'}>
+          <ListItem button>
+            <ListItemText primary="対戦成績編集・削除" />
+          </ListItem>
+        </a>
         <a href={'/game'}>
           <ListItem button>
             <ListItemText primary="荷物決めゲーム" />
