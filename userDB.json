@@ -10,5 +10,11 @@
     "name" : "riko",
     "nickname" : "りこさ",
     "password" : "Soccer"
+  },
+  {
+    "id": 3,
+    "name" : "ryo",
+    "nickname" : "りこさ",
+    "password" : "nakano"
   }
 ]

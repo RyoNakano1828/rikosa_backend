@@ -99,7 +99,7 @@ async function getimage(){
 
 
 //modelの読み込み
-var Player = require('./model/database')
+var Player = require('./model/player')
 var Manager = require('./model/manager')
 var Result = require('./model/result')
 //mongooseの読み込み 
@@ -145,7 +145,31 @@ server.listen(port,() => {
 });
 
 //プレーヤー用API
- app.post('/api/players', (request, response) => {
+ app.post('/api/players', [
+  check('name').isString(),
+  check('name').isLength({ min: 1,max: 10 }),
+  check('position').isString(),
+  check('position').isLength({ min: 1,max: 10 }),
+  check('uniform').isInt(),
+  check('uniform').isLength({ min: 1,max: 3 }),
+  check('from').isString(),
+  check('from').isLength({ min: 1,max: 10 }),
+  check('belong').isString(),
+  check('belong').isLength({ min: 1,max: 10 }),
+  check('hobby').isString(),
+  check('hobby').isLength({ max: 100 }),
+  check('comment').isString(),
+  check('comment').isLength({max: 1000 }),
+  check('height').isInt(),
+  check('height').isLength({ max: 3 }),
+  check('generation').isInt(),
+  check('generation').isLength({ min: 2,max: 3}),
+], (request, response) => {
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+        console.log(errors.array())
+        return response.status(422).send(errors);
+    }
     const { name, position,uniform,from,belong,hobby,height,comment,generation } = request.body
     new Player({
       name,
