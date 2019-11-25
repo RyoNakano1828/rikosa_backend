@@ -1,7 +1,31 @@
 import React, {Component} from 'react'
 import RikosaHeader from './rikosaHeader';
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+
+function Calendar(props) {
+  return (
+    <DatePicker
+      value={props.year}
+      // onChange={e => props.changeYear(e)}
+      onChange={(e) => {
+        props.changeYear(e)
+        props.changeDay(e)
+     }}
+      inline
+    />
+  );
+};
 
 class ResultForm extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+    }
+    this.changeYear = this.changeYear.bind(this)
+    this.changeDay = this.changeDay.bind(this)
+  }
 
   postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result){
     if(window.confirm('この内容で登録しますか？')){
@@ -13,11 +37,16 @@ class ResultForm extends Component {
   }
 
   changeYear(year){
-    this.props.changeYear(year);
+    var date = new Date(year)
+    console.log(date.getFullYear());
+    this.props.changeYear(date.getFullYear());
   }
 
   changeDay(day){
-    this.props.changeDay(day);
+    var date = new Date(day)
+    var month = date.getMonth()
+    var day = date.getDate()
+    this.props.changeDay(""+month+"/"+day);
   }
 
   changeCompetition(competition){
@@ -52,13 +81,60 @@ class ResultForm extends Component {
     this.props.changeResult(result);
   }
 
+  
+
   render(){
     const {year,day,competition,us,you,stage,ourscore,yourscore,comment,result} = this.props
+    var competitions = [
+      {  name: "新歓合宿" },
+      {  name: "スプリングカップ" },
+      {  name: "稲穂カップ"},
+      {  name: "学年合宿１年生"},
+      {  name: "学年合宿２年生"},
+      {  name: "夏の陣"}, 
+      {  name: "マガジン杯"} ,
+      {  name: "理工系リーグ"} ,
+      {  name: "理工系カップ"} ,
+      {  name: "新関東カップ"} ,
+      {  name: "新関東リーグ"} ,
+      {  name: "クリスマスカップ"} ,
+      {  name: "学内戦"} ,
+      {  name: "練習試合"} ,
+      {  name: "その他"} ,
+    ]
+    var options = competitions.map(
+      (n)=>(
+        <option value={n.name}>
+          {n.name}
+        </option>
+      )
+    );
+
+    var results = [
+      { name: "勝ち"},
+      { name: "負け"},
+      { name: "引き分け"},
+    ]
+    var options2 = results.map(
+      (n)=>(
+        <option value={n.name}>
+          {n.name}
+        </option>
+      )
+    );
+      
     return (
       <div>
         <RikosaHeader menu="試合結果登録"/>
+        
+        
         <form onSubmit={() => this.postResult(year,day,competition,us,you,stage,ourscore,yourscore,comment,result)}>
           <ul>
+            <Calendar
+              changeYear={this.changeYear}
+              changeDay={this.changeDay}
+              year={year}
+            />
           <li>
             年:
             <input value={year} onChange={e => this.changeYear(e.target.value)} />
@@ -70,7 +146,11 @@ class ResultForm extends Component {
           
           <li>
             大会名:
-            <input value={competition} onChange={e => this.changeCompetition(e.target.value)} />
+            <select
+              value={competition}
+              onChange={e => this.changeCompetition(e.target.value)}>
+              {options}
+            </select>
           </li>
           <li>
             Myチーム名:
@@ -94,11 +174,16 @@ class ResultForm extends Component {
           </li>
           <li>
             コメント:
-            <input value={comment} onChange={e => this.changeComment(e.target.value)} />
+            <textarea value={comment} onChange={e => this.changeComment(e.target.value)} />
           </li>
           <li>
-            勝・負け・引き分け:
+            会場:
             <input value={result} onChange={e => this.changeResult(e.target.value)} />
+            {/* <select
+              value={result}
+              onChange={e => this.changeResult(e.target.value)}>
+              {options2}
+            </select> */}
           </li>
         </ul>
           <button type="submit">submit</button>

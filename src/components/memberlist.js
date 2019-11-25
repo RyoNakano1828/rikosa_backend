@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Header from './Header';
 import axios from 'axios';
-import Dropzone from 'react-dropzone';
 
 function PlayerTable (props){
   var info = [];
@@ -9,14 +8,14 @@ function PlayerTable (props){
   var year  = now.getFullYear();
   var rikosa = 1959;
   for(var key in props.playerArray){ 
-    console.log(props.playerArray[key].generation);
+    // console.log(props.playerArray[key].generation);
     if(props.playerArray[key].generation == (year-rikosa-props.th)){
     info.push(
       props.playerArray[key]
       )
     }
   }
-  console.log(info);
+  // console.log(info);
   return( 
   <ul>
     {info.map(player => (
@@ -74,7 +73,6 @@ class MemberList extends Component{
   handleFetchData(e){
     this.props.fetchMember();
     this.props.fetchManagers();
-    console.log('クリック')
   }
 
   handleFetchPeople(id){
@@ -134,33 +132,19 @@ class MemberList extends Component{
    
 
   render(){
-    const { isFetching, playerArray, managersArray, peopleArray, managerArray } = this.props
-    const divStyle = {
-      width: 400,
-      height: 200,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderWidth: 2,
-      borderColor: '#666',
-      borderStyle: 'solid',
-      borderRadius: 5
-    };
+    const { playerArray, managersArray, peopleArray, managerArray } = this.props
+    // const divStyle = {
+    //   width: 400,
+    //   height: 200,
+    //   display: 'flex',
+    //   justifyContent: 'center',
+    //   alignItems: 'center',
+    //   borderWidth: 2,
+    //   borderColor: '#666',
+    //   borderStyle: 'solid',
+    //   borderRadius: 5
+    // };
 
-    const activeStyle = {
-      opacity: 0.5,
-      backgroundColor: '#eee'
-    };
-
-    const rejectStyle = {
-      backgroundColor: '#ffdddd'
-    };
-    const flexStyle = {
-      flex: 1,
-      flexDirection: 'row'
-    }
-    // console.log(this.props.peopleArray)
-    // console.log(this.props.playerArray)
     return(
       <div>
         <Header menu="メンバー一覧"/>
@@ -205,60 +189,43 @@ class MemberList extends Component{
                 handleFetchManager={this.handleFetchManager}
                 th={2}
               />
-            </div>
-          {/* <h2>プレーヤー一覧</h2>
-          <ul>
-            {playerArray.map(player => (
-              <li key={player._id}>
-                {`${player.name} ${player.position} (${player.generation})`}
-                <button　onClick={() => this.handleFetchPeople(player._id)}>詳細を見る</button>
-              </li>
-            ))}
-          </ul>
-          <h2>マネージャー一覧</h2>
-          <ul>
-            {managersArray.map(manager => (
-              <li key={manager._id}>
-                {`${manager.name} ${manager.uniform} (${manager.generation})`}
-                <button　onClick={() => this.handleFetchManager(manager._id)}>詳細を見る</button>
-              </li>
-            ))}
-          </ul> */}
-          <div style={{flex: 1}}>
+          </div>
           
-          {
-            this.state.pure &&
-          <div>
-            <h2>選手情報</h2>
-            <h2>{peopleArray.name}</h2>
-            <h3>{peopleArray.position}</h3>
-            <h3>{peopleArray.uniform}</h3>
-            <h3>{peopleArray.from}</h3>
-            <h3>{peopleArray.belong}</h3>
-            <h3>{peopleArray.hobby}</h3>
-            <h3>{peopleArray.comment}</h3>
-            <h3>{peopleArray.height}</h3>
-            <h3>{peopleArray.generation}</h3>
+          <div style={{flex: 1}}>
+            {
+              this.state.pure &&
+              <div>
+                <h2>選手情報</h2>
+                <h2>{peopleArray.name}</h2>
+                <h3>{peopleArray.position}</h3>
+                <h3>{peopleArray.uniform}</h3>
+                <h3>{peopleArray.from}</h3>
+                <h3>{peopleArray.belong}</h3>
+                <h3>{peopleArray.hobby}</h3>
+                <h3>{peopleArray.comment}</h3>
+                <h3>{peopleArray.height}</h3>
+                <h3>{peopleArray.generation}</h3>
+              </div>
+            }
+            {
+              this.state.mane &&
+              <div>
+                <h2>マネージャー情報</h2>
+                <h2>{managerArray.name}</h2>
+                <h3>{managerArray.uniform}</h3>
+                <h3>{managerArray.univ}</h3>
+                <h3>{managerArray.hobby}</h3>
+                <h3>{managerArray.comment}</h3>
+                <h3>{managerArray.generation}</h3>
+              </div>
+            }
+            {this.state.images.length > 0 &&
+              <div style={{margin: 30}}>
+                {this.state.images.map(({name, url}) =>
+                  <img key={name} src={url} style={{width: 200, height: 200}}/>)}
+              </div>
+            }
           </div>
-          }
-          {
-            this.state.mane &&
-          <div>
-            <h2>マネージャー情報</h2>
-            <h2>{managerArray.name}</h2>
-            <h3>{managerArray.uniform}</h3>
-            <h3>{managerArray.univ}</h3>
-            <h3>{managerArray.hobby}</h3>
-            <h3>{managerArray.comment}</h3>
-            <h3>{managerArray.generation}</h3>
-          </div>
-          }
-          {this.state.images.length > 0 &&
-            <div style={{margin: 30}}>
-              {this.state.images.map(({name, url}) =>
-                <img key={name} src={url} style={{width: 200, height: 200}}/>)}
-            </div>}
-        </div>
         </div>
       </div>
     )
