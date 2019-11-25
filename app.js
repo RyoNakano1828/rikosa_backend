@@ -153,9 +153,9 @@ server.listen(port,() => {
   check('uniform').isInt(),
   check('uniform').isLength({ min: 1,max: 3 }),
   check('from').isString(),
-  check('from').isLength({ min: 1,max: 10 }),
+  check('from').isLength({ min: 1,max: 100 }),
   check('belong').isString(),
-  check('belong').isLength({ min: 1,max: 10 }),
+  check('belong').isLength({ min: 1,max: 100 }),
   check('hobby').isString(),
   check('hobby').isLength({ max: 100 }),
   check('comment').isString(),
@@ -163,7 +163,7 @@ server.listen(port,() => {
   check('height').isInt(),
   check('height').isLength({ max: 3 }),
   check('generation').isInt(),
-  check('generation').isLength({ min: 2,max: 3}),
+  check('generation').isLength({ min: 1,max: 3}),
 ], (request, response) => {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
@@ -192,7 +192,26 @@ server.listen(port,() => {
     })
   })
 
-  app.get('/api/players', (request, response) => {
+  app.get('/api/players', [
+    check('name').isString(),
+    check('name').isLength({ min: 1,max: 10 }),
+    check('position').isString(),
+    check('position').isLength({ min: 1,max: 10 }),
+    check('uniform').isInt(),
+    check('uniform').isLength({ min: 1,max: 3 }),
+    check('from').isString(),
+    check('from').isLength({ min: 1,max: 100 }),
+    check('belong').isString(),
+    check('belong').isLength({ min: 1,max: 100 }),
+    check('hobby').isString(),
+    check('hobby').isLength({ max: 100 }),
+    check('comment').isString(),
+    check('comment').isLength({max: 1000 }),
+    check('height').isInt(),
+    check('height').isLength({ max: 3 }),
+    check('generation').isInt(),
+    check('generation').isLength({ min: 1,max: 3}),
+  ],  (request, response) => {
     Player.find({}, (err, playerArray) => {
       if (err) response.status(500).send()
       else response.status(200).send(playerArray)
@@ -255,7 +274,20 @@ server.listen(port,() => {
    })
 
 //マネージャー用API
-app.post('/api/managers', (request, response) => {
+app.post('/api/managers', [
+    check('name').isString(),
+    check('name').isLength({ min: 1,max: 10 }),
+    check('uniform').isInt(),
+    check('uniform').isLength({ min: 1,max: 3 }),
+    check('univ').isString(),
+    check('univ').isLength({ min: 1,max: 100 }),
+    check('hobby').isString(),
+    check('hobby').isLength({ min: 1,max: 100 }),
+    check('comment').isString(),
+    check('comment').isLength({ min: 1,max: 1000 }),
+    check('generation').isInt(),
+    check('generation').isLength({ min: 1,max: 3 }),
+  ],(request, response) => {
   const { name,uniform,univ,hobby,comment,generation } = request.body
   new Manager({
     name,
@@ -290,7 +322,20 @@ app.get('/api/manager', (request, response) => {
   })
 })
 
-app.put('/api/managers', (request, response) => {
+app.put('/api/managers',  [
+  check('name').isString(),
+  check('name').isLength({ min: 1,max: 10 }),
+  check('uniform').isInt(),
+  check('uniform').isLength({ min: 1,max: 3 }),
+  check('univ').isString(),
+  check('univ').isLength({ min: 1,max: 100 }),
+  check('hobby').isString(),
+  check('hobby').isLength({ min: 1,max: 100 }),
+  check('comment').isString(),
+  check('comment').isLength({ min: 1,max: 1000 }),
+  check('generation').isInt(),
+  check('generation').isLength({ min: 1,max: 3 }),
+],(request, response) => {
   console.log(request.body);
   // console.log(request.query);
   // const { id } = request.query
@@ -335,7 +380,28 @@ app.delete('/api/managers', (request, response) => {
  })
  
 //試合結果用API
-app.post('/api/results', (request, response) => {
+app.post('/api/results',  [
+  check('year').isInt(),
+  check('year').isLength({ min: 1,max: 4 }),
+  check('day').isString(),
+  check('day').isLength({ min: 1,max: 100 }),
+  check('competition').isString(),
+  check('competition').isLength({ min: 1,max: 100 }),
+  check('us').isString(),
+  check('us').isLength({ min: 1,max: 100 }),
+  check('you').isString(),
+  check('you').isLength({ min: 1,max: 100 }),
+  check('stage').isString(),
+  check('stage').isLength({ min: 1,max: 100 }),
+  check('ourscore').isInt(),
+  check('ourscore').isLength({ min: 1,max: 3 }),
+  check('yourscore').isInt(),
+  check('yourscore').isLength({ min: 1,max: 3 }),
+  check('comment').isString(),
+  check('comment').isLength({ min: 1,max: 1000 }),
+  check('result').isString(),
+  check('result').isLength({ min: 1,max: 100 }),
+],(request, response) => {
     const { year,day,competition,us,you,stage,ourscore,yourscore,comment,result } = request.body
     new Result({
       year,
