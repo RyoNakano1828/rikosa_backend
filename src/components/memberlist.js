@@ -61,7 +61,7 @@ class MemberList extends Component{
     this.state = {
       pure: false,
       mane: false,
-      th: Number,
+      th: 0,
       images: [],
       imagename: ""
     }
@@ -125,6 +125,12 @@ class MemberList extends Component{
     }).catch(e => console.log(e));
   }
 
+  fetchTH(th){
+    this.setState({
+      th: th,
+    })
+  }
+
   componentWillMount(){
     this.handleFetchData();
   }
@@ -133,61 +139,27 @@ class MemberList extends Component{
 
   render(){
     const { playerArray, managersArray, peopleArray, managerArray } = this.props
-    // const divStyle = {
-    //   width: 400,
-    //   height: 200,
-    //   display: 'flex',
-    //   justifyContent: 'center',
-    //   alignItems: 'center',
-    //   borderWidth: 2,
-    //   borderColor: '#666',
-    //   borderStyle: 'solid',
-    //   borderRadius: 5
-    // };
-
+    
     return(
       <div>
         <Header menu="メンバー一覧"/>
         <div style={{display: 'flex'}}>
           <div style={{width: 400}}>
-            <h2>1年生</h2>
+            <button onClick={() => this.fetchTH(0)}>1年</button>
+            <button onClick={() => this.fetchTH(1)}>2年</button>
+            <button onClick={() => this.fetchTH(2)}>3年</button>
+              <h2>{this.state.th+1}年生</h2>
               <h3>プレーヤー</h3>
               <PlayerTable
                 playerArray={playerArray}
                 handleFetchPeople={this.handleFetchPeople}
-                th={0}
+                th={this.state.th}
               />
               <h3>マネージャー</h3>
               <ManagerTable
                 managersArray={managersArray}
                 handleFetchManager={this.handleFetchManager}
-                th={0}
-              />
-            <h2>2年生</h2>
-            <h3>プレーヤー</h3>
-              <PlayerTable
-                playerArray={playerArray}
-                handleFetchPeople={this.handleFetchPeople}
-                th={1}
-              />
-              <h3>マネージャー</h3>
-              <ManagerTable
-                managersArray={managersArray}
-                handleFetchManager={this.handleFetchManager}
-                th={1}
-              />
-            <h2>3年生</h2>
-            <h3>プレーヤー</h3>
-              <PlayerTable
-                playerArray={playerArray}
-                handleFetchPeople={this.handleFetchPeople}
-                th={2}
-              />
-              <h3>マネージャー</h3>
-              <ManagerTable
-                managersArray={managersArray}
-                handleFetchManager={this.handleFetchManager}
-                th={2}
+                th={this.state.th}
               />
           </div>
           
