@@ -1,0 +1,131 @@
+// @import '../App.scss';
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgb(230, 163, 163);
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Page styling */
+
+h1 {
+  font-weight: 300;
+  font-size: 2.5em;
+}
+
+
+body {
+  // text-align: center;
+  background: rgb(218, 145, 145);
+  // padding: 1rem;
+}
+
+.button {
+  background: yellow;
+  display: inline-block;
+  padding: 2rem 4rem;
+  margin: 1rem;
+  text-decoration: none;
+  font: bold 1rem Sans-Serif;
+  color: black;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    width: 10px;
+    height: 10px;
+    background: #222;
+    border-radius: 50%;
+    transition: 0.5s;
+
+    // @mixin transition(0.7s);
+  }
+  span {
+    position: relative;
+  }
+  &:hover, &:focus {
+    color: white;
+    &:before {
+      width: 270px;
+      height: 270px;
+      opacity: 1;
+    }
+  }
+}
+.buttonx:nth-child(2) { 
+  background: #3498db;
+  &:before {
+    bottom: auto;
+    top: -40px;
+  }
+}
+.buttonx:nth-child(3) { 
+  background: #e74c3c;
+  &:before {
+    right: auto;
+    left: -40px;
+  }
+}
+.buttonx:nth-child(1) { 
+  background: #f1c40f;
+  &:before {
+    right: auto;
+    bottom: auto;
+    left: -40px;
+    top: -40px;
+  }
+}
+
+.loginButton { 
+  background: #9b59b6;
+}
+.button:nth-child(4) { 
+  background: #1abc9c;
+  &:before {
+    right: auto;
+    bottom: auto;
+    left: 90px;
+    top: -40px;
+  }
+  &:hover, &:focus {
+    &:before {
+      left: -50px;
+    }
+  }
+}
+
+.buttons {
+  padding: 10px;
+  text-align: center;
+}
+
+.buttonRight{
+  padding: 10px;
+  text-align: right;
+}

@@ -16,9 +16,11 @@
     "react-router-dom": "^5.0.1",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "3.0.1",
+    "react-slick": "^0.25.2",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
   },
   "proxy": "http://localhost:4000/",
   "scripts": {
@@ -41,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0"
   }
 }

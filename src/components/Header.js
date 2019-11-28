@@ -12,6 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
+import emblem from '../emblem.jpg';
 
 
 const styles = {
@@ -23,7 +24,7 @@ const styles = {
     marginRight: 20
   },
   layoutHeader: {
-    backgroundColor: 'red',
+    backgroundColor: '#990033',
     position: 'sticky',
     top: 0
   }
@@ -81,8 +82,8 @@ class header extends Component {
     </div>
   );
   return (
-    <AppBar position="static"　className={classes.layoutHeader}>
-      <Toolbar>
+    <AppBar position="static"　className={classes.layoutHeader} style={{width: '100%'}}>
+      <Toolbar style={{paddingLeft: 0, paddingRight: 0}}>
         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer('left', true)}>
           <MenuIcon />
         </IconButton>
@@ -97,9 +98,17 @@ class header extends Component {
           </div>
         </Drawer>
         <Typography variant="title" color="inherit" className={classes.grow}>
-          早稲田大学理工サッカー部サークルのホームページ
+          <div style={{display: 'flex'}}>
+            <div style={{width: '88%'}}>
+              <p>Waseda University Science and engineering Soccer club</p>
+              <p>OFFICIAL WEBSITE</p>
+            </div>
+            <div style={{width: 110, height: 112.5}}>
+              <img src={emblem} alt="Emblem" style={{width: '100%', height: '100%', margin: 'auto'}}/>  
+            </div>
+          </div>
         </Typography>
-          <Button color="inherit" onClick={this.props.onClick}>{this.props.menu}</Button>
+          {/* <Button color="inherit" onClick={this.props.onClick}>{this.props.menu}</Button> */}
       </Toolbar>
     </AppBar>
   );

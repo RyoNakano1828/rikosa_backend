@@ -8,13 +8,11 @@ export default class Link extends React.Component {
   render () {
     return (<div>
       <Header menu="SNS"/>
-      <h1>早稲田大学理工サッカー部サークル</h1>
-      <img src={logo} alt="Logo" />
-      <div><br /><a href={'/members'}>→メンバー紹介</a></div>
-      <div><br /><a href={'/result'}>→対戦成績🔥</a></div>
-      <div><br /><a href={'/schedule'}>→日程スケジュール</a></div>
-      <div><br /><a href={'/photo'}>→フォト📷</a></div>
-      <div><br /><a href={'/login'}>→りこさの人はこちら</a></div>
+      <h1>SNS</h1>
+      <div><br /><a href={'https://twitter.com/w_rikosoccer'}>Twitter</a></div>
+      <div><br /><a href={'/result'}>Instgram</a></div>
+      <div><br /><a href={'/schedule'}>スポーツマネジメントさん</a></div>
+      <div><br /><a href={'/photo'}>beyondさん</a></div>
     </div>)
   }
 }

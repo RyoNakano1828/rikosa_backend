@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
-
+import './App.scss'
 //ログイン前コンポーネント
 import Home from './components/home'
 import MemberList from './containers/memberList'
