@@ -35,15 +35,18 @@ class RikosaHome extends Component {
         <RikosaHeader menu="ログアウト" onClick={this.props.logout}/>
         <Paper className={classes.paper} elevation={1}>
           <Typography variant="headline" component="h3">
-            <strong>{me.nickname}</strong>の皆さん、ようこそ！<br/>りこさ用登録ページ
+            <strong>{me.nickname}</strong>の皆さん、ようこそ！
           </Typography>
         </Paper>
         <div style={{width: '100%'}}>
-          <div><br /><a href={'/playerform'}>→プレーヤー新規登録</a></div>
-          <div><br /><a href={'/managerform'}>→マネージャー新規登録</a></div>
-          <div><br /><a href={'/rikosamembers'}>→メンバー編集</a></div>
-          <div><br /><a href={'/resultform'}>→対戦成績登録🔥</a></div>
-          <div><br /><a href={'/game'}>→荷物決めゲーム</a></div>
+          <div className='buttons'>
+            <a href={'/playerform'} className='button buttonx'><span>👦プレーヤー新規登録</span></a>
+            <a href={'/managerform'} className='button buttonx'><span>👧マネージャー新規登録</span></a>
+            <a href={'/rikosamembers'} className='button buttonx'><span>👦メンバー編集・削除👧</span></a>
+            <a href={'/resultform'} className='button buttonx'><span>⚽試合結果登録</span></a>
+            <a href={'/rikosaresults'} className='button buttonx'><span>⚽試合結果削除</span></a>
+            <a href={'/game'} className='loginButton button'><span>⚽荷物決めゲーム🧴</span></a>
+          </div>
         </div>
       </div>
     );

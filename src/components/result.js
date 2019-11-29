@@ -135,7 +135,7 @@ function ResultCompetition (props){
       {info.map(result => (
         <li key={result._id}>
           {`${result.stage}(vs${result.you})`}
-          <button　onClick={() => props.handleFetchGame(result._id)}>詳細を見る</button>
+          <button　onClick={() => props.handleFetchGame(result._id)}>⚽詳細</button>
         </li>
       ))}
     </ul>
@@ -184,29 +184,51 @@ class Result extends Component{
       <div>
         <Header menu="対戦成績"/>
         <div style={{display: 'flex'}}>
-          <div style={{width: 500}}>
-            <button onClick={() => this.fetchYear(2019)}>2019年</button>
-            <button onClick={() => this.fetchYear(2020)}>2020年</button>
-            <h2>{this.state.year}年度結果</h2>
-            <ResultTable
-              resultArray={resultArray}
-              handleFetchGame={this.handleFetchGame}
-              displayyear={this.state.year}
-            />
+          <div style={{width: '50%'}}>
+            <div className='resultBack'>
+              <button onClick={() => this.fetchYear(2019)}>2019年</button>
+              <button onClick={() => this.fetchYear(2020)}>2020年</button>
+              <h2>＜{this.state.year}年度結果＞</h2>
+            </div>
+            <div style={{width: '100%',height: '400px',overflow: 'auto', marginTop: '110px',padding: 5}}>
+              <ResultTable
+                resultArray={resultArray}
+                handleFetchGame={this.handleFetchGame}
+                displayyear={this.state.year}
+              />
+            </div>
           </div>
-          <div style={{flex: 1, padding: '3%'}}>
-            <h1>試合結果</h1>
+          <div style={{left: '50%', padding: '1%', position:'fixed' ,width: '50%'}}>
             {
               this.state.flag &&
               <div>
-              <h2>{gameArray.us}vs{gameArray.you}</h2>
-              <h2>{gameArray.ourscore}-{gameArray.yourscore}</h2>
-              <h2>{gameArray.competition}</h2>
-              <h2>{gameArray.stage}</h2>
-              <h2>{gameArray.comment}</h2>
-              <h2>{gameArray.result}</h2>
-              <h2>{gameArray.year}</h2>
-              <h2>{gameArray.day}</h2>
+
+                <div style={{display: 'flex' ,padding: '5px', height:'40px'}}>
+                  <h2>★{gameArray.competition}</h2>
+                  <h2>（{gameArray.stage}）</h2>
+                </div>
+                <div style={{display: 'flex', textAlign: 'center',padding: '10px', height:'150px'}}>
+                  <div style={{width:'40%',border:'solid'}}>
+                    <h2 style={{height:'70px'}}>{gameArray.us}</h2>
+                    <h2>{gameArray.ourscore}</h2>
+                  </div>
+                  <div style={{width:'20%'}}>
+                    <h1>-</h1>
+                  </div>
+                  <div style={{width:'40%',border:'solid'}}>
+                    <h2 style={{height:'70px'}}>{gameArray.you}</h2>
+                    <h2>{gameArray.yourscore}</h2>
+                  </div>
+                </div>
+                <div style={{display:'flex', textAlign:'center',padding: 5}}>
+                  <div style={{width: '50%'}}>
+                    <h2>{gameArray.result}</h2>
+                    <h2>{gameArray.day}</h2>
+                  </div>
+                  <div style={{width:'50%'}}>
+                    <h2>{gameArray.comment}</h2>
+                  </div>
+                </div>
               </div>
             }
           </div>

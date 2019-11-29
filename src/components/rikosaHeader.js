@@ -23,8 +23,8 @@ const styles = {
     marginRight: 20
   },
   layoutHeader: {
-    backgroundColor: 'skyblue',
-    position: 'sticky',
+    backgroundColor: 'BLACK',
+    position: 'fixed',
     top: 0
   }
 }
@@ -102,7 +102,12 @@ class rikosaHeader extends Component {
           </div>
         </Drawer>
         <Typography variant="title" color="inherit" className={classes.grow}>
-          りこさ専用ページ
+          <div style={{display: 'flex'}}>
+            <div style={{width: '88%'}}>
+              <p>Waseda University Science and engineering Soccer club</p>
+              <p>OFFICIAL WEBSITE 管理者ページ</p>
+            </div>
+          </div>
         </Typography>
           <Button color="inherit" onClick={this.props.onClick}>{this.props.menu}</Button>
       </Toolbar>

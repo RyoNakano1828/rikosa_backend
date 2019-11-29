@@ -20,8 +20,8 @@ function PlayerTable (props){
   <ul>
     {info.map(player => (
       <li key={player._id}>
-        {`${player.name} ${player.position} (${player.generation})`}
-        <button　onClick={() => props.handleFetchPeople(player._id)}>詳細を見る</button>
+        {`${player.name}(${player.uniform})`}
+        <button　onClick={() => props.handleFetchPeople(player._id)}>👦詳細</button>
       </li>
     ))}
   </ul>
@@ -46,8 +46,8 @@ function ManagerTable(props){
   <ul>
     {info.map(manager => (
       <li key={manager._id}>
-        {`${manager.name} (${manager.generation})`}
-        <button　onClick={() => props.handleFetchManager(manager._id)}>詳細を見る</button>
+        {`${manager.name}(${manager.uniform})`}
+        <button　onClick={() => props.handleFetchManager(manager._id)}>👧詳細</button>
       </li>
     ))}
   </ul>
@@ -144,11 +144,14 @@ class MemberList extends Component{
       <div>
         <Header menu="メンバー一覧"/>
         <div style={{display: 'flex'}}>
-          <div style={{width: 400}}>
-            <button onClick={() => this.fetchTH(0)}>1年</button>
-            <button onClick={() => this.fetchTH(1)}>2年</button>
-            <button onClick={() => this.fetchTH(2)}>3年</button>
+          <div style={{width: '40%'}}>
+            <div className='memberBack'>
+              <button onClick={() => this.fetchTH(0)}>1年</button>
+              <button onClick={() => this.fetchTH(1)}>2年</button>
+              <button onClick={() => this.fetchTH(2)}>3年</button>
               <h2>{this.state.th+1}年生</h2>
+            </div>
+            <div style={{width: '100%',height: '400px',overflow: 'auto', marginTop: '110px',padding: 5}}>
               <h3>プレーヤー</h3>
               <PlayerTable
                 playerArray={playerArray}
@@ -161,40 +164,53 @@ class MemberList extends Component{
                 handleFetchManager={this.handleFetchManager}
                 th={this.state.th}
               />
+            </div>
           </div>
           
-          <div style={{flex: 1}}>
+          <div style={{left: '40%', padding: '1%', position:'fixed' ,width: '60%'}}>
             {
               this.state.pure &&
               <div>
-                <h2>選手情報</h2>
-                <h2>{peopleArray.name}</h2>
-                <h3>{peopleArray.position}</h3>
-                <h3>{peopleArray.uniform}</h3>
-                <h3>{peopleArray.from}</h3>
-                <h3>{peopleArray.belong}</h3>
-                <h3>{peopleArray.hobby}</h3>
+                <h1>{peopleArray.name}</h1>
+                <div style={{display: 'flex'}}>
+                  <div style={{width:'40%',margin: 3}}>
+                  {this.state.images.map(({name, url}) =>
+                    <img key={name} src={url} style={{width: 200, height: 210}}/>)}
+                  </div>
+                  <div style={{width:'60%',textAlign:'center'}}>
+                  <table border='1'>
+                    <tr><th>背番号</th><th>{peopleArray.uniform}</th></tr>
+                    <tr><th>ポジション</th><th>{peopleArray.position}</th></tr>
+                    <tr><th>身長</th><th>{peopleArray.height}</th></tr>
+                    <tr><th>出身校</th><th>{peopleArray.from}</th></tr>
+                    <tr><th>学部</th><th>{peopleArray.belong}</th></tr>
+                    <tr><th>趣味</th><th>{peopleArray.hobby}</th></tr>
+                  </table>
+                  </div>
+                </div>
+                <h3>＜コメント＞</h3>
                 <h3>{peopleArray.comment}</h3>
-                <h3>{peopleArray.height}</h3>
-                <h3>{peopleArray.generation}</h3>
               </div>
             }
             {
               this.state.mane &&
               <div>
-                <h2>マネージャー情報</h2>
-                <h2>{managerArray.name}</h2>
-                <h3>{managerArray.uniform}</h3>
-                <h3>{managerArray.univ}</h3>
-                <h3>{managerArray.hobby}</h3>
+                <h1>{managerArray.name}</h1>
+                <div style={{display: 'flex'}}>
+                  <div style={{width:'40%',margin: 3}}>
+                  {this.state.images.map(({name, url}) =>
+                    <img key={name} src={url} style={{width: 200, height: 210}}/>)}
+                  </div>
+                  <div style={{width:'60%',textAlign:'center'}}>
+                  <table border='1'>
+                    <tr><th>背番号</th><th>{managerArray.uniform}</th></tr>
+                    <tr><th>大学</th><th>{managerArray.univ}</th></tr>
+                    <tr><th>趣味</th><th>{managerArray.hobby}</th></tr>
+                  </table>
+                  </div>
+                </div>
+                <h3>＜コメント＞</h3>
                 <h3>{managerArray.comment}</h3>
-                <h3>{managerArray.generation}</h3>
-              </div>
-            }
-            {this.state.images.length > 0 &&
-              <div style={{margin: 30}}>
-                {this.state.images.map(({name, url}) =>
-                  <img key={name} src={url} style={{width: 200, height: 200}}/>)}
               </div>
             }
           </div>

@@ -13,6 +13,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import emblem from '../emblem.jpg';
+import '../App.scss';
 
 
 const styles = {
@@ -21,12 +22,14 @@ const styles = {
   },
   menuButton: {
     marginLeft: 12,
-    marginRight: 20
+    marginRight: 20,
+    // borderRadius: '50%',
+    // border: 'solid'
   },
   layoutHeader: {
     backgroundColor: '#990033',
-    position: 'sticky',
-    top: 0
+    position: 'fixed',
+    top: 0,
   }
 }
 

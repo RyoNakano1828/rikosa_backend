@@ -26,25 +26,6 @@ import RikosaMember from './containers/rikosaMemberList'
 import RikosaResult from './containers/rikosaResult'
 import Game from './components/game'
 
-//import ManagerForm from './containers/managerForm';
-
-
-//随時移行していく
-//import Member from './views/route/member'
-//import Player from './views/route/player'
-//import Manager from './views/route/manager'
-//import Result from './views/route/result'
-//import Schedule from './views/route/schedule'
-//import Photo from './views/route/photo'
-//import Link from './views/route/link'
-//import Login from './views/route/login'
-
-//import RikosaMember from './views/route/rikosaMember'
-//import PlayerForm from './views/route/playerForm'
-//import ManagerForm from './views/route/managerForm'
-//import ResultForm from './views/route/resultForm'
-//import ScheduleForm from './views/route/scheduleForm'
-//import PhotoAdd from './views/route/photoAdd'
 
 
 const styles = {
