@@ -108,7 +108,8 @@ var Result = require('./model/result')
 var mongoose = require('mongoose');
 
 // MongoDBに接続
-var mURI = 'mongodb://localhost/rikosa';
+// var mURI = 'mongodb://localhost/rikosa';
+var mURI = 'mongodb://heroku_6sh4x1k4:k5e5fhlbv1p0q13r1r0dn0bmvh@ds251618.mlab.com:51618/heroku_6sh4x1k4';
 mongoose.connect(mURI);
 
 // 接続イベントを利用してログ出力
