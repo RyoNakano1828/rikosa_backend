@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 //認証用のやつ
 var jwt = require('jsonwebtoken');
@@ -10,6 +11,7 @@ var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/VerifyToken');
 
+app.use(express.static(path.join(__dirname, '../rikosa_frontend/build')))
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
