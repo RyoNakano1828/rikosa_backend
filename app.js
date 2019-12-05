@@ -11,7 +11,7 @@ var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/verifyToken');
 
-app.use(express.static(path.join(__dirname, '../rikosa_frontend/build')))
+app.use(express.static(path.join(__dirname, './app/middlewares/build')))
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
