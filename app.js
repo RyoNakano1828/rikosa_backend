@@ -110,7 +110,12 @@ var mongoose = require('mongoose');
 // MongoDBに接続
 // var mURI = 'mongodb://localhost/rikosa';
 var mURI = 'mongodb://heroku_6sh4x1k4:k5e5fhlbv1p0q13r1r0dn0bmvh@ds251618.mlab.com:51618/heroku_6sh4x1k4';
-mongoose.connect(mURI);
+var settings = {
+  reconnectTries : Number.MAX_VALUE,
+  autoReconnect : true,
+  useNewUrlParser: true
+};
+mongoose.connect(mURI,settings);
 
 // 接続イベントを利用してログ出力
 mongoose.connection.on('connected', function () {
