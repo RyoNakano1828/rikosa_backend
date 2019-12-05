@@ -9,7 +9,7 @@ var jwt = require('jsonwebtoken');
 var morgan = require('morgan');
 var cors = require('cors');
 var config = require('./config');
-var VerifyToken = require('./app/middlewares/VerifyToken');
+var VerifyToken = require('./app/middlewares/verifyToken');
 
 app.use(express.static(path.join(__dirname, '../rikosa_frontend/build')))
 app.use(morgan('dev'));
