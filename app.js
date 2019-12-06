@@ -11,14 +11,15 @@ var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/verifyToken');
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'middlewares','build')));
+  app.use(express.static(path.join(__dirname, './app/middlewares/build')));
 }
+app.use(express.static(path.join(__dirname, './app/middlewares/build')));
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'middlewares','build','index.html'));
+	response.sendFile(path.join(__dirname,'app', 'middlewares','build'));
 });
 
 //画像登録用のやつ
