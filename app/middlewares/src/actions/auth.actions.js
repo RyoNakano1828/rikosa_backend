@@ -27,6 +27,7 @@ export const logoutAndRedirect = () => {
     userService.logout();
     dispatch(logout());
     dispatch(push('/'));
+    window.location.reload();
   }
 }
 
