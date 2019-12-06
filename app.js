@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
-app.get('/', (request, response) => {
+app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'middlewares','build'));
 });
 
