@@ -1,6 +1,7 @@
 import { authHeader } from '../helpers';
 
-const apiHost = 'http://localhost:4000/api';
+// const apiHost = 'http://localhost:4000/api';
+const apiHost = 'https://shielded-depths-39228.herokuapp.com/api';
 
 export const userService = {
     login,
