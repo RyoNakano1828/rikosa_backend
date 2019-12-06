@@ -18,7 +18,7 @@ app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'middlewares','build'));
+	response.sendFile(path.join(__dirname, 'middlewares','build','index.html'));
 });
 
 //画像登録用のやつ
