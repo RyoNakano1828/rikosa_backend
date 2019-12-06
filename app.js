@@ -11,58 +11,6 @@ var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/verifyToken');
 
-//認証用API
-var apiRoutes = express.Router();
-app.use('/api', apiRoutes);
-
-apiRoutes.get('/healthcheck', function(req, res){
-  res.send('hello world!');
-});
-
-apiRoutes.post('/authenticate', [
-  check('name').isLength({min: 1}),
-  check('password').isLength({ min: 5 })
-], function(req, res) {
-
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
-  const users = require('./userDB');
-  const result = users.filter(user => user.name == req.body.name);
-  if(result[0] == undefined) {
-    return res.status(404).send('指定された名前のユーザは存在しません。');
-  }
-  const user = result[0];
-  if(user.password != req.body.password) {
-    return res.status(403).send('名前またはパスワードが違います。');
-  } else {
-    const payload = {
-      name: user.name,
-      nickname: user.nickname
-    }
-    var token = jwt.sign(payload, config.secret);
-    res.json({
-      token: token
-    });
-  }
-});
-
-apiRoutes.get('/me', VerifyToken, function(req, res, next) {
-  const users = require('./userDB');
-  const user = users.filter(user => user.name == req.decoded.name);
-
-  if (user[0] == undefined) return res.status(404).send("ユーザが見つかりません。");
-  const u = user[0];
-  const payload = {
-    id: u.id,
-    name: u.name,
-    nickname: u.nickname
-  }
-  res.status(200).send(payload);
-});
-//ここまで認証用
-
 //画像登録用のやつ
 const aws = require('aws-sdk');
 const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
@@ -115,6 +63,9 @@ function normalizePort(val) {
   return false;
 }
 
+var apiRoutes = express.Router();
+app.use('/api', apiRoutes);
+
 //４、port番号の宣言、appへのport番号のセット
 var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
@@ -137,9 +88,56 @@ app.get('*', (request, response) => {
 });
 
 
+//認証用API
 
 
+apiRoutes.get('/healthcheck', function(req, res){
+  res.send('hello world!');
+});
 
+apiRoutes.post('/authenticate', [
+  check('name').isLength({min: 1}),
+  check('password').isLength({ min: 5 })
+], function(req, res) {
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  const users = require('./userDB');
+  const result = users.filter(user => user.name == req.body.name);
+  if(result[0] == undefined) {
+    return res.status(404).send('指定された名前のユーザは存在しません。');
+  }
+  const user = result[0];
+  if(user.password != req.body.password) {
+    return res.status(403).send('名前またはパスワードが違います。');
+  } else {
+    const payload = {
+      name: user.name,
+      nickname: user.nickname
+    }
+    var token = jwt.sign(payload, config.secret);
+    res.json({
+      token: token
+    });
+  }
+});
+
+apiRoutes.get('/me', VerifyToken, function(req, res, next) {
+  const users = require('./userDB');
+  const user = users.filter(user => user.name == req.decoded.name);
+
+  if (user[0] == undefined) return res.status(404).send("ユーザが見つかりません。");
+  const u = user[0];
+  const payload = {
+    id: u.id,
+    name: u.name,
+    nickname: u.nickname
+  }
+  res.status(200).send(payload);
+});
+//ここまで認証用
 
 //画像用S３API
 aws.config.update({
