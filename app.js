@@ -10,8 +10,9 @@ var morgan = require('morgan');
 var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/verifyToken');
-
-app.use(express.static(path.join(__dirname, 'app/middlewares/build')))
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'app/middlewares/build')));
+}
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
