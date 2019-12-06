@@ -80,9 +80,9 @@ app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
-// app.get('*', (request, response) => {
-// 	response.sendFile(path.join(__dirname,'app', 'middlewares','build'));
-// });
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname,'./app/middlewares/build'));
+});
 
 
 
@@ -104,7 +104,6 @@ apiRoutes.post('/authenticate', [
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-
   const users = require('./userDB');
   const result = users.filter(user => user.name == req.body.name);
   if(result[0] == undefined) {
@@ -267,7 +266,22 @@ async function getimage(){
     })
   })
 
-  app.get('/api/players', [
+  app.get('/api/players',(request, response) => {
+    Player.find({}, (err, playerArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(playerArray)
+    })
+  })
+
+  app.get('/api/people', (request, response) => {
+    const { id } = request.query
+    Player.findById(id, (err, peopleArray) => {
+      if (err) response.status(500).send()
+      else response.status(200).send(peopleArray)
+    })
+  })
+
+  app.put('/api/players', [
     check('name').isString(),
     check('name').isLength({ min: 1,max: 10 }),
     check('position').isString(),
@@ -286,22 +300,7 @@ async function getimage(){
     check('height').isLength({ max: 3 }),
     check('generation').isInt(),
     check('generation').isLength({ min: 1,max: 3}),
-  ],  (request, response) => {
-    Player.find({}, (err, playerArray) => {
-      if (err) response.status(500).send()
-      else response.status(200).send(playerArray)
-    })
-  })
-
-  app.get('/api/people', (request, response) => {
-    const { id } = request.query
-    Player.findById(id, (err, peopleArray) => {
-      if (err) response.status(500).send()
-      else response.status(200).send(peopleArray)
-    })
-  })
-
-  app.put('/api/players', (request, response) => {
+   ],(request, response) => {
     console.log(request.body);
     // console.log(request.query);
     // const { id } = request.query
