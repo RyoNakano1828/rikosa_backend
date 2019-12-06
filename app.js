@@ -11,10 +11,14 @@ var cors = require('cors');
 var config = require('./config');
 var VerifyToken = require('./app/middlewares/verifyToken');
 
-app.use('/home',express.static(path.join(__dirname, 'app/middlewares/build')))
+app.use(express.static(path.join(__dirname, 'app/middlewares/build')))
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'app/middlewares/build', 'index.html'));
+});
 
 //画像登録用のやつ
 const aws = require('aws-sdk');
