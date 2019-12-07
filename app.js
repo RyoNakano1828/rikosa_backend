@@ -63,8 +63,6 @@ function normalizePort(val) {
   return false;
 }
 
-var apiRoutes = express.Router();
-app.use('/api', apiRoutes);
 
 //４、port番号の宣言、appへのport番号のセット
 var port = normalizePort(process.env.PORT || '4000');
@@ -89,7 +87,8 @@ app.get('*', (request, response) => {
 
 
 //認証用API
-
+var apiRoutes = express.Router();
+app.use('/api', apiRoutes);
 
 apiRoutes.get('/healthcheck', function(req, res){
   res.send('hello world!');
