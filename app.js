@@ -63,15 +63,6 @@ function normalizePort(val) {
   return false;
 }
 
-
-//４、port番号の宣言、appへのport番号のセット
-var port = normalizePort(process.env.PORT || '4000');
-app.set('port', port);
-var server = http.createServer(app);
-server.listen(port,() => {
-  console.log('起動しました','http://localhost:',port)
-});
-
 //画面表示
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, './app/middlewares/build')));
@@ -84,6 +75,17 @@ const { check, validationResult } = require('express-validator/check');
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname,'./app/middlewares/build'));
 });
+
+
+//４、port番号の宣言、appへのport番号のセット
+var port = normalizePort(process.env.PORT || '4000');
+app.set('port', port);
+var server = http.createServer(app);
+server.listen(port,() => {
+  console.log('起動しました','http://localhost:',port)
+});
+
+
 
 
 //認証用API
