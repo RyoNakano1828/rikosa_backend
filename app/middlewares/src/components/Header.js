@@ -56,7 +56,7 @@ class header extends Component {
             <ListItemText primary="トップページ" />
           </ListItem>
         </a>
-        <a href={'/members'}>
+        <a href={'https://shielded-depths-39228.herokuapp.com/members'}>
           <ListItem button>
             <ListItemText primary="メンバー一覧" />
           </ListItem>
