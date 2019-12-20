@@ -56,7 +56,7 @@ export default class Home extends React.Component {
         <a href={'/members'} className='button buttonx'><span>Members</span></a>
         <a href={'/result'} className='button buttonx'><span>Game Results</span></a>
         <a href={'/schedule'} className='button buttonx'><span>Events</span></a>
-        <a href={'/SNS'} className='button buttonx'><span>SNS</span></a>
+        <a href={'/link'} className='button buttonx'><span>SNS</span></a>
       </div>
       <div className='buttonRight'>
         <a href={'/login'} className='loginButton button'><span>りこさの人はこちら</span></a>
