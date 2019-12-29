@@ -10,9 +10,9 @@ export default class Link extends React.Component {
       <Header menu="SNS"/>
       <h1>SNS</h1>
       <div><br /><a href={'https://twitter.com/w_rikosoccer'}>Twitter</a></div>
-      <div><br /><a href={'/result'}>Instgram</a></div>
-      <div><br /><a href={'/schedule'}>スポーツマネジメントさん</a></div>
-      <div><br /><a href={'/photo'}>beyondさん</a></div>
+      <div><br /><a href={'/https://www.instagram.com/wrs__2020/'}>Instgram</a></div>
+      <div><br /><a href={'/https://spo-mane-football.com/category2'}>スポーツマネジメントさん</a></div>
+      <div><br /><a href={'/http://be4do.com/'}>beyondさん</a></div>
     </div>)
   }
 }

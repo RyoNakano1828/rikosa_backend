@@ -10,6 +10,7 @@ import './App.scss'
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { unregister } from './registerServiceWorker';
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
@@ -22,7 +23,6 @@ import logger from 'redux-logger';
 
 const history = createBrowserHistory();
 
-//const store = configureStore();
 export const store = createStore(
   combineReducers({
     ...reducers,
@@ -49,13 +49,14 @@ const RikosaApp = () => (
 
 
 // DOMにメインコンポーネントを書き込む
-//const render = () => {
   ReactDOM.render(
     <RikosaApp store={store}/>,
   document.getElementById('root'))
 
-  registerServiceWorker();
-//}
+  //PWAを止めてみる
+  // registerServiceWorker();
+  unregister();
+
 /*
 store.subscribe(() => {
   render()

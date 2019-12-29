@@ -9,6 +9,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"新歓合宿"}
       />
@@ -16,6 +17,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"稲穂カップ"}
       />
@@ -23,6 +25,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"スプリングカップ"}
       />
@@ -30,6 +33,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"学年合宿１年生"}
       />
@@ -37,6 +41,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"学年合宿２年生"}
       />
@@ -44,6 +49,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"夏の陣"}
       />
@@ -51,6 +57,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"マガジン杯"}
       />
@@ -58,6 +65,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"理工系リーグ"}
       />
@@ -65,6 +73,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"理工系カップ"}
       />
@@ -72,6 +81,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"新関東カップ"}
       />
@@ -79,6 +89,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"新関東リーグ"}
       />
@@ -86,6 +97,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"クリスマスカップ"}
       />
@@ -93,6 +105,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"学内戦"}
       />
@@ -100,6 +113,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"練習試合"}
       />
@@ -107,6 +121,7 @@ function ResultTable (props) {
       <ResultCompetition
         resultArray={props.resultArray}
         handleFetchGame={props.handleFetchGame}
+        handleDeleteGame={props.handleDeleteGame}
         year={year}
         comp={"その他"}
       />
@@ -136,7 +151,7 @@ function ResultCompetition (props){
         <li key={result._id}>
           {`${result.stage}(vs${result.you})`}
           <button　onClick={() => props.handleFetchGame(result._id)}>⚽詳細</button>
-          <button onClick={() => this.handleDeleteGame(result._id)}>delete</button>
+          <button onClick={() => props.handleDeleteGame(result._id)}>delete</button>
         </li>
       ))}
     </ul>
@@ -205,6 +220,7 @@ class RikosaResult extends Component{
               <ResultTable
                 resultArray={resultArray}
                 handleFetchGame={this.handleFetchGame}
+                handleDeleteGame={this.handleDeleteGame}
                 displayyear={this.state.year}
               />
             </div>
