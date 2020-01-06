@@ -64,20 +64,18 @@ function normalizePort(val) {
 }
 
 //画面表示
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, './app/middlewares/build/static/js/*.js')));
-}
-app.use(express.static(path.join(__dirname, './app/middlewares/build/static/js/*.js')));
+app.use(express.static(path.join(__dirname, './app/middlewares/build')));
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
 
-app.get('/*', (request, response) => {
-	response.sendFile(path.join(__dirname,'./app/middlewares/build/static/js/*.js'));
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, './app/middlewares/build', 'index.html'));
 });
 
+//４、port番号の宣言、
 
-//４、port番号の宣言、appへのport番号のセット
+// appへのport番号のセット
 var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 var server = http.createServer(app);
