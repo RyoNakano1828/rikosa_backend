@@ -64,14 +64,11 @@ function normalizePort(val) {
 }
 
 //画面表示
-app.use(express.static(path.join(__dirname, './app/middlewares/build')));
 app.use(morgan('dev'));
 app.use(cors());
 const { check, validationResult } = require('express-validator/check');
+app.use(express.static(path.join(__dirname, './app/middlewares/build')));
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, './app/middlewares/build', 'index.html'));
-});
 
 //４、port番号の宣言、
 
@@ -551,3 +548,7 @@ app.post('/api/results',  [
        }
      })
    })
+
+   app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, './app/middlewares/build', 'index.html'));
+  });
