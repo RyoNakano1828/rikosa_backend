@@ -127,11 +127,11 @@ function ResultCompetition (props){
     }
   }
   if(info.length == 0){
-    var comment = "試合結果はありません"
+    var comment = "※試合結果はありません"
   }
   return(
     <ul>
-      <p>{comment}</p>
+      <p className='commentSize'>{comment}</p>
       {info.map(result => (
         <li key={result._id}>
           {`${result.stage}(vs${result.you})`}
@@ -184,13 +184,13 @@ class Result extends Component{
       <div>
         <Header menu="対戦成績"/>
         <div style={{display: 'flex'}}>
-          <div style={{width: '50%'}}>
+          <div className='resultMenu'>
             <div className='resultBack'>
               <button onClick={() => this.fetchYear(2019)}>2019年</button>
               <button onClick={() => this.fetchYear(2020)}>2020年</button>
-              <h2>＜{this.state.year}年度結果＞</h2>
+              <h2 className='titleSize'>＜{this.state.year}年度結果＞</h2>
             </div>
-            <div style={{width: '100%',height: '400px',overflow: 'auto', marginTop: '110px',padding: 5}}>
+            <div>
               <ResultTable
                 resultArray={resultArray}
                 handleFetchGame={this.handleFetchGame}
@@ -198,35 +198,34 @@ class Result extends Component{
               />
             </div>
           </div>
-          <div style={{left: '50%', padding: '1%', position:'fixed' ,width: '50%'}}>
+          <div className='resultInfo'>
             {
               this.state.flag &&
               <div>
 
-                <div style={{display: 'flex' ,padding: '5px', height:'40px'}}>
-                  <h2>★{gameArray.competition}</h2>
-                  <h2>（{gameArray.stage}）</h2>
+                <div className='resultDetail'>
+                  <h2 className='titleSize'>★{gameArray.competition}</h2>
+                  <h2 className='titleSize'>（{gameArray.stage}）</h2>
                 </div>
                 <div style={{display: 'flex', textAlign: 'center',padding: '10px', height:'150px'}}>
                   <div style={{width:'40%',border:'solid'}}>
-                    <h2 style={{height:'70px'}}>{gameArray.us}</h2>
-                    <h2>{gameArray.ourscore}</h2>
+                    <h2 className='titleSize2' style={{height:'70px'}}>{gameArray.us}</h2>
+                    <h2 className='titleSize'>{gameArray.ourscore}</h2>
                   </div>
                   <div style={{width:'20%'}}>
                     <h1>-</h1>
                   </div>
                   <div style={{width:'40%',border:'solid'}}>
-                    <h2 style={{height:'70px'}}>{gameArray.you}</h2>
-                    <h2>{gameArray.yourscore}</h2>
+                    <h2 className='titleSize2' style={{height:'70px'}}>{gameArray.you}</h2>
+                    <h2 className='titleSize'>{gameArray.yourscore}</h2>
                   </div>
                 </div>
-                <div style={{display:'flex', textAlign:'center',padding: 5}}>
-                  <div style={{width: '50%'}}>
-                    <h2>{gameArray.result}</h2>
-                    <h2>{gameArray.day}</h2>
-                  </div>
-                  <div style={{width:'50%'}}>
-                    <h2>{gameArray.comment}</h2>
+                <div style={{textAlign:'left',padding: 5}}>
+                  <div style={{width: '100%'}}>
+                    <h2 className='titleSize'>日付：{gameArray.day}</h2>
+                    <h2 className='titleSize'>会場：{gameArray.result}</h2>
+                    <h3 className='titleSize'>＜コメント＞</h3>
+                    <h2 className='titleSize'>{gameArray.comment}</h2>
                   </div>
                 </div>
               </div>

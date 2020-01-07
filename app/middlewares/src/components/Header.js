@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import emblem from '../emblem.jpg';
@@ -103,8 +101,10 @@ class header extends Component {
         <Typography variant="title" color="inherit" className={classes.grow}>
           <div style={{display: 'flex'}}>
             <div style={{width: '88%'}}>
-              <p>Waseda University Science and engineering Soccer club</p>
-              <p>OFFICIAL WEBSITE</p>
+              <p className='hedaerFont'>Waseda University</p>
+              <p className='hedaerFont'>Science and engineering</p>
+              <p className='hedaerFont'>Soccer club</p>
+              <p className='hedaerFont'>OFFICIAL WEBSITE</p>
             </div>
             <div style={{width: 110, height: 112.5}}>
               <img src={emblem} alt="Emblem" style={{width: '100%', height: '100%', margin: 'auto'}}/>  

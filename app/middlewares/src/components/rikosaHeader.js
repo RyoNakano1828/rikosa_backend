@@ -104,8 +104,10 @@ class rikosaHeader extends Component {
         <Typography variant="title" color="inherit" className={classes.grow}>
           <div style={{display: 'flex'}}>
             <div style={{width: '88%'}}>
-              <p>Waseda University Science and engineering Soccer club</p>
-              <p>OFFICIAL WEBSITE 管理者ページ</p>
+              <p className='hedaerFont'>Waseda University</p>
+              <p className='hedaerFont2'>Science and engineering Soccer club</p>
+              <p className='hedaerFont'>OFFICIAL WEBSITE</p>
+              <p className='hedaerFont'>管理者ページ</p>
             </div>
           </div>
         </Typography>

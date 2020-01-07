@@ -1,28 +1,74 @@
 import React, { Component } from 'react'
 import Header from './Header';
-import logo from '../logo.jpg'
+import unndou from '../unndou.jpg'
+import sige from '../sige.jpg'
+import ryogo from '../ryogo.jpg'
+import tamu from '../tamu.jpg'
+import disney from '../disney.jpg'
+import kiss from '../kiss.jpg'
+import Slider from "react-slick";
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+function SimpleSlider (props) {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      accessibility: true,
+      autoplay: true,
+      draggable: true,
+      centerModel: true,
+    };
+    return (
+      <Slider {...settings}>
+        <div>
+          <img src={unndou} alt="Logo" style={{width: '95%', margin: 'auto'}}/>
+        </div>
+        <div>
+          <img src={sige} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+        <div>
+          <img src={tamu} alt="Kubo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+        <div>
+          <img src={ryogo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+        <div>
+          <img src={disney} alt="Logo" style={{width: '95%',margin: 'auto'}}/>
+        </div>
+        <div>
+         <img src={kiss} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+      </Slider>
+    );
+  }
 const Schedule = () => (
   <div>
     <Header menu="活動内容"/>
+    <h1>活動紹介</h1>
+    <SimpleSlider/>
     <BrowserRouter>
-      <div style={{display: 'flex', width: '100%'}}>
+      <div style={{display: 'flex', width: '100%', paddingTop: '20px'}}>
         <div style={{width: 200}}>
         <ul>
-        <li><Link to='/schedule'>Home</Link></li>
-        <li><Link to='/schedule/1'>1月</Link></li>
-        <li><Link to='/schedule/2'>2月</Link></li>
-        <li><Link to='/schedule/3'>3月</Link></li>
-        <li><Link to='/schedule/4'>4月</Link></li>
-        <li><Link to='/schedule/5'>5月</Link></li>
-        <li><Link to='/schedule/6'>6月</Link></li>
-        <li><Link to='/schedule/7'>7月</Link></li>
-        <li><Link to='/schedule/8'>8月</Link></li>
-        <li><Link to='/schedule/9'>9月</Link></li>
-        <li><Link to='/schedule/10'>10月</Link></li>
-        <li><Link to='/schedule/11'>11月</Link></li>
-        <li><Link to='/schedule/12'>12月</Link></li>
+        <li><Link to='/schedule'>運動会</Link></li>
+        <li><Link to='/schedule/1'>バーベキュー</Link></li>
+        <li><Link to='/schedule/2'>新歓</Link></li>
+        <li><Link to='/schedule/3'>りこさんぽ</Link></li>
+        <li><Link to='/schedule/4'>クリスマスカップ</Link></li>
+        <li><Link to='/schedule/5'>稲穂カップ</Link></li>
+        <li><Link to='/schedule/6'>スプリングカップ</Link></li>
+        <li><Link to='/schedule/7'>夏の陣</Link></li>
+        <li><Link to='/schedule/8'>マガジン杯</Link></li>
+        <li><Link to='/schedule/9'>理工系リーグ・カップ</Link></li>
+        <li><Link to='/schedule/10'>新関東リーグ・カップ</Link></li>
+        <li><Link to='/schedule/11'>学内戦</Link></li>
+        <li><Link to='/schedule/12'>学年合宿</Link></li>
         </ul>
         </div>
         <div>
@@ -47,7 +93,7 @@ const Schedule = () => (
 
 const Home = () => (
   <div>
-    <h1>サークル活動紹介ページ</h1>
+    <h1>りこさ大運動会</h1>
   </div>
 )
 const About1 = () => (

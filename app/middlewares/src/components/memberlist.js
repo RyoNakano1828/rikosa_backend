@@ -20,7 +20,7 @@ function PlayerTable (props){
   <ul>
     {info.map(player => (
       <li key={player._id}>
-        {`${player.name}(${player.uniform})`}
+        {`${player.name}(#${player.uniform})`}
         <button　onClick={() => props.handleFetchPeople(player._id)}>👦詳細</button>
       </li>
     ))}
@@ -46,7 +46,7 @@ function ManagerTable(props){
   <ul>
     {info.map(manager => (
       <li key={manager._id}>
-        {`${manager.name}(${manager.uniform})`}
+        {`${manager.name}(#${manager.uniform})`}
         <button　onClick={() => props.handleFetchManager(manager._id)}>👧詳細</button>
       </li>
     ))}
@@ -146,12 +146,11 @@ class MemberList extends Component{
         <div style={{display: 'flex'}}>
           <div style={{width: '40%'}}>
             <div className='memberBack'>
-              <button onClick={() => this.fetchTH(0)}>1年</button>
-              <button onClick={() => this.fetchTH(1)}>2年</button>
-              <button onClick={() => this.fetchTH(2)}>3年</button>
+              <button className='memberButton'onClick={() => this.fetchTH(0)}>1年</button>
+              <button className='memberButton'onClick={() => this.fetchTH(1)}>2年</button>
+              <button className='memberButton'onClick={() => this.fetchTH(2)}>3年</button>
+              <button className='memberButton'onClick={() => this.fetchTH(3)}>OB</button>
               <h2>{this.state.th+1}年生</h2>
-            </div>
-            <div style={{width: '100%',height: '400px',overflow: 'auto', marginTop: '110px',padding: 5}}>
               <h3>プレーヤー</h3>
               <PlayerTable
                 playerArray={playerArray}
@@ -172,12 +171,12 @@ class MemberList extends Component{
               this.state.pure &&
               <div>
                 <h1>{peopleArray.name}</h1>
-                <div style={{display: 'flex'}}>
-                  <div style={{width:'40%',margin: 3}}>
+                <div className='memberInfo'>
+                  <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
-                    <img key={name} src={url} style={{width: 200, height: 210}}/>)}
+                    <img key={name} src={url} className='imageSize'/>)}
                   </div>
-                  <div style={{width:'60%',textAlign:'center'}}>
+                  <div className='introduce'>
                   <table border='1'>
                     <tr><th>背番号</th><th>{peopleArray.uniform}</th></tr>
                     <tr><th>ポジション</th><th>{peopleArray.position}</th></tr>
@@ -188,7 +187,7 @@ class MemberList extends Component{
                   </table>
                   </div>
                 </div>
-                <h3>＜コメント＞</h3>
+                <h3>＜ひとこと＞</h3>
                 <h3>{peopleArray.comment}</h3>
               </div>
             }
@@ -196,12 +195,12 @@ class MemberList extends Component{
               this.state.mane &&
               <div>
                 <h1>{managerArray.name}</h1>
-                <div style={{display: 'flex'}}>
-                  <div style={{width:'40%',margin: 3}}>
+                <div className='memberInfo'>
+                  <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
-                    <img key={name} src={url} style={{width: 200, height: 210}}/>)}
+                    <img key={name} src={url} className='imageSize'/>)}
                   </div>
-                  <div style={{width:'60%',textAlign:'center'}}>
+                  <div className='introduce'>
                   <table border='1'>
                     <tr><th>背番号</th><th>{managerArray.uniform}</th></tr>
                     <tr><th>大学</th><th>{managerArray.univ}</th></tr>
@@ -209,7 +208,7 @@ class MemberList extends Component{
                   </table>
                   </div>
                 </div>
-                <h3>＜コメント＞</h3>
+                <h3>＜ひとこと＞</h3>
                 <h3>{managerArray.comment}</h3>
               </div>
             }

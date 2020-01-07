@@ -1,6 +1,10 @@
 import React from 'react'
 import logo from '../logo.jpg'
-import kubo from '../kubo.jpg'
+import anju from '../anju.jpg'
+import ryo from '../ryo.jpg'
+import tomo from '../tomo.jpg'
+import yuta from '../yuta.jpg'
+import daiki from '../daiki.jpg'
 import Header from './Header';
 import Slider from "react-slick";
 import '../App.scss';
@@ -27,19 +31,19 @@ function SimpleSlider (props) {
           <img src={logo} alt="Logo" style={{width: '95%', margin: 'auto'}}/>
         </div>
         <div>
-          <img src={logo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={yuta} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={kubo} alt="Kubo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={anju} alt="Kubo" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={logo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={ryo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={logo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>
+          <img src={tomo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>
         </div>
         <div>
-         <img src={logo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+         <img src={daiki} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
         </div>
       </Slider>
     );
