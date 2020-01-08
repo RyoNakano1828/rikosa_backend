@@ -124,6 +124,9 @@ head {
 .loginButton { 
   background: #9b59b6;
 }
+#murasaki{
+  background: #9b59b6;
+}
 .button:nth-child(4) { 
   background: #1abc9c;
   &:before {
@@ -312,5 +315,16 @@ tr{
   .resultDetail{
     padding: 2px;
     height:20px;
+  }
+  .eventSize{
+    font-size: 10px;
+    font-weight: 300;
+  }
+  .paddingMin{
+    padding-left: 5px;
+  }
+  .title{
+    font-size: 24px;
+    font-weight: 600;
   }
 }
