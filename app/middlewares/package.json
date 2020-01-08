@@ -23,7 +23,7 @@
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1"
   },
-  "proxy": "https://shielded-depths-39228.herokuapp.com/",
+  "proxy": "https://rikosa.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
