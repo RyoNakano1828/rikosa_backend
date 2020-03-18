@@ -7,6 +7,7 @@ import tamu from '../tamu.jpg'
 import disney from '../disney.jpg'
 import kiss from '../kiss.jpg'
 import Slider from "react-slick";
+
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import "slick-carousel/slick/slick.css";
@@ -92,11 +93,7 @@ const Schedule = () => (
 const Home = () => (
   <div>
     <h1 className='title'>りこさ大運動会</h1>
-    <p  className='titleSize2'>りこさ大運動会の説明</p>
-    <p  className='titleSize2'>りこさ大運動会の説明</p>
-    <p  className='titleSize2'>りこさ大運動会の説明</p>
-    <p  className='titleSize2'>りこさ大運動会の説明</p>
-    <p  className='titleSize2'>りこさ大運動会の説明</p>
+    <p style={{margin: 10}} className='titleSize2'>夏のイベントで忘れてはならない運動会！！最大級の大会（夏の陣とマガジン杯）後、学年問わずフランクに皆と関われる絶好の日！　夏の最高な思い出として残ること間違いなし。運動会では4チームに分かれて選手・マネージャー問わず本気で戦います🔥種目は大繩、障害物競走、借り物競争、二人三脚、騎馬戦、綱引き、学年対抗リレーなど✨各チームで作った独自のユニフォームを着て、優勝を目指します🚩優勝チームには豪華プレゼントはもちろん、MVPや新人賞、グッドペア賞（恋の予感…💛）などの個人賞も盛りだくさん！2019年の夏では、なんと新人賞でAirPodsをゲットした選手が！とても羨ましい素敵な賞品ですよね😀皆さんもぜひ新人賞を狙いにきてください⭐サッカー以外でも絆を深められる貴重な時間を共に過ごしましょう！！</p>
     <SimpleSlider1/>
   </div>
 )

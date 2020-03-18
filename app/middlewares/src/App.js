@@ -42,7 +42,7 @@ class App extends Component {
       <div>
         <Router>
         <div className={classes.root}>
-        <Switch>
+          <Switch>
             <Route path='/members' component={MemberList} />
             <Route path='/result' component={Result}/>
             <Route path='/schedule' component={Schedule}/>
@@ -62,6 +62,8 @@ class App extends Component {
       </div>
     );
   }
+
+  
 }
 
 export default withStyles(styles)(App);

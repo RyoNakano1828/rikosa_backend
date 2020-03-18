@@ -253,6 +253,10 @@ tr{
   padding: 5px;
   height:40px;
 }
+
+
+
+
 @media (max-width: 480px){
   body {
     margin: 0;
@@ -298,7 +302,8 @@ tr{
     font-size: 16px;
   }
   .titleSize2{
-    font-size: 15px;
+    font-size: 30px;
+    margin: 10px;
   }
   .resultMenu{
     width: 40%;
