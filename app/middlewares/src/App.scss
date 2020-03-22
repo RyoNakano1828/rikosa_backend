@@ -25,6 +25,40 @@ ul.slick-dots{
   position: initial;
 }
 
+.top_info {
+  width: 50%;
+  padding: 20px;
+}
+
+.top_title {
+  font-weight: bold;
+  font-size: 25px;
+  padding:0px 10px;
+  text-align: center;
+}
+
+.news_title {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.news_table {
+  width: 100%;
+}
+
+table tbody tr td {
+  border: solid;
+  font-size: 15px;
+  padding: 0px;
+}
+
+.link_img {
+  width: 100%;
+}
+
+.link_logo a {
+  margin: 15px;
+}
 
 .App {
   text-align: center;
@@ -157,6 +191,28 @@ head {
   border-radius: 50%;
 }
 
+* {
+  min-height:0;
+  min-width : 0;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+     display:none;
+  }
+
+  .slider button{
+    display: none;
+}
+
+.slick-dots {
+  display: none;
+}
+
+.slider button{
+  visibility: hidden;
+}
+
 @import 'https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic,cyrillic-ext,latin-ext';
 body {background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAFfKj/FAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF4OXp8PX50NXZBLxR6QAAAEhJREFUeNpiYGJgYGACCCAGMAAIIDiDCSCAGLAAgABCEcbBBAggGIORQhogwNCcwIjddKgQI6ojUbkgWSYMo+BCjKiOR9PLBAAchAAxHFDBbwAAAABJRU5ErkJggg==')}
 * {box-sizing:border-box}
@@ -210,10 +266,12 @@ box-shadow:0 1px 3px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1) inset
   text-align:center;
 }
 .hedaerFont{
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1em;
   font-weight: 200;
-  margin: 8px;
+  margin: 0px;
+  height: 50%;
+  padding-top:10px;
 }
 .hedaerFont2{
   font-size: 20px;
@@ -252,6 +310,11 @@ tr{
   display: flex;
   padding: 5px;
   height:40px;
+}
+
+.titleSize2 {
+  margin: 25px;
+  font-size: 20px;
 }
 
 

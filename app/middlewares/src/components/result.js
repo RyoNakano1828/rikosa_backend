@@ -225,7 +225,7 @@ class Result extends Component{
                     <h2 className='titleSize'>日付：{gameArray.day}</h2>
                     <h2 className='titleSize'>会場：{gameArray.result}</h2>
                     <h3 className='titleSize'>＜コメント＞</h3>
-                    <h2 className='titleSize'>{gameArray.comment}</h2>
+                    <h2 style={{whiteSpace: 'pre-line'}} className='titleSize'>{gameArray.comment}</h2>
                   </div>
                 </div>
               </div>

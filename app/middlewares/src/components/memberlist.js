@@ -7,6 +7,8 @@ function PlayerTable (props){
   var now   = new Date();
   var year  = now.getFullYear();
   var rikosa = 1959;
+  var todo = '';
+
   for(var key in props.playerArray){ 
     // console.log(props.playerArray[key].generation);
     if(props.playerArray[key].generation == (year-rikosa-props.th)){
@@ -15,9 +17,16 @@ function PlayerTable (props){
       )
     }
   }
+  if (info == ''){
+    todo = 'お待ちしております！';
+  }
+  console.log(todo);
+  console.log(info);
+  
   // console.log(info);
   return( 
   <ul>
+    <p style={{fontSize: '27px'}}>{todo}</p>
     {info.map(player => (
       <li key={player._id}>
         {`${player.name}(#${player.uniform})`}
@@ -33,6 +42,7 @@ function ManagerTable(props){
   var now   = new Date();
   var year  = now.getFullYear();
   var rikosa = 1959;
+  var todo = "";
   for(var key in props.managersArray){ 
     // console.log(playerArray[key].generation);
     if(props.managersArray[key].generation == (year-rikosa-props.th)){
@@ -41,9 +51,13 @@ function ManagerTable(props){
       )
     }
   }
+  if( info == ''){
+    todo = 'お待ちしております！';
+  }
   // console.log(info);
   return(
   <ul>
+    <p style={{fontSize: '27px'}}>{todo}</p>
     {info.map(manager => (
       <li key={manager._id}>
         {`${manager.name}(#${manager.uniform})`}

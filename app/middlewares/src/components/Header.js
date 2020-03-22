@@ -10,7 +10,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
-import emblem from '../emblem.jpg';
+import emblem from '../images/emblem.jpg';
 import '../App.scss';
 
 
@@ -98,16 +98,14 @@ class header extends Component {
             {sideList}
           </div>
         </Drawer>
-        <Typography variant="title" color="inherit" className={classes.grow}>
-          <div style={{display: 'flex'}}>
-            <div style={{width: '88%'}}>
-              <p className='hedaerFont'>Waseda University</p>
-              <p className='hedaerFont'>Science and engineering</p>
-              <p className='hedaerFont'>Soccer club</p>
+        <Typography style={{height: '100px'}}variant="title" color="inherit" className={classes.grow}>
+          <div style={{display: 'flex', height:'100%'}}>
+            <div style={{width: '90%', justifyContent:'center', verticalAlign: 'middle'}}>
+              <p className='hedaerFont'>Waseda university Science＆Engineering Soccer club</p>
               <p className='hedaerFont'>OFFICIAL WEBSITE</p>
             </div>
-            <div style={{width: 110, height: 112.5}}>
-              <img src={emblem} alt="Emblem" style={{width: '100%', height: '100%', margin: 'auto'}}/>  
+            <div style={{ height: '100%', marginLeft:'auto'}}>
+              <img src={emblem} alt="Emblem" style={{height: '100%', margin: 'auto'}}/>  
             </div>
           </div>
         </Typography>
