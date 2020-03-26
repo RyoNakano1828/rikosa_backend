@@ -15,6 +15,9 @@ import insta from '../images/insta.jpg';
 import beyond from '../images/beyond.jpg';
 import youtube from '../images/youtube.jpg';
 
+import スローガン2018 from '../images/スローガン2018.png'
+import スローガン2019 from '../images/スローガン2019.png'
+import スローガン2020 from '../images/スローガン2020.png'
 import Header from './Header';
 import Slider from "react-slick";
 import '../App.scss';
@@ -78,7 +81,7 @@ export default class Home extends React.Component {
                 <br/>プレーヤーは早稲田大学理工学部生を中心に構成されていますが、中には文系のプレーヤーもいます！
                 <br/>マネージャーはインカレで都内の様々な大学から参加してくれています！なんと、マネージャーがインカレの公認サークルは早稲田大学でリコサだけなんです！
                 </p>
-                <a href='/members'>個性豊かな最高のメンバーたちの紹介はこちらから！</a>
+                <a href='/members'>個性豊かなメンバーたちの紹介はこちらから！</a>
               </div>
             </div>
           </div>
@@ -110,6 +113,9 @@ export default class Home extends React.Component {
           </div>
         </div>
         <div className='buttons' style={{width:'400%'}}>
+          <img className='width100' src={スローガン2018}/>
+          <img className='width100' src={スローガン2019}/>
+          <img className='width100' src={スローガン2020}/>
           <div className='top_news'>
             <p className='news_title'>News</p>
             <table className='news_table'>
@@ -166,82 +172,51 @@ export default class Home extends React.Component {
                   <td>2020/03/22</td>
                   <td>ホームページを公開しました</td>
                 </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div className='links'>
             <div className='link_logo' style={{display: 'flex', width:'100%'}}>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={twitter}/></a>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={insta}/></a>
+              <div className='width50'>
+                <p>Twitter</p>
+                <a href={'https://twitter.com/w_rikosoccer'}><img className='link_img' src={twitter}/></a>
+              </div>
+              <div className='width50'>
+                <p>Instagram</p>
+                <a className='link_img' href={'https://www.instagram.com/wrs__2020/'}><img className='link_img' src={insta}/></a>
+              </div>
             </div>
             <div className='link_logo' style={{display: 'flex'}}>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={rikokei}/></a>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={sinkanto}/></a>
+              <div className='width50'>
+                <p>理工系</p>
+                <a style={{width: '50%'}} href={'http://riko-league.com/'}><img className='link_img' src={rikokei}/></a>
+              </div>
+              <div className='width50'>
+                <p>新関東</p>
+                <a style={{width: '50%'}} href={'http://jucfa.com/kanto/'}><img className='link_img' src={sinkanto}/></a>
+              </div>
             </div>
             <div className='link_logo' style={{display: 'flex'}}>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={supomane}/></a>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={beyond}/></a>
+              <div className='width50'>
+                <p>スポマネ様</p>
+                <a style={{width: '50%'}} href={'https://spo-mane-football.com/category2'}><img className='link_img' src={supomane}/></a>
+              </div>
+              <div className='width50'>
+                <p>Beyond様</p>
+                <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={beyond}/></a>
+              </div>
             </div>
             <div className='link_logo' style={{display: 'flex'}}>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={youtube}/></a>
-              <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={insta}/></a>
+              <div className='width50'>
+                <p>2018年度新歓ムービー</p>
+                <a style={{width: '50%'}} href={'https://youtu.be/yOnbLBILQZs'}><img className='link_img' src={youtube}/></a>
+              </div>
+              <div className='width50'>
+                <p>2017年度新歓ムービー</p>
+                <a style={{width: '50%'}} href={'https://youtu.be/HFbMIJWSkDo'}><img className='link_img' src={youtube}/></a>
+              </div>
             </div>
+            
           </div>
           {/* <a href={'/members'} className='button buttonx'><span>Members</span></a>
           <a href={'/result'} className='button buttonx'><span>Game Results</span></a>

@@ -6,6 +6,11 @@ import ryogo from '../images/ryogo.jpg'
 import tamu from '../images/tamu.jpg'
 import disney from '../images/disney.jpg'
 import kiss from '../images/kiss.jpg'
+import barbekyu from '../images/barbekyu.jpg'
+import barbekyu2 from '../images/barbekyu2.jpg'
+import barbekyu3 from '../images/barbekyu3.jpg'
+import barbekyu4 from '../images/barbekyu4.jpg'
+
 import Slider from "react-slick";
 
 import { BrowserRouter, Route, Link } from 'react-router-dom'
@@ -13,7 +18,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SimpleSlider1 (props) {
+function SimpleSlider (props) {
     var settings = {
       dots: true,
       infinite: true,
@@ -48,6 +53,37 @@ function SimpleSlider1 (props) {
       </Slider>
     );
   }
+
+  function SimpleSlider1 (props) {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      accessibility: true,
+      autoplay: true,
+      draggable: true,
+      centerModel: true,
+    };
+    return (
+      <Slider {...settings}>
+        <div>
+          <img src={barbekyu} alt="Logo" style={{width: '95%', margin: 'auto'}}/>
+        </div>
+        <div>
+          <img src={barbekyu2} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+        <div>
+          <img src={barbekyu3} alt="Kubo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+        <div>
+          <img src={barbekyu4} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+        </div>
+      </Slider>
+    );
+  }
+
 const Schedule = () => (
   <div>
     <Header menu="活動内容"/>
@@ -100,13 +136,17 @@ const Home = () => (
     <br/>優勝チームには豪華プレゼントはもちろん、MVPや新人賞、グッドペア賞（恋の予感…💛）などの個人賞も盛りだくさん！
     <br/>2019年の夏では、なんと新人賞でAirPodsをゲットした選手が！とても羨ましい素敵な賞品ですよね😀
     <br/>皆さんもぜひ新人賞を狙いにきてください⭐サッカー以外でも絆を深められる貴重な時間を共に過ごしましょう！！</p>
-    <SimpleSlider1/>
+    <SimpleSlider/>
   </div>
 )
 const About1 = () => (
   <div>
     <h1 className='title'>バーベキュー</h1>
-    <p  className='titleSize2'>バーベキューの説明</p>
+    <p  className='titleSize2'>毎年、5月の中旬から下旬にかけて行われる、大きな新歓のイベント！
+      <br/>毎年100人以上が参加しており、時期が遅いため新歓コンパに乗り遅れた人も大歓迎！！
+      <br/>バーベキューしながら、周りとの仲を深めて、りこさに馴染んじゃいましょう！！
+      <br/>（川に飛び込む人は、着替えを持ってくることをオススメします）
+    </p>
     <SimpleSlider1/>
   </div>
 )
@@ -124,7 +164,7 @@ const About3 = () => (
   <div>
     <h1 className='title'>りこさんぽ</h1>
     <p  className='titleSize2'>
-      <br/>2019年の夏、突如新企画として現れた「りこさんぽ」🏃‍♂️(他サーのパクリという噂も笑)
+      2019年の夏、突如新企画として現れた「りこさんぽ」🏃‍♂️(他サーのパクリという噂も笑)
       <br/>ミッションをクリアしながらする都内散策は楽しくないはずがない！チームに分けてミッションに挑むので仲間との絆が深まること間違いなし！
       <br/>協力しながら楽しく都内をさんぽしちゃおう！
       <br/>ミッションクリアのポイントによって豪華景品ももらえちゃう🎁

@@ -299,6 +299,7 @@ tr{
 }
 .resultMenu{
   width:50%;
+  padding-left: 20px;
 }
 .resultInfo{
   left: 50%;
@@ -317,6 +318,18 @@ tr{
   font-size: 20px;
 }
 
+.width100 {
+  width: 100%;
+}
+
+.width50 {
+  width: 50%;
+  padding: 2px;
+}
+
+.width50 a {
+  margin: 0px;
+}
 
 
 

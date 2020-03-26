@@ -133,8 +133,8 @@ function ResultCompetition (props){
     <ul>
       <p className='commentSize'>{comment}</p>
       {info.map(result => (
-        <li key={result._id}>
-          {`${result.stage}(vs${result.you})`}
+        <li style={{listStyle: 'none'}} key={result._id}>
+          {`vs${result.you}(${result.stage})`}
           <button　onClick={() => props.handleFetchGame(result._id)}>⚽詳細</button>
         </li>
       ))}
@@ -190,7 +190,7 @@ class Result extends Component{
               <button onClick={() => this.fetchYear(2020)}>2020年</button>
               <h2 className='titleSize'>＜{this.state.year}年度結果＞</h2>
             </div>
-            <div>
+            <div style={{marginLeft: '100px'}}> 
               <ResultTable
                 resultArray={resultArray}
                 handleFetchGame={this.handleFetchGame}
@@ -207,7 +207,7 @@ class Result extends Component{
                   <h2 className='titleSize'>★{gameArray.competition}</h2>
                   <h2 className='titleSize'>（{gameArray.stage}）</h2>
                 </div>
-                <div style={{display: 'flex', textAlign: 'center',padding: '10px', height:'150px'}}>
+                <div style={{display: 'flex', textAlign: 'center',padding: '10px', height:'auto'}}>
                   <div style={{width:'40%',border:'solid'}}>
                     <h2 className='titleSize2' style={{height:'70px'}}>{gameArray.us}</h2>
                     <h2 className='titleSize'>{gameArray.ourscore}</h2>

@@ -189,6 +189,8 @@ class MemberList extends Component{
                   <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
                     <img key={name} src={url} className='imageSize'/>)}
+                    <h3>＜ひとこと＞</h3>
+                    <h3>{peopleArray.comment}</h3>
                   </div>
                   <div className='introduce'>
                   <table border='1'>
@@ -201,8 +203,7 @@ class MemberList extends Component{
                   </table>
                   </div>
                 </div>
-                <h3>＜ひとこと＞</h3>
-                <h3>{peopleArray.comment}</h3>
+                
               </div>
             }
             {
@@ -213,6 +214,8 @@ class MemberList extends Component{
                   <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
                     <img key={name} src={url} className='imageSize'/>)}
+                    <h3>＜ひとこと＞</h3>
+                    <h3>{managerArray.comment}</h3>
                   </div>
                   <div className='introduce'>
                   <table border='1'>
@@ -222,8 +225,7 @@ class MemberList extends Component{
                   </table>
                   </div>
                 </div>
-                <h3>＜ひとこと＞</h3>
-                <h3>{managerArray.comment}</h3>
+                
               </div>
             }
           </div>
