@@ -16,7 +16,6 @@ import '../App.scss';
 
 const styles = {
   grow: {
-    flexGrow: 1,
   },
   menuButton: {
     marginLeft: 12,
@@ -98,7 +97,7 @@ class header extends Component {
             {sideList}
           </div>
         </Drawer>
-        <Typography style={{height: '100px'}}variant="title" color="inherit" className={classes.grow}>
+        <Typography className='header' variant="title" color="inherit">
           <div style={{display: 'flex', height:'100%'}}>
             <div style={{width: '90%', justifyContent:'center', verticalAlign: 'middle'}}>
               <p className='hedaerFont'>Waseda university Science＆Engineering Soccer club</p>

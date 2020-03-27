@@ -67,12 +67,12 @@ export default class Home extends React.Component {
     return (
     <div style={{width: '100%'}}>
       <Header menu="ようこそ"/>
-      <div style={{display:'flex'}}>
+      <div className='flex'>
         <div>
           <SimpleSlider/>
           <div className='home_member'>
             <p className='top_title'>最高の仲間たちとともに</p>
-            <div style={{display:'flex'}}>
+            <div className='flex non_flex'>
               <div className='top_info'>
                 <a href={'/members'}><img style={{width: '100%'}} src={logo}/></a>
               </div>
@@ -87,7 +87,8 @@ export default class Home extends React.Component {
           </div>
           <div className='home_member'>
             <p className='top_title'>サッカーは本気で</p>
-            <div style={{display:'flex'}}>
+            <div className='flex reverse non_flex'>
+              <img className='top_info' src={soccer}/>
               <div　className='top_info'>
                 <p>常に何事にも全力で向き合うのがリコサの素晴らしいところ。そんなリコサの中でもサッカーに関する熱量は全く違ったものになる🔥
                 <br/>練習から本気でぶつかり合い切磋琢磨し、常に最高の結果を求めて活動しています。
@@ -95,12 +96,11 @@ export default class Home extends React.Component {
                 </p>
                 <a href='/result'>そんなリコサの試合結果はこちらから！</a>
               </div>
-              <img className='top_info' src={soccer}/>
             </div>
           </div>
           <div className='home_member'>
             <p className='top_title'>遊びは楽しく</p>
-            <div style={{display:'flex'}}>
+            <div className='flex non_flex'>
               <img　className='top_info' src={undo}/>
               <div　className='top_info'>
                 <p>サッカーだけがリコサじゃない！もちろんイベントだって本気です！！
@@ -113,6 +113,7 @@ export default class Home extends React.Component {
           </div>
         </div>
         <div className='buttons' style={{width:'400%'}}>
+          <p className='news_title'>スローガン</p>
           <img className='width100' src={スローガン2018}/>
           <img className='width100' src={スローガン2019}/>
           <img className='width100' src={スローガン2020}/>
@@ -148,35 +149,12 @@ export default class Home extends React.Component {
                   <td>2020/03/22</td>
                   <td>ホームページを公開しました</td>
                 </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
-                <tr>
-                  <td>2020/03/22</td>
-                  <td>ホームページを公開しました</td>
-                </tr>
               </tbody>
             </table>
           </div>
           <div className='links'>
-            <div className='link_logo' style={{display: 'flex', width:'100%'}}>
+            <p className='news_title'>Link</p>
+            <div className='link_logo flex' style={{width:'100%'}}>
               <div className='width50'>
                 <p>Twitter</p>
                 <a href={'https://twitter.com/w_rikosoccer'}><img className='link_img' src={twitter}/></a>
@@ -186,7 +164,7 @@ export default class Home extends React.Component {
                 <a className='link_img' href={'https://www.instagram.com/wrs__2020/'}><img className='link_img' src={insta}/></a>
               </div>
             </div>
-            <div className='link_logo' style={{display: 'flex'}}>
+            <div className='link_logo flex'>
               <div className='width50'>
                 <p>理工系</p>
                 <a style={{width: '50%'}} href={'http://riko-league.com/'}><img className='link_img' src={rikokei}/></a>
@@ -196,7 +174,7 @@ export default class Home extends React.Component {
                 <a style={{width: '50%'}} href={'http://jucfa.com/kanto/'}><img className='link_img' src={sinkanto}/></a>
               </div>
             </div>
-            <div className='link_logo' style={{display: 'flex'}}>
+            <div className='link_logo flex'>
               <div className='width50'>
                 <p>スポマネ様</p>
                 <a style={{width: '50%'}} href={'https://spo-mane-football.com/category2'}><img className='link_img' src={supomane}/></a>
@@ -206,7 +184,7 @@ export default class Home extends React.Component {
                 <a style={{width: '50%'}} href={'http://be4do.com/'}><img className='link_img' src={beyond}/></a>
               </div>
             </div>
-            <div className='link_logo' style={{display: 'flex'}}>
+            <div className='link_logo flex'>
               <div className='width50'>
                 <p>2018年度新歓ムービー</p>
                 <a style={{width: '50%'}} href={'https://youtu.be/yOnbLBILQZs'}><img className='link_img' src={youtube}/></a>

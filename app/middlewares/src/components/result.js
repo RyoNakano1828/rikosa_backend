@@ -4,7 +4,7 @@ import Header from './Header';
 function ResultTable (props) {
   var year = props.displayyear
   return(
-    <div>
+    <div className='result_table_title'>
       <h3>新歓合宿</h3>
       <ResultCompetition
         resultArray={props.resultArray}
@@ -130,10 +130,10 @@ function ResultCompetition (props){
     var comment = "※試合結果はありません"
   }
   return(
-    <ul>
+    <ul className='result_table_inner'>
       <p className='commentSize'>{comment}</p>
       {info.map(result => (
-        <li style={{listStyle: 'none'}} key={result._id}>
+        <li className='result_font' style={{listStyle: 'none'}} key={result._id}>
           {`vs${result.you}(${result.stage})`}
           <button　onClick={() => props.handleFetchGame(result._id)}>⚽詳細</button>
         </li>
@@ -190,7 +190,7 @@ class Result extends Component{
               <button onClick={() => this.fetchYear(2020)}>2020年</button>
               <h2 className='titleSize'>＜{this.state.year}年度結果＞</h2>
             </div>
-            <div style={{marginLeft: '100px'}}> 
+            <div className='result_table'> 
               <ResultTable
                 resultArray={resultArray}
                 handleFetchGame={this.handleFetchGame}
@@ -209,14 +209,14 @@ class Result extends Component{
                 </div>
                 <div style={{display: 'flex', textAlign: 'center',padding: '10px', height:'auto'}}>
                   <div style={{width:'40%',border:'solid'}}>
-                    <h2 className='titleSize2' style={{height:'70px'}}>{gameArray.us}</h2>
+                    <h2 className='titleSize2' style={{}}>{gameArray.us}</h2>
                     <h2 className='titleSize'>{gameArray.ourscore}</h2>
                   </div>
                   <div style={{width:'20%'}}>
                     <h1>-</h1>
                   </div>
                   <div style={{width:'40%',border:'solid'}}>
-                    <h2 className='titleSize2' style={{height:'70px'}}>{gameArray.you}</h2>
+                    <h2 className='titleSize2' style={{}}>{gameArray.you}</h2>
                     <h2 className='titleSize'>{gameArray.yourscore}</h2>
                   </div>
                 </div>

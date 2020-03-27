@@ -26,9 +26,9 @@ function PlayerTable (props){
   // console.log(info);
   return( 
   <ul>
-    <p style={{fontSize: '27px'}}>{todo}</p>
+    <p className='wait_new'>{todo}</p>
     {info.map(player => (
-      <li key={player._id}>
+      <li style={{listStyle: 'none'}} key={player._id}>
         {`${player.name}(#${player.uniform})`}
         <button　onClick={() => props.handleFetchPeople(player._id)}>👦詳細</button>
       </li>
@@ -57,9 +57,9 @@ function ManagerTable(props){
   // console.log(info);
   return(
   <ul>
-    <p style={{fontSize: '27px'}}>{todo}</p>
+    <p className='wait_new'>{todo}</p>
     {info.map(manager => (
-      <li key={manager._id}>
+      <li style={{listStyle: 'none'}} key={manager._id}>
         {`${manager.name}(#${manager.uniform})`}
         <button　onClick={() => props.handleFetchManager(manager._id)}>👧詳細</button>
       </li>
@@ -189,8 +189,7 @@ class MemberList extends Component{
                   <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
                     <img key={name} src={url} className='imageSize'/>)}
-                    <h3>＜ひとこと＞</h3>
-                    <h3>{peopleArray.comment}</h3>
+                  
                   </div>
                   <div className='introduce'>
                   <table border='1'>
@@ -200,6 +199,7 @@ class MemberList extends Component{
                     <tr><th>出身校</th><th>{peopleArray.from}</th></tr>
                     <tr><th>学部</th><th>{peopleArray.belong}</th></tr>
                     <tr><th>趣味</th><th>{peopleArray.hobby}</th></tr>
+                    <tr><th>ひとこと</th><th>{peopleArray.comment}</th></tr>
                   </table>
                   </div>
                 </div>
@@ -214,14 +214,13 @@ class MemberList extends Component{
                   <div className='imageWidth'>
                   {this.state.images.map(({name, url}) =>
                     <img key={name} src={url} className='imageSize'/>)}
-                    <h3>＜ひとこと＞</h3>
-                    <h3>{managerArray.comment}</h3>
                   </div>
                   <div className='introduce'>
                   <table border='1'>
                     <tr><th>背番号</th><th>{managerArray.uniform}</th></tr>
                     <tr><th>大学</th><th>{managerArray.univ}</th></tr>
                     <tr><th>趣味</th><th>{managerArray.hobby}</th></tr>
+                    <tr><th>ひとこと</th><th>{managerArray.comment}</th></tr>
                   </table>
                   </div>
                 </div>

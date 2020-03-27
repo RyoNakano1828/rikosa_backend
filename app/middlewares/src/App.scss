@@ -5,7 +5,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   width: 100%;
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
 #root {
@@ -13,7 +13,41 @@ body {
   display: block;
 }
 
+// ヘッダー
+.header {
+  height: 100px;
+  flex-grow: 1;
+}
+
 /* ホーム画面 */
+
+
+* {
+  min-height:0;
+  min-width : 0;
+  }
+
+.flex {
+  display: flex;
+}
+
+  .slick-prev:before,
+  .slick-next:before {
+     display:none;
+  }
+
+  .slider button{
+    display: none;
+}
+
+.slick-dots {
+  display: none;
+}
+
+.slider button{
+  visibility: hidden;
+}
+
 div.slick-initialized div.slick-slide {
   display: flex;
   justify-content: center;
@@ -28,6 +62,10 @@ ul.slick-dots{
 .top_info {
   width: 50%;
   padding: 20px;
+}
+
+.reverse{
+  flex-direction: row-reverse;
 }
 
 .top_title {
@@ -62,6 +100,19 @@ table tbody tr td {
 
 .App {
   text-align: center;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.width50 {
+  width: 50%;
+  padding: 2px;
+}
+
+.width50 a {
+  margin: 0px;
 }
 
 @keyframes App-logo-spin {
@@ -191,27 +242,6 @@ head {
   border-radius: 50%;
 }
 
-* {
-  min-height:0;
-  min-width : 0;
-  }
-
-  .slick-prev:before,
-  .slick-next:before {
-     display:none;
-  }
-
-  .slider button{
-    display: none;
-}
-
-.slick-dots {
-  display: none;
-}
-
-.slider button{
-  visibility: hidden;
-}
 
 @import 'https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&subset=cyrillic,cyrillic-ext,latin-ext';
 body {background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAFfKj/FAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF4OXp8PX50NXZBLxR6QAAAEhJREFUeNpiYGJgYGACCCAGMAAIIDiDCSCAGLAAgABCEcbBBAggGIORQhogwNCcwIjddKgQI6ojUbkgWSYMo+BCjKiOR9PLBAAchAAxHFDBbwAAAABJRU5ErkJggg==')}
@@ -255,6 +285,8 @@ box-shadow:0 1px 3px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1) inset
 .bw button:hover {color:#fff;background-color:#353535;border-color:#353535}
 .blue .panel {max-width:960px;text-align:center;position:relative;margin:auto;}
 
+
+// 試合結果・メンバー一覧
 .resultBack{
   width:100%;
   padding-top:10px;
@@ -264,6 +296,9 @@ box-shadow:0 1px 3px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.1) inset
   width:100%;
   padding-top:10px;
   text-align:center;
+}
+.wait_new {
+  font-size: 27px;
 }
 .hedaerFont{
   font-size: 30px;
@@ -290,10 +325,12 @@ tr{
   width:60%;
   margin: 3
 }
+
 .introduce{
   width:40%;
   text-align:center;
 }
+
 .memberInfo{
   display: flex; 
 }
@@ -316,20 +353,60 @@ tr{
 .titleSize2 {
   margin: 25px;
   font-size: 20px;
+  height: 60px;
+}
+.result_table {
+  margin-left: 100px;
 }
 
-.width100 {
-  width: 100%;
+.paddingMin{
+  text-align: center;
+  list-style: none;
+  padding-left: 0px;
 }
 
-.width50 {
-  width: 50%;
-  padding: 2px;
+
+
+
+
+@media (max-width: 1000px){
+  .header {
+    height: 70px;
+  }
+  .hedaerFont {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0px;
+  }
+  .non_flex {
+    flex-wrap: wrap;
+ }
+
+ .top_info {
+   width: 100%;
+ }
+ .introduce{
+  width:95%;
+  text-align:center;
+}
+ .memberInfo{
+  display: block!important; 
+}
+tr{
+  font-size: 18px;
+}
+ 
+
 }
 
-.width50 a {
-  margin: 0px;
-}
+
+
+
+
+
+
+
+
 
 
 
@@ -339,7 +416,7 @@ tr{
     padding: 0;
     font-family: sans-serif;
     width: 100%;
-    padding-top: 130px;
+    padding-top: 100px;
   }
   .hedaerFont{
     font-size: 1rem;
@@ -353,8 +430,37 @@ tr{
     font-weight: 200;
     margin: 8px;
   }
+  
+  .header {
+    height: 70px;
+  }
+
+  .reverse{
+    flex-direction: row;
+  }
+
+  .hedaerFont {
+    font-size: 9px;
+    font-weight: bold;
+    margin: 0px;
+  }
+
+  .flex {
+     flex-wrap: wrap;
+  }
+
+  .top_info {
+    width: 100%;
+  }
+
   .memberButton{
     width: 70px;
+  }
+  .memberBack ul {
+    padding-left: 10px;
+  }
+  .wait_new {
+    font-size: 13px;
   }
   tr{
     font-size: 16px;
@@ -375,11 +481,12 @@ tr{
     display: block!important; 
   }
   .titleSize{
-    font-size: 16px;
+    font-size: 13px;
   }
   .titleSize2{
-    font-size: 30px;
+    font-size: 13px;
     margin: 10px;
+    height: 70px;
   }
   .resultMenu{
     width: 40%;
@@ -398,14 +505,34 @@ tr{
     height:20px;
   }
   .eventSize{
-    font-size: 10px;
+    font-size: 8px;
     font-weight: 300;
   }
   .paddingMin{
-    padding-left: 5px;
+    text-align: center;
+    list-style: none;
   }
   .title{
     font-size: 24px;
     font-weight: 600;
+  }
+  .introduce th {
+    font-size: 15px;
+  }
+  .result_table {
+    margin-left: 10px;
+  }
+  .result_table_inner {
+    padding-left: 2px;
+  }
+  .result_font {
+    font-size: 10px;
+  }
+  .result_table_title h3{
+    font-size: 13px;
+  }
+  .event {
+    padding: 2px;
+    font-size: 12px;
   }
 }
