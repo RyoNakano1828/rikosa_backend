@@ -88,7 +88,7 @@ export default class Home extends React.Component {
           <div className='home_member'>
             <p className='top_title'>サッカーは本気で</p>
             <div className='flex reverse non_flex'>
-              <img className='top_info' src={soccer}/>
+              <img className='top_info' style={{width: '100%'}} src={soccer}/>
               <div　className='top_info'>
                 <p>常に何事にも全力で向き合うのがリコサの素晴らしいところ。そんなリコサの中でもサッカーに関する熱量は全く違ったものになる🔥
                 <br/>練習から本気でぶつかり合い切磋琢磨し、常に最高の結果を求めて活動しています。
@@ -101,7 +101,7 @@ export default class Home extends React.Component {
           <div className='home_member'>
             <p className='top_title'>遊びは楽しく</p>
             <div className='flex non_flex'>
-              <img　className='top_info' src={undo}/>
+              <img　className='top_info' style={{width: '100%'}} src={undo}/>
               <div　className='top_info'>
                 <p>サッカーだけがリコサじゃない！もちろんイベントだって本気です！！
                 <br/>BBQ、都内散策、大運動会、学年ディズニー、旅行、ドライブ...数え始めたらきりがない！
