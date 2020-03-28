@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header';
+import Footer from './footer';
+
 import unndou from '../images/unndou.jpg'
 import sige from '../images/sige.jpg'
 import ryogo from '../images/ryogo.jpg'
@@ -465,6 +467,7 @@ const Event = () => (
       </div>
       </div>
     </BrowserRouter>
+    <Footer/>
   </div>
 )
 

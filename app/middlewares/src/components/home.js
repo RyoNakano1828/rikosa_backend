@@ -100,7 +100,7 @@ export default class Home extends React.Component {
             </div>
           </div>
           <div className='home_member'>
-            <p className='top_title'>遊びは楽しく</p>
+            <p className='top_title'>イベントは楽しく</p>
             <div className='flex non_flex'>
               <a href={'/schedule'}><img　className='top_info' style={{width: '100%'}} src={undo}/></a>
               <div　className='top_info'>

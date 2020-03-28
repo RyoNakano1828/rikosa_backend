@@ -1,8 +1,9 @@
 import React from 'react'
 import Header from './Header';
+import Footer from './footer';
 import axios from 'axios';
 
-export default class Link extends React.Component {
+export default class Photo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,6 +42,7 @@ export default class Link extends React.Component {
                 <img key={name} src={url} className='photo_size'/>)}
             </div>}
         </div>
+        <Footer/>
       </div>
     );
   }

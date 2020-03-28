@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Header from './Header';
+import Footer from './footer';
 
 const styles = theme => ({
   layout: {
@@ -115,6 +116,7 @@ class Login extends Component {
             </form>
           </Paper>
         </main>
+        <Footer/>
       </React.Fragment>
     );
   }

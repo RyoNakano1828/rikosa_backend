@@ -25,7 +25,7 @@ body {
 * {
   min-height:0;
   min-width : 0;
-  }
+}
 
 .flex {
   display: flex;
@@ -394,10 +394,24 @@ tr{
 // フッター
 .footer_flame {
   width: 100%;
-  height: 100px;
+  height: auto;
   display: flex;
-  background-color: #990033,
+  background-color: #990033;
 }
+
+.footer_copy {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.member_flame {
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  // padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
 
 
 
@@ -578,5 +592,8 @@ tr{
   .photo_add {
     width: 200px;
     height: 100px;
+  }
+  .footer_copy {
+    font-size: 8px;
   }
 }

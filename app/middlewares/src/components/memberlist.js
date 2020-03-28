@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from './Header';
+import Footer from './footer';
 import axios from 'axios';
 
 function PlayerTable (props){
@@ -157,7 +158,7 @@ class MemberList extends Component{
     return(
       <div>
         <Header menu="メンバー一覧"/>
-        <div style={{display: 'flex'}}>
+        <div className='member_flame' style={{display: 'flex'}}>
           <div style={{width: '40%'}}>
             <div className='memberBack'>
               <button className='memberButton'onClick={() => this.fetchTH(0)}>1年</button>
@@ -229,6 +230,7 @@ class MemberList extends Component{
             }
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }

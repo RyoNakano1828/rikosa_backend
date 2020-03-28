@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from './Header';
+import Footer from './footer';
 
 function ResultTable (props) {
   var year = props.displayyear
@@ -232,6 +233,7 @@ class Result extends Component{
             }
           </div>
         </div>
+        <Footer/>
       </div>
     )
   }
