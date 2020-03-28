@@ -45,7 +45,7 @@ class RikosaHome extends Component {
             <a href={'/rikosamembers'} className='button buttonx'><span>👦メンバー編集・削除👧</span></a>
             <a href={'/resultform'} className='button buttonx'><span>⚽試合結果登録</span></a>
             <a href={'/rikosaresults'} className='button buttonx'><span>⚽試合結果削除</span></a>
-            <a href={'/game'} className='loginButton button'><span>⚽荷物決めゲーム🧴</span></a>
+            <a href={'/rikosaphoto'} className='loginButton button'><span>📷フォトギャラリー追加🧴</span></a>
           </div>
         </div>
       </div>

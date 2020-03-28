@@ -99,7 +99,8 @@ class RikosaMemberList extends Component{
     <div>
       <RikosaHeader menu="メンバー編集・削除"/>
       {
-        <div>
+        <div style={{display:'flex'}}>
+          <div style={{width:'50%'}} >
           <ul>
             {playerArray.map(player => (
               <li key={player._id}>  
@@ -118,8 +119,9 @@ class RikosaMemberList extends Component{
               </li>
             ))}
           </ul>
+          </div>
           
-          <div>{
+          <div style={{left: '50%',position:'fixed',width:'50%'}} >{
             this.state.flagpure &&
             <form onSubmit={() => this.handleUpdatePlayer(peopleArray._id,
                                                           this.elements["name"]["value"],

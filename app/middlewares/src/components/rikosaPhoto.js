@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
+import RikosaHeader from './rikosaHeader';
 
-export default class Photo extends Component {
+
+export default class RikosaPhoto extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,7 +82,10 @@ export default class Photo extends Component {
       borderWidth: 2,
       borderColor: '#666',
       borderStyle: 'solid',
-      borderRadius: 5
+      borderRadius: 5,
+      margin: 'auto',
+      marginTop: '20px',
+      marginBottom: '20px',
     };
 
     const activeStyle = {
@@ -93,24 +98,28 @@ export default class Photo extends Component {
     };
 
     return (
-      <div style={{width: 760, margin: '30px auto'}}>
-        <h1>React S3 Image Uploader Sample</h1>
-        <Dropzone
-          onDrop={this.handleOnDrop}
-          accept="image/*"
-          style={divStyle}
-          activeStyle={activeStyle}
-          rejectStyle={rejectStyle}
-          >
-        {this.state.isUploading ?
-          <div>ファイルをアップロードしています</div> :
-          <div>ここに画像をドラックまたはクリック</div>}
-        </Dropzone>
-        {this.state.images.length > 0 &&
-          <div style={{margin: 30}}>
-            {this.state.images.map(({name, url}) =>
-              <img key={name} src={url} style={{width: 200, height: 200}}/>)}
-          </div>}
+      <div>
+        <RikosaHeader menu="ログアウト" onClick={this.props.logout}/>
+
+        <div style={{width: '100%'}}>
+          <h1 className='photo_title'>フォトギャラリーに写真を追加してね♪</h1>
+          <Dropzone
+            onDrop={this.handleOnDrop}
+            accept="image/*"
+            className='photo_add'
+            activeStyle={activeStyle}
+            rejectStyle={rejectStyle}
+            >
+          {this.state.isUploading ?
+            <div>ファイルをアップロードしています</div> :
+            <div>ここに画像をドラックまたはクリック</div>}
+          </Dropzone>
+          {this.state.images.length > 0 &&
+            <div className='photo_zone'>
+              {this.state.images.map(({name, url}) =>
+                <img key={name} src={url} className='photo_size'/>)}
+            </div>}
+        </div>
       </div>
     );
   }

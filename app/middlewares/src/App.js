@@ -7,9 +7,9 @@ import './App.scss'
 //ログイン前コンポーネント
 import Home from './components/home'
 import MemberList from './containers/memberList'
-import Schedule from './components/schedule' 
+import Event from './components/event'
 import Result from './containers/result'
-import Link from './components/link'
+import Photo from './components/photo'
 
 //ログイン用コンポーネント
 import { withStyles } from '@material-ui/core/styles'
@@ -24,7 +24,7 @@ import ManagerForm from './containers/managerForm'
 import ResultForm from './containers/resultForm'
 import RikosaMember from './containers/rikosaMemberList'
 import RikosaResult from './containers/rikosaResult'
-import Game from './components/game'
+import RikosaPhoto from './components/rikosaPhoto'
 
 
 
@@ -41,12 +41,12 @@ class App extends Component {
     return (
       <div>
         <Router>
-        <div className={classes.root}>
+        <div>
           <Switch>
             <Route path='/members' component={MemberList} />
             <Route path='/result' component={Result}/>
-            <Route path='/schedule' component={Schedule}/>
-            <Route path='/link' component={Link}/>
+            <Route path='/event' component={Event}/>
+            <Route path='/photo' component={Photo}/>
             <Route path="/login" exact={true} component={Login}/>
             <PrivateRoute path='/rikosahome' component={RikosaHome}/>
             <PrivateRoute path='/rikosamembers' component={RikosaMember}/>
@@ -54,7 +54,7 @@ class App extends Component {
             <PrivateRoute path='/managerform' component={ManagerForm}/>
             <PrivateRoute path='/resultform' component={ResultForm}/>
             <PrivateRoute path='/rikosaresults' component={RikosaResult}/>
-            <PrivateRoute path='/game' component={Game}/>
+            <PrivateRoute path='/rikosaphoto' component={RikosaPhoto}/>
             <Route component={Home}/>
           </Switch>
           </div>

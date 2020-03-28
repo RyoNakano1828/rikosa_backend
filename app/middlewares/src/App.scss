@@ -365,6 +365,39 @@ tr{
   padding-left: 0px;
 }
 
+.photo_title {
+  font-family: 'メイリオ', Meiryo,sans-serif;
+  text-align: center;
+}
+.photo_size {
+  width: 200px;
+  height: 150px;
+}
+.photo_zone {
+  text-align: center;
+}
+.photo_add {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-Width: 2;
+  border-color: #666;
+  border-style: solid;
+  border-radius: 5;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// フッター
+.footer_flame {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  background-color: #990033,
+}
 
 
 
@@ -534,5 +567,16 @@ tr{
   .event {
     padding: 2px;
     font-size: 12px;
+  }
+  .photo_title {
+    font-size: 28px;
+  }
+  .photo_size {
+    width: 160px;
+    height: 120px;
+  }
+  .photo_add {
+    width: 200px;
+    height: 100px;
   }
 }

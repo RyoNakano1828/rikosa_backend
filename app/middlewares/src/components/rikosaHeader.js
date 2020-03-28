@@ -77,9 +77,9 @@ class rikosaHeader extends Component {
             <ListItemText primary="対戦成績編集・削除" />
           </ListItem>
         </a>
-        <a href={'/game'}>
+        <a href={'/rikosaphoto'}>
           <ListItem button>
-            <ListItemText primary="荷物決めゲーム" />
+            <ListItemText primary="フォトギャラリー追加" />
           </ListItem>
         </a>
       </List>
@@ -101,13 +101,11 @@ class rikosaHeader extends Component {
             {sideList}
           </div>
         </Drawer>
-        <Typography variant="title" color="inherit" className={classes.grow}>
+        <Typography variant="title" color="inherit" className='header'>
           <div style={{display: 'flex'}}>
-            <div style={{width: '88%'}}>
-              <p className='hedaerFont'>Waseda University</p>
-              <p className='hedaerFont2'>Science and engineering Soccer club</p>
-              <p className='hedaerFont'>OFFICIAL WEBSITE</p>
-              <p className='hedaerFont'>管理者ページ</p>
+            <div style={{width: '90%', justifyContent:'center', verticalAlign: 'middle'}}>
+              <p className='hedaerFont'>Waseda university Science and Engineering soccer club</p>
+              <p className='hedaerFont'>OFFICIAL WEBSITE 管理者ページ</p>
             </div>
           </div>
         </Typography>

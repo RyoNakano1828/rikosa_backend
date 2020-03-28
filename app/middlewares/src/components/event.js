@@ -425,12 +425,13 @@ function Undoukai (props) {
 
 
 
-const Schedule = () => (
+const Event = () => (
   <div>
     <Header menu="活動内容"/>
     <BrowserRouter>
       <div style={{display: 'flex', width: '100%'}}>
-        <div style={{width: '20%',padding:'10px'}}>
+        <div style={{width: '20%',padding:'10px',textAlign:'center'}}>
+        <h2 className='titleSize'>＜活動紹介＞</h2>
         <ul className='paddingMin'>
         <li><Link to='/undou'><p className='eventSize'>運動会</p></Link></li>
         <li><Link to='/barbekyu'><p className='eventSize'>バーベキュー</p></Link></li>
@@ -628,8 +629,8 @@ const gakuga = () => (
     <br/>２年生は、この合宿を通して、改めて仲間との絆を認識し、新チームに向けて雰囲気良く、幸先いいスタートダッシュを切れる大会になっています😊
     <br/>また、自分たちの学年同士でしか話せないこともたくさん話せますし、仲間の意外な素顔も新たに知れるかもしれません！😁
     <br/>学年合宿は、学年同士の仲が深まり、これからのりこさ生活をより楽しくし、世代別のNo.1も目指せる盛りだくさんの大会合宿となっています！✨✨</p>
-    <Gakunai/>
+    <Gakuga/>
   </div>
 )
 
-export default Schedule
+export default Event

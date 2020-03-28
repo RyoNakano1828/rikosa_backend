@@ -55,7 +55,7 @@ class header extends Component {
         </a>
         <a href={'/members'}>
           <ListItem button>
-            <ListItemText primary="メンバー一覧" />
+            <ListItemText primary="メンバー紹介" />
           </ListItem>
         </a>
         <a href={'/result'}>
@@ -63,19 +63,19 @@ class header extends Component {
             <ListItemText primary="試合結果" />
           </ListItem>
         </a>
-        <a href={'/schedule'}>
+        <a href={'/event'}>
           <ListItem button>
             <ListItemText primary="活動紹介" />
           </ListItem>
         </a>
-        <a href={'/link'}>
+        <a href={'/photo'}>
           <ListItem button>
-            <ListItemText primary="SNS" />
+            <ListItemText primary="フォトギャラリー" />
           </ListItem>
         </a>
         <a href={'/login'}>
           <ListItem button>
-            <ListItemText primary="りこさの人はこちらからログイン" />
+            <ListItemText primary="りこさの人はこちらから" />
           </ListItem>
         </a>
       </List>

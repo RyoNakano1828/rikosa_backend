@@ -19,6 +19,7 @@ import スローガン2018 from '../images/スローガン2018.png'
 import スローガン2019 from '../images/スローガン2019.png'
 import スローガン2020 from '../images/スローガン2020.png'
 import Header from './Header';
+import Footer from './footer';
 import Slider from "react-slick";
 import '../App.scss';
 
@@ -43,19 +44,19 @@ function SimpleSlider (props) {
     return (
       <Slider {...settings}>
         <div>
-          <img src={yuta} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={yuta} alt="中尾豊上野純也" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={anju} alt="Kubo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={anju} alt="佐藤安珠" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={ryo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+          <img src={ryo} alt="中野凌" style={{width: '95%',margin: 'auto'}}/>  
         </div>
         <div>
-          <img src={tomo} alt="Logo" style={{width: '95%',margin: 'auto'}}/>
+          <img src={tomo} alt="武田朋也" style={{width: '95%',margin: 'auto'}}/>
         </div>
         <div>
-         <img src={daiki} alt="Logo" style={{width: '95%',margin: 'auto'}}/>  
+         <img src={daiki} alt="田辺大樹" style={{width: '95%',margin: 'auto'}}/>  
         </div>
       </Slider>
     );
@@ -203,6 +204,7 @@ export default class Home extends React.Component {
           <a href={'/login'} className='loginButton button'><span>りこさの人はこちら</span></a> */}
         </div>
       </div>
+      <Footer/>
     </div>)
   }
 }
