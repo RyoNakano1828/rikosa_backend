@@ -170,11 +170,13 @@ function upload(file) {
 }
 
 app.get('/getimage', (req, res) => {
-  getimage().then(keyList => {
-    res.json({keyList: keyList});
-  }).catch(e => {
-    console.log(e);
-  });
+  setTimeout(function() {
+    getimage().then(keyList => {
+      res.json({keyList: keyList});
+    }).catch(e => {
+      console.log(e);
+    });
+  },1000);
 });
 
 async function getimage(){
