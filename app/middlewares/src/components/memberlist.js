@@ -98,31 +98,31 @@ class MemberList extends Component{
     });
     this.props.fetchPeople(id);
     return axios.get('/getimage',{
-
-    }).then(keylist => {
+   
+    }).then( keylist => {
         for(let v of Object.keys(keylist.data.keyList)) {
           var images = {};
+          console.log(this.props.peopleArray.name);
           if(keylist.data.keyList[v] == this.props.peopleArray.name){
             images.name = keylist.data.keyList[v];
             images.url = `https://rikosa2.s3.amazonaws.com/${keylist.data.keyList[v]}`
             console.log(images);
-            
             this.setState({
-                images: this.state.images.concat(images)
-              });
+              images: this.state.images.concat(images)
+            });
           }
         }
     }).catch(e => console.log(e));
   }
   
-  handleFetchManager(id){
+  async handleFetchManager(id){
     this.setState({
       mane: true,
       pure: false,
       images: [],
     });
-    this.props.fetchManager(id);
-    return axios.get('/getimage',{
+    await this.props.fetchManager(id)
+    await axios.get('/getimage',{
 
     }).then(keylist => {
         for(let v of Object.keys(keylist.data.keyList)) {
@@ -133,8 +133,8 @@ class MemberList extends Component{
             console.log(images);
             
             this.setState({
-                images: this.state.images.concat(images)
-              });
+              images: this.state.images.concat(images)
+            });
           }
         }
     }).catch(e => console.log(e));
