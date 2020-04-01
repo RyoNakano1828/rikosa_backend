@@ -114,6 +114,14 @@ class MemberList extends Component{
         }
     }).catch(e => console.log(e));
   }
+
+  sampleResolve(value) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value * 2);
+        }, 2000);
+    })
+  }
   
   async handleFetchManager(id){
     this.setState({
@@ -121,8 +129,9 @@ class MemberList extends Component{
       pure: false,
       images: [],
     });
-    await this.props.fetchManager(id)
-    await axios.get('/getimage',{
+    this.props.fetchManager(id);
+    const result = await this.sampleResolve(5);
+    return axios.get('/getimage',{
 
     }).then(keylist => {
         for(let v of Object.keys(keylist.data.keyList)) {
