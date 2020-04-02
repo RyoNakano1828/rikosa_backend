@@ -102,7 +102,7 @@ export default class Home extends React.Component {
           <div className='home_member'>
             <p className='top_title'>イベントは楽しく</p>
             <div className='flex non_flex'>
-              <a href={'/schedule'}><img　className='top_info' style={{width: '100%'}} src={undo}/></a>
+              <a href={'/event'}><img　className='top_info' style={{width: '100%'}} src={undo}/></a>
               <div　className='top_info'>
                 <p>サッカーだけがリコサじゃない！もちろんイベントだって本気です！！
                 <br/>BBQ、都内散策、大運動会、学年ディズニー、旅行、ドライブ...数え始めたらきりがない！
@@ -193,6 +193,16 @@ export default class Home extends React.Component {
               <div className='width50'>
                 <p>2017年度新歓ムービー</p>
                 <a style={{width: '50%'}} href={'https://youtu.be/HFbMIJWSkDo'}><img className='link_img' src={youtube}/></a>
+              </div>
+            </div>
+            <div className='link_logo flex'>
+              <div className='width50'>
+                <p>理工系カップ決勝戦2018</p>
+                <a style={{width: '50%'}} href={'https://youtu.be/HiR8KV00-eU'}><img className='link_img' src={youtube}/></a>
+              </div>
+              <div className='width50'>
+                <p>理工系カップ決勝戦2019</p>
+                <a style={{width: '50%'}} href={'https://youtu.be/6UVWgiBdh_s'}><img className='link_img' src={youtube}/></a>
               </div>
             </div>
             
