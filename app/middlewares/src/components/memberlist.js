@@ -90,13 +90,22 @@ class MemberList extends Component{
     this.props.fetchManagers();
   }
 
-  handleFetchPeople(id){
+  sampleResolve(value) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value * 2);
+        }, 1000);
+    })
+  }
+
+  async handleFetchPeople(id){
     this.setState({
       pure: true,
       mane: false,
       images: [],
     });
     this.props.fetchPeople(id);
+    const result = await this.sampleResolve(5);
     return axios.get('/getimage',{
    
     }).then( keylist => {
@@ -113,14 +122,6 @@ class MemberList extends Component{
           }
         }
     }).catch(e => console.log(e));
-  }
-
-  sampleResolve(value) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(value * 2);
-        }, 2000);
-    })
   }
   
   async handleFetchManager(id){
@@ -203,13 +204,13 @@ class MemberList extends Component{
                   </div>
                   <div className='introduce'>
                   <table border='1'>
-                    <tr><th>背番号</th><th>{peopleArray.uniform}</th></tr>
-                    <tr><th>ポジション</th><th>{peopleArray.position}</th></tr>
-                    <tr><th>身長</th><th>{peopleArray.height}</th></tr>
-                    <tr><th>出身校</th><th>{peopleArray.from}</th></tr>
-                    <tr><th>学部</th><th>{peopleArray.belong}</th></tr>
-                    <tr><th>趣味</th><th>{peopleArray.hobby}</th></tr>
-                    <tr><th>ひとこと</th><th>{peopleArray.comment}</th></tr>
+                    <tr><th id='member_title'>背番号</th><th>{peopleArray.uniform}</th></tr>
+                    <tr><th id='member_title'>ポジション</th><th>{peopleArray.position}</th></tr>
+                    <tr><th id='member_title'>身長</th><th>{peopleArray.height}</th></tr>
+                    <tr><th id='member_title'>出身校</th><th>{peopleArray.from}</th></tr>
+                    <tr><th id='member_title'>学部</th><th>{peopleArray.belong}</th></tr>
+                    <tr><th id='member_title'>趣味</th><th>{peopleArray.hobby}</th></tr>
+                    <tr><th id='member_title'>ひとこと</th><th>{peopleArray.comment}</th></tr>
                   </table>
                   </div>
                 </div>
@@ -227,10 +228,10 @@ class MemberList extends Component{
                   </div>
                   <div className='introduce'>
                   <table border='1'>
-                    <tr><th>背番号</th><th>{managerArray.uniform}</th></tr>
-                    <tr><th>大学</th><th>{managerArray.univ}</th></tr>
-                    <tr><th>趣味</th><th>{managerArray.hobby}</th></tr>
-                    <tr><th>ひとこと</th><th>{managerArray.comment}</th></tr>
+                    <tr><th id='member_title'>背番号</th><th>{managerArray.uniform}</th></tr>
+                    <tr><th id='member_title'>大学</th><th>{managerArray.univ}</th></tr>
+                    <tr><th id='member_title'>趣味</th><th>{managerArray.hobby}</th></tr>
+                    <tr><th id='member_title'>ひとこと</th><th>{managerArray.comment}</th></tr>
                   </table>
                   </div>
                 </div>
