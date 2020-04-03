@@ -11,17 +11,20 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { unregister } from './registerServiceWorker';
-
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
 import * as reducers from './reducers';
-
 import thunk from 'redux-thunk';
-
 import logger from 'redux-logger';
+import ReactGA from 'react-ga';
 
+ReactGA.initialize('UA-162692483-1');
 const history = createBrowserHistory();
+history.listen(({ pathname }) => {
+  ReactGA.set({ page: pathname });
+  ReactGA.pageview(pathname);
+});
 
 export const store = createStore(
   combineReducers({

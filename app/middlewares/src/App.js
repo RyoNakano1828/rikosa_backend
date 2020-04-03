@@ -26,7 +26,7 @@ import RikosaMember from './containers/rikosaMemberList'
 import RikosaResult from './containers/rikosaResult'
 import RikosaPhoto from './components/rikosaPhoto'
 
-
+import ReactGA from 'react-ga';
 
 const styles = {
   root: {
@@ -36,6 +36,11 @@ const styles = {
 
 
 class App extends Component {
+  componentDidMount() {
+    const { pathname } = '/home';
+    ReactGA.set({ page: pathname });
+    ReactGA.pageview(pathname);
+  }
   render() {
     const { classes } = this.props;
     return (
