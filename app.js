@@ -80,6 +80,12 @@ server.listen(port,() => {
   console.log('起動しました','http://localhost:',port)
 });
 
+const fs = require('fs')
+
+app.get('/sitemap.xml', (req, res) => {
+  res.set('Content-Type', 'text/xml');
+  res.send( fs.readFileSync(require('path').resolve(__dirname, './sitemap.xml'), "utf8"));
+ });
 
 
 
@@ -176,6 +182,7 @@ app.get('/getimage', (req, res) => {
     console.log(e);
   });
 });
+
 
 async function getimage(){
   const s3 = new aws.S3();
