@@ -100,7 +100,7 @@ class header extends Component {
         <Typography className='header' variant="title" color="inherit">
           <div style={{display: 'flex', height:'100%'}}>
             <div style={{width: '90%', justifyContent:'center', verticalAlign: 'middle'}}>
-              <p className='hedaerFont'>Waseda university Science＆Engineering Soccer club</p>
+              <h1 className='hedaerFont'>Waseda university Science＆Engineering Soccer club</h1>
               <p className='hedaerFont'>OFFICIAL WEBSITE</p>
             </div>
             <div style={{ height: '100%', marginLeft:'auto'}}>

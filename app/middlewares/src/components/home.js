@@ -67,7 +67,7 @@ export default class Home extends React.Component {
   render () {
     return (
     <div style={{width: '100%'}}>
-      <Header menu="ようこそ"/>
+      <Header menu="りこさ"/>
       <div className='flex'>
         <div>
           <SimpleSlider/>
@@ -108,7 +108,7 @@ export default class Home extends React.Component {
                 <br/>BBQ、都内散策、大運動会、学年ディズニー、旅行、ドライブ...数え始めたらきりがない！
                 <br/>こんな遊んだら結局オフ期間もリコサ尽くしになってしまうところが良い意味での悩みの種！！
                 </p>
-                <a href='/schedule'>みんなの可愛いオフショットはこちらから💁‍♀️</a>
+                <a href='/event'>みんなの可愛いオフショットはこちらから💁‍♀️</a>
               </div>
             </div>
           </div>
