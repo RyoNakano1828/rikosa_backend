@@ -28,7 +28,9 @@ var mongoose = require('mongoose');
 //ローカルDB
 // var mURI = 'mongodb://localhost/rikosa';
 //HerokuのDB
-var mURI = 'mongodb://heroku_6sh4x1k4:k5e5fhlbv1p0q13r1r0dn0bmvh@ds251618.mlab.com:51618/heroku_6sh4x1k4';
+//var mURI = 'mongodb://heroku_6sh4x1k4:k5e5fhlbv1p0q13r1r0dn0bmvh@ds251618.mlab.com:51618/heroku_6sh4x1k4';
+var mURI = 'mongodb+srv://heroku_6sh4x1k4:k5e5fhlbv1p0q13r1r0dn0bmvh@cluster0.jhqle.mongodb.net/heroku_6sh4x1k4?retryWrites=true&w=majority';
+
 var settings = {
   reconnectTries : Number.MAX_VALUE,
   autoReconnect : true,
